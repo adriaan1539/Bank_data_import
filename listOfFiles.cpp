@@ -4,7 +4,7 @@
 #include <boost/filesystem.hpp>
 #include <boost/range.hpp>
 #include <iostream>
-#include "setOfFunctions.h"
+#include "listOfFiles.h"
 
 using namespace boost::filesystem;
 
