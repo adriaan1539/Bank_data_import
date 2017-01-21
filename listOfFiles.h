@@ -1,5 +1,5 @@
-#ifndef SETOFFUNCTIONS_H
-#define SETOFFUNCTIONS_H
+#ifndef LISTOFFILES_H
+#define LISTOFFILES_H
 
 #include <boost/filesystem.hpp>
 #include <boost/range.hpp>
