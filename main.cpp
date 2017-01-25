@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include "listOfFiles.h"
+#include <regex>
 #include "split.h"
 #include <string>
 #include <vector>
@@ -17,22 +18,27 @@ int main (void)
 	std::ifstream inputFileStream; // Initialization.
 	std::string line; // Initialization.
 	std::vector<std::string> subLine;
-	char delim=',';
-	for (unsigned int indexListOfInputFiles=0;indexListOfInputFiles<listOfInputFiles.size();indexListOfInputFiles++)
+	std::regex re("\"(.*?)\"");
+
+
+	for (unsigned int i=0;i<listOfInputFiles.size();i++)
 	{
-		inputFile=listOfInputFiles[indexListOfInputFiles];
+		inputFile=listOfInputFiles[i];
 		inputFileStream.open(inputFile);
 		if (inputFileStream.is_open())
 		{
 			while (getline(inputFileStream,line))
 			{
-				std::cout<<line<<"\n";
-				subLine=split(line,delim);
-				for (unsigned int indexSubLine=0;indexSubLine<subLine.size();indexSubLine++)
+				std::regex_iterator<std::string::iterator> it (line.begin(), line.end(), re);
+				std::regex_iterator<std::string::iterator> end;
+				std::cout<<std::endl<<std::endl<<"Line: "<<line;
+				while (it != end)
 				{
-					std::cout<<subLine[indexSubLine]<<"\n";
+					std::cout << it->str() << std::endl;
+					++it;
 				}
 			}
+
 			inputFileStream.close();
 		}
 		else
@@ -40,13 +46,6 @@ int main (void)
 			std::cout<<"Unable to open file";
 		}
 	}
-	
-	
-	
-	
-
-
-
 	
 	std::cout<<"\n\nHello world.\n\n";
 	
