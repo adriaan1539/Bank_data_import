@@ -10,17 +10,19 @@
 
 int main (void)
 {
+	// List files we will import to extract data from. We should make this an input argument of the program later.
 	std::string dirInput="input";
 	std::vector<std::string> listOfInputFiles=listOfFiles(dirInput);
 	
+	// Extract the data per file and save it in vectors.
 	std::string inputFile; // Initialization.
 	std::ifstream inputFileStream; // Initialization.
 	std::string line; // Initialization.
-	std::vector<std::string> subLine;
+	std::vector<std::string> subLine; // Initialization.
 	char delim=',';
-	for (unsigned int indexListOfInputFiles=0;indexListOfInputFiles<listOfInputFiles.size();indexListOfInputFiles++)
+	for (unsigned int i=0;i<listOfInputFiles.size();i++)
 	{
-		inputFile=listOfInputFiles[indexListOfInputFiles];
+		inputFile=listOfInputFiles[i];
 		inputFileStream.open(inputFile);
 		if (inputFileStream.is_open())
 		{
@@ -32,6 +34,9 @@ int main (void)
 				{
 					std::cout<<subLine[indexSubLine]<<"\n";
 				}
+
+				// Make bank entry object out of getline data.
+				// ...
 			}
 			inputFileStream.close();
 		}
@@ -41,9 +46,16 @@ int main (void)
 		}
 	}
 	
+	// Define rules. WE SHOULD CONSTRUCT THIS BETTER LATER, SUCH THAT THE RULES ARE INPUT FOR THE MAIN PROGRAM.
+	// ...
 	
-	
-	
+	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
+	// ...
+
+	// Post processing of categories.
+	// ...
+
+
 
 
 
