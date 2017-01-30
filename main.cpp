@@ -5,7 +5,6 @@
 #include <iostream>
 #include "listOfFiles.h"
 #include <regex>
-#include "split.h"
 #include <string>
 #include <vector>
 
@@ -21,7 +20,6 @@ int main (void)
 	std::string line; // Initialization.
 	std::vector<std::string> subLine; // Initialization.
 	std::regex re("\"(.*?)\"");
-
 
 	for (unsigned int i=0;i<listOfInputFiles.size();i++)
 	{
