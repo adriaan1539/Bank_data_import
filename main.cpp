@@ -1,3 +1,4 @@
+#include "bankAccountEntry.h"
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
 #include "boost/progress.hpp"
@@ -15,38 +16,48 @@ int main (void)
 	std::vector<std::string> listOfInputFiles=listOfFiles(dirInput);
 	
 	// Extract the data per file and save it in vectors.
-	std::string inputFile; // Initialization.
-	std::ifstream inputFileStream; // Initialization.
-	std::string line; // Initialization.
-	std::vector<std::string> subLine; // Initialization.
-	std::regex re("\"(.*?)\"");
+	std::string inputFile;
+	std::ifstream inputFileStream;
+	std::string line;
+	std::string subLine;
+	std::vector<std::string> subLines;
+	std::regex re("\"(.*?)\""); // Define regular expression to extract substrings for string below.
 
 	for (unsigned int i=0;i<listOfInputFiles.size();i++)
 	{
 		inputFile=listOfInputFiles[i];
-		inputFileStream.open(inputFile);
+		inputFileStream.open(inputFile); // Define 'inputFileStream' by means of the data file 'inputFile'
 		if (inputFileStream.is_open())
 		{
-			while (getline(inputFileStream,line))
+			getline(inputFileStream,line); // ??? To skip the first line of a data file. But is there a more neat manner to do this? ???
+			while (getline(inputFileStream,line)) // Extract a single line 'line' from the ifstream 'inputFileStream' per step in the while loop.
 			{
-				std::regex_iterator<std::string::iterator> it (line.begin(), line.end(), re);
+				std::regex_iterator<std::string::iterator> it (line.begin(),line.end(),re);
 				std::regex_iterator<std::string::iterator> end;
-				std::cout<<std::endl<<std::endl<<"Line: "<<line;
-				while (it != end)
+				std::cout<<std::endl<<std::endl<<"Line: "<<line; // Print the whole line that is considered.
+				while (it!=end) // ??? QUESTION 'end' is only declared but not defined, so how can this work ???
 				{
-					std::cout << it->str() << std::endl;
+					subLine=it->str();
+					std::cout<<subLine<<std::endl; // Print substring.
+					subLines.push_back(subLine);
 					++it;
 				}
 
-				// Make bank entry object out of getline data.
-				// ...
-			}
+				/*
+				for (unsigned int i=0;i<subLines.size();i++)
+				{
+					std::cout<<subLines[i];
+				}
+				*/
 
+				// Make bank entry object out of getline data.
+				//bankAccountEntry bae(subLines);
+			}
 			inputFileStream.close();
 		}
 		else
 		{ 
-			std::cout<<"Unable to open file";
+			std::cout<<"\n\nUnable to open file.\n\n";
 		}
 	}
 	
