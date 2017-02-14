@@ -2,9 +2,8 @@
 #define BANKACCOUNTENTRY_H
 
 #include <string>
-#include <vector>
 
-class bankAccountEntry
+class BankAccountEntry
 {
 	private:
 		unsigned int year;
@@ -19,9 +18,7 @@ class bankAccountEntry
 		std::string note;
 	protected:
 	public:
-		bankAccountEntry(std::string commaSeparatedValueDataLine);
-		bankAccountEntry(std::vector<std::string> subLines);
-		bankAccountEntry(	unsigned int year,
+		BankAccountEntry(	unsigned int year,
 							unsigned int month,
 							unsigned int day,
 							std::string nameOrDescription,

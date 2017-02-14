@@ -3,17 +3,18 @@
 // Sources: 
 // http://stackoverflow.com/questions/20923456/boost-directory-iterator-example-how-to-list-directory-files-not-recursive/33665492?noredirect=1#comment70710190_33665492
 // http://coliru.stacked-crooked.com/a/92c0c52df50cefb1
+
 #include <boost/filesystem.hpp>
 #include <boost/range.hpp>
 #include <iostream>
-#include "listOfFiles.h"
+#include "ListOfFiles.h"
 
 using namespace boost::filesystem;
 
-std::vector<std::string> listOfFiles (std::string dirName)
+std::vector<std::string> ListOfFiles (std::string dirName)
 {
     path const p=dirName;
-    auto list = [=] {return boost::make_iterator_range(directory_iterator(p),{});};
+    auto list=[=]{return boost::make_iterator_range(directory_iterator(p),{});};
 
     // Save entries of 'list' in the vector of strings 'names'.
 	std::vector<std::string> names;

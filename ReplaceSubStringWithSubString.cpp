@@ -1,8 +1,9 @@
-#include "replaceSubStringWithSubString.h"
-#include <string>
+#include "ReplaceSubStringWithSubString.h"
 
 // Source: <<http://stackoverflow.com/questions/2896600/how-to-replace-all-occurrences-of-a-character-in-string>>.
-std::string replaceSubStringWithSubString(std::string str,const std::string& from,const std::string& to)
+std::string ReplaceSubStringWithSubString(	std::string str,
+											const std::string& from,
+											const std::string& to)
 {
     size_t start_pos=0;
     while((start_pos=str.find(from,start_pos))!=std::string::npos)
