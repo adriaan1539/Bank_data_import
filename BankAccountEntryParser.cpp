@@ -9,7 +9,7 @@
 BankAccountEntry BankAccountEntryParser::ParseLine(	std::string line,
 													std::map<std::string,int> format)
 {
-	std::vector<std::string> lineParts = this->GetLineParts(line);
+	std::vector<std::string> lineParts=GetLineParts(line);
 
 	// Some auxilliary commands for the construction of an instance of 'BankAccountEntry'.
 	std::string transactionDate=lineParts[format["date"]];
@@ -51,8 +51,8 @@ std::vector<std::string> BankAccountEntryParser::GetLineParts(std::string line)
 	std::regex re("\"(.*?)\""); // Define regular expression to extract substrings for string below.
 	std::regex_iterator<std::string::iterator> it (line.begin(),line.end(),re);
 	std::regex_iterator<std::string::iterator> end; // The default constructor of 'std::regex_iterator<std::string::iterator>' is the end-of-sequence iterator.
-
 	std::string linePart="";
+
 	// Split 'line' into line parts and save these in the vector 'lineParts'.
 	while (it!=end)
 	{
