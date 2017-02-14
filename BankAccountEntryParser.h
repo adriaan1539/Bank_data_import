@@ -15,7 +15,7 @@ class BankAccountEntryParser
 		std::vector<std::string> GetLineParts(std::string);
 	protected:
 	public:
-		BankAccountEntry ParseLine(std::string line,
+		BankAccountEntry ParseLine(	std::string line,
 									std::map<std::string,int> formatMap);
 };
 #endif

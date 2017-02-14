@@ -39,7 +39,7 @@ std::vector<std::string> BankAccountEntryParser::GetLineParts(std::string line)
 	while (it!=end)
 	{
 		linePart=it->str(1); // Note the necessity of the '1' to exclude the double quotes from the string.
-		std::cout<<linePart<<std::endl; // Print substring.
+		//std::cout<<linePart<<std::endl; // Print substring.
 		lineParts.push_back(linePart);
 		++it;
 	}

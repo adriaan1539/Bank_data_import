@@ -1,4 +1,5 @@
 #include "BankAccountEntry.h"
+#include <iostream>
 
 BankAccountEntry::BankAccountEntry(	unsigned int year,
 									unsigned int month,
@@ -21,4 +22,18 @@ BankAccountEntry::BankAccountEntry(	unsigned int year,
 	this->amount=amount;
 	this->sortOfMutation=sortOfMutation;
 	this->note=note;
+}
+
+void BankAccountEntry::printToConsole(void)
+{
+	std::cout<<"year: "<<year<<"\n";
+	std::cout<<"month: "<<month<<"\n";
+	std::cout<<"day: "<<day<<"\n";
+	std::cout<<"nameOrDescription: "<<nameOrDescription<<"\n";
+	std::cout<<"accountNumberConsidered: "<<accountNumberConsidered<<"\n";
+	std::cout<<"accountNumberContra: "<<accountNumberContra<<"\n";
+	std::cout<<"code: "<<code<<"\n";
+	std::cout<<"amount: "<<amount<<"\n";
+	std::cout<<"sortOfMutation: "<<sortOfMutation<<"\n";
+	std::cout<<"note: "<<note<<"\n\n";
 }

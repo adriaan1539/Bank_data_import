@@ -28,5 +28,6 @@ class BankAccountEntry
 							double amount,
 							std::string sortOfMutation,
 							std::string note);
+		void printToConsole(void);
 };
 #endif
