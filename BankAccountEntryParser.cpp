@@ -2,6 +2,7 @@
 #include <iostream>
 #include <regex>
 #include "ReplaceSubStringWithSubString.h"
+#include <stdexcept>
 #include <vector>
 
 // Definition function 'ParseLine', member of class 'BankAccountEntryParser'.
@@ -39,9 +40,10 @@ BankAccountEntry BankAccountEntryParser::ParseLine(	std::string line,
 	else
 	{
 		std::cout<<"\n\nERROR: Unable to determine sign of amount.\n\n";
+		throw std::invalid_argument("The double 'additionOrSubtractionDouble' is not properly defined.");
 	}
 	std::string amountString=lineParts[format["amount"]];
-	amountString=ReplaceSubStringWithSubString(amountString,",","."); // Replace the Dutch "," for decimals with a ".".
+	amountString=ReplaceSubStringWithSubString(amountString,",","."); // Replace the Dutch ",", for decimals in a double, with a ".".
 	double amount=std::stod(amountString); // Type casting of string into double.
 	amount=additionOrSubtractionDouble*amount; // Correct the sign of the amount.
 
