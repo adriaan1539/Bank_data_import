@@ -5,13 +5,15 @@
 #include "BankAccountEntryFormat.h"
 #include <map>
 #include <string>
+#include <vector>
 
 class BankAccountEntryParser
 {
 	private:
+		std::vector<std::string> GetLineParts(std::string line);
 	protected:
 	public:
-		BankAccountEntry ParseLine(	std::string line,
+		BankAccountEntry ParseLine(std::string line,
 									std::map<std::string,int> formatMap);
 };
 #endif
