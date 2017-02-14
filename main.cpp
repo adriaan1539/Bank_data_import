@@ -49,12 +49,12 @@ int main (void)
 	
 	// Define rules. WE SHOULD CONSTRUCT THIS BETTER LATER, SUCH THAT THE RULES ARE INPUT FOR THE MAIN PROGRAM.
 	// ...
+
 	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
 	// ...
 
 	// Post processing of categories.
 	// ...
-
 
 	std::cout<<"\n\nHello world.\n\n";
 	
