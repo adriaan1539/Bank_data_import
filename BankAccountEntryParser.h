@@ -10,7 +10,9 @@
 class BankAccountEntryParser
 {
 	private:
-		std::vector<std::string> GetLineParts(std::string line);
+		double GetAmount(	std::vector<std::string>,
+							std::map<std::string,int>);
+		std::vector<std::string> GetLineParts(std::string);
 	protected:
 	public:
 		BankAccountEntry ParseLine(std::string line,

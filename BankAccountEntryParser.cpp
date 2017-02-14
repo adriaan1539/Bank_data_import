@@ -13,25 +13,7 @@ BankAccountEntry BankAccountEntryParser::ParseLine(	std::string line,
 
 	// Some auxilliary commands for the construction of an instance of 'BankAccountEntry'.
 	std::string transactionDate=lineParts[format["date"]];
-	std::string additionOrSubtractionString=lineParts[5];
-	double additionOrSubtractionDouble;
-	if (additionOrSubtractionString.compare("Af")==0)
-	{
-		additionOrSubtractionDouble=-1.0;
-	}
-	else if (additionOrSubtractionString.compare("Bij")==0)
-	{
-		additionOrSubtractionDouble=1.0;
-	}
-	else
-	{
-		std::cout<<"\n\nERROR: Unable to determine sign of amount.\n\n";
-		throw std::invalid_argument("The double 'additionOrSubtractionDouble' is not properly defined.");
-	}
-	std::string amountString=lineParts[format["amount"]];
-	amountString=ReplaceSubStringWithSubString(amountString,",","."); // Replace the Dutch ",", for decimals in a double, with a ".".
-	double amount=std::stod(amountString); // Type casting of string into double.
-	amount=additionOrSubtractionDouble*amount; // Correct the sign of the amount.
+	double amount=GetAmount(lineParts,format);
 
 	return BankAccountEntry(std::stoi(transactionDate.substr(0,4)),
 							std::stoi(transactionDate.substr(4,2)),
@@ -61,5 +43,32 @@ std::vector<std::string> BankAccountEntryParser::GetLineParts(std::string line)
 		lineParts.push_back(linePart);
 		++it;
 	}
+
 	return lineParts;
+}
+
+double BankAccountEntryParser::GetAmount(	std::vector<std::string> lineParts,
+											std::map<std::string,int> format)
+{
+	std::string additionOrSubtractionString=lineParts[5];
+	double additionOrSubtractionDouble;
+	if (additionOrSubtractionString.compare("Af")==0)
+	{
+		additionOrSubtractionDouble=-1.0;
+	}
+	else if (additionOrSubtractionString.compare("Bij")==0)
+	{
+		additionOrSubtractionDouble=1.0;
+	}
+	else
+	{
+		std::cout<<"\n\nERROR: Unable to determine sign of amount.\n\n";
+		throw std::invalid_argument("The double 'additionOrSubtractionDouble' is not properly defined.");
+	}
+	std::string amountString=lineParts[format["amount"]];
+	amountString=ReplaceSubStringWithSubString(amountString,",","."); // Replace the Dutch ",", for decimals in a double, with a ".".
+	double amount=std::stod(amountString); // Type casting of string into double.
+	amount=additionOrSubtractionDouble*amount; // Correct the sign of the amount.
+
+	return amount;
 }
