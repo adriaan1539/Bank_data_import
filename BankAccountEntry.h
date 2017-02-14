@@ -29,5 +29,6 @@ class BankAccountEntry
 							std::string sortOfMutation,
 							std::string note);
 		void printToConsole(void);
+		void printToFile(std::string);
 };
 #endif

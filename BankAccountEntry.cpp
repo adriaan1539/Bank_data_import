@@ -1,4 +1,5 @@
 #include "BankAccountEntry.h"
+#include <fstream>
 #include <iostream>
 
 BankAccountEntry::BankAccountEntry(	unsigned int year,
@@ -36,4 +37,23 @@ void BankAccountEntry::printToConsole(void)
 	std::cout<<"amount: "<<amount<<"\n";
 	std::cout<<"sortOfMutation: "<<sortOfMutation<<"\n";
 	std::cout<<"note: "<<note<<"\n\n";
+}
+
+void BankAccountEntry::printToFile(std::string fileName)
+{
+	std::ofstream outputFileStream;
+	outputFileStream.open(fileName,std::ios::app);
+	
+	outputFileStream<<"year: "<<year<<"\n";
+	outputFileStream<<"month: "<<month<<"\n";
+	outputFileStream<<"day: "<<day<<"\n";
+	outputFileStream<<"nameOrDescription: "<<nameOrDescription<<"\n";
+	outputFileStream<<"accountNumberConsidered: "<<accountNumberConsidered<<"\n";
+	outputFileStream<<"accountNumberContra: "<<accountNumberContra<<"\n";
+	outputFileStream<<"code: "<<code<<"\n";
+	outputFileStream<<"amount: "<<amount<<"\n";
+	outputFileStream<<"sortOfMutation: "<<sortOfMutation<<"\n";
+	outputFileStream<<"note: "<<note<<"\n\n";
+	
+	outputFileStream.close();
 }

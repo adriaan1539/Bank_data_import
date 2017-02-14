@@ -37,7 +37,8 @@ int main (void)
 			while (getline(inputFileStream,line)) // Extract a single line 'line' from the ifstream 'inputFileStream' per step in the while loop.
 			{
 				BankAccountEntry bankAccountEntry=bankAccountEntryParser.ParseLine(line,BankAccountEntryFormat::ING);
-				bankAccountEntry.printToConsole();
+				//bankAccountEntry.printToConsole();
+				bankAccountEntry.printToFile("consoleOutput.txt");
 				setOfBankAccountEntries.push_back(bankAccountEntry);
 			}
 			inputFileStream.close();
