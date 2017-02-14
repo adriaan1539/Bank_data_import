@@ -13,6 +13,7 @@ namespace BankAccountEntryFormat
 		{"accountNumber",2},
 		{"accountNumberContra",3},
 		{"code",4},
+		{"additionOrSubtraction", 5},
 		{"amount",6},
 		{"sortOfMutation",7},
 		{"note",8}
@@ -24,6 +25,7 @@ namespace BankAccountEntryFormat
 		{"date",2},
 		{"amount",4},
 		{"accountNumberContra",5},
+		{"additionOrSubtraction", 5},
 		{"description",10},
 		{"note",11}
 	};
