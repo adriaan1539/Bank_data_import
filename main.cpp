@@ -6,6 +6,7 @@
 #include "boost/progress.hpp"
 #include "Category.h"
 #include <fstream>
+#include "ImportBankAccountEntries.h"
 #include <iostream>
 #include "ListOfFiles.h"
 #include <regex>
@@ -17,44 +18,16 @@ int main (void)
 	// List files we will import to extract data from. We should make this an input argument of the program later.
 	std::string dirInput="input";
 	std::vector<std::string> listOfInputFiles=ListOfFiles(dirInput);
-	
-	// Extract the data per file and save it in vectors.
-	std::string inputFile;
-	std::ifstream inputFileStream;
-	std::string line;
-	std::string subLine;
-	std::vector<std::string> subLines;
-	BankAccountEntryParser bankAccountEntryParser;
-	std::vector<BankAccountEntry> setOfBankAccountEntries;
 
-	// Loop over all input bank data files to construct instances of the class BankAccountEntry.
-	for (unsigned int i=0;i<listOfInputFiles.size();i++)
-	{
-		inputFile=listOfInputFiles[i];
-		inputFileStream.open(inputFile); // Define 'inputFileStream' by means of the data file 'inputFile'
-		if (inputFileStream.is_open())
-		{
-			getline(inputFileStream,line); // To skip the first line of a data file.
-			while (getline(inputFileStream,line)) // Extract a single line 'line' from the ifstream 'inputFileStream' per step in the while loop.
-			{
-				BankAccountEntry bankAccountEntry=bankAccountEntryParser.ParseLine(line,BankAccountEntryFormat::ING);
-				bankAccountEntry.printToFile("consoleOutput.txt");
-				setOfBankAccountEntries.push_back(bankAccountEntry);
-			}
-			inputFileStream.close();
-		}
-		else
-		{ 
-			std::cout<<"\n\nUnable to open file.\n\n";
-		}
-	}
+	// Extract the data per file and save it in vectors.
+	std::vector<BankAccountEntry> setOfBankAccountEntries=ImportBankAccountEntries(listOfInputFiles);
 	
 	// Define rules. WE SHOULD CONSTRUCT THIS BETTER LATER, SUCH THAT THE RULES ARE INPUT FOR THE MAIN PROGRAM.
 	std::vector<Category> setOfCategories;
 	Category gasoline("gasoline");
 	setOfCategories.push_back(gasoline);
 	std::function<void(int)> shellInNameFunction; // ??? At the moment, I have no idea how I should define such a function to get what I want. ???
-	Rule shellinNameRule(shellInNameFunction); // ??? I get 'Segmentation fault (core dumped)' error. What is wrong with this command? ???
+	///Rule shellinNameRule(shellInNameFunction); // ??? I get 'Segmentation fault (core dumped)' error. What is wrong with this command? ???
 
 	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
 	bool booleanRule=false;
