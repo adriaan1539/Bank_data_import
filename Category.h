@@ -1,6 +1,7 @@
 #ifndef CATEGORY_H
 #define CATEGORY_H
 
+#include "BankAccountEntry.h"
 #include <functional>
 #include <string>
 #include <vector>
@@ -11,21 +12,22 @@ class Category
 {
 	private:
 		std::string nameCategory;
+		std::vector<int> setOfIndices;
 	protected:
-		std::vector<Rule> setOfRules;
 	public:
 		Category();
 		Category(std::string nameCategory);
-		void setIndexBankAccountEntry(unsigned int iBankAccountEntry);
+		void SetIndexBankAccountEntry(unsigned int iBankAccountEntry);
+		std::vector<Rule> setOfRules;
 };
 
 class Rule : public Category
 {
 	private:
-		std::function<void(int)> rule;
 	protected:
 	public:
 		Rule();
-		Rule(std::function<void(int)> rule);
+		Rule(std::function<bool(BankAccountEntry)> rule);
+		std::function<bool(BankAccountEntry)> ruleFunction;
 };
 #endif

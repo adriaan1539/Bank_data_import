@@ -9,7 +9,7 @@ class BankAccountEntry
 		unsigned int year;
 		unsigned int month;
 		unsigned int day;
-		std::string nameOrDescription;
+		//std::string nameOrDescription;
 		std::string accountNumberConsidered;
 		std::string  accountNumberContra;
 		std::string code;
@@ -35,5 +35,6 @@ class BankAccountEntry
 		void printToFile(std::string);
 		void setIndexCategoryAndRule(	unsigned int iCategory,
 										unsigned int iRule);
+		std::string nameOrDescription;
 };
 #endif
