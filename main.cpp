@@ -37,7 +37,6 @@ int main (void)
 			while (getline(inputFileStream,line)) // Extract a single line 'line' from the ifstream 'inputFileStream' per step in the while loop.
 			{
 				BankAccountEntry bankAccountEntry=bankAccountEntryParser.ParseLine(line,BankAccountEntryFormat::ING);
-				//bankAccountEntry.printToConsole();
 				bankAccountEntry.printToFile("consoleOutput.txt");
 				setOfBankAccountEntries.push_back(bankAccountEntry);
 			}
@@ -53,7 +52,42 @@ int main (void)
 	// ...
 
 	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
-	// ...
+	/*
+	bool booleanRule=false;
+	BankAccountEntry bankAccountEntry;
+	Category category;
+	std::vector<Rule> setOfRules;
+	Rule rule;
+
+	for (unsigned int iBankAccountEntry=0;iBankAccountEntry<setOfBankAccountEntries.size();iBankAccountEntry++)
+	{
+		std::cout<<"Processing bank entry "<<iBankAccountEntry<<" of "<<setOfBankAccountEntries.size()<<".\n"]);
+
+		booleanRule=false; // Reset per instance of BankAccountEntry.
+
+		bankAccountEntry=setOfBankAccountEntries[iBankAccountEntry];
+		for (unsigned int iCategory=0;iCategory<setOfCategories.size();iCategory++)
+		{
+			category=setOfCategories[iCategory];
+			setOfRules=category.setOfRules;
+			for (unsigned int iRule=0;iRule<setOfRules.size();iRule++)
+			{
+				rule=setOfRules[iRule];
+				// Check 'bankAccountEntry' for 'rule'. If true, the continue to next instance of class BankAccountEntry.
+				if (booleanRule==true)
+				{
+					bankAccountEntry.setIndexCategoryAndRule(iCategory,iRule);
+					category.setIndexBankAccountEntry(iBankAccountEntry);
+				}
+			}
+		}
+
+		if (booleanRule==false)
+		{
+			std::cout<<"Unable to categorize this bank account entry.\n";
+		}
+	}
+	 */
 
 	// Post processing of categories.
 	// ...

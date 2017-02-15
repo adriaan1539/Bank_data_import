@@ -57,3 +57,10 @@ void BankAccountEntry::printToFile(std::string fileName)
 	
 	outputFileStream.close();
 }
+
+void BankAccountEntry::setIndexCategoryAndRule(	unsigned int iCategory,
+												unsigned int iRule)
+{
+	this->iCategory=iCategory;
+	this->iRule=iRule;
+}

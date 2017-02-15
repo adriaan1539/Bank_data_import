@@ -16,6 +16,8 @@ class BankAccountEntry
 		double amount;
 		std::string sortOfMutation;
 		std::string note;
+		unsigned int iCategory;
+		unsigned int iRule;
 	protected:
 	public:
 		BankAccountEntry(	unsigned int year,
@@ -30,5 +32,7 @@ class BankAccountEntry
 							std::string note);
 		void printToConsole(void);
 		void printToFile(std::string);
+		void setIndexCategoryAndRule(	unsigned int iCategory,
+										unsigned int iRule);
 };
 #endif
