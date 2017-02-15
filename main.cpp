@@ -4,6 +4,7 @@
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
 #include "boost/progress.hpp"
+#include "Category.h"
 #include <fstream>
 #include <iostream>
 #include "ListOfFiles.h"
@@ -49,10 +50,13 @@ int main (void)
 	}
 	
 	// Define rules. WE SHOULD CONSTRUCT THIS BETTER LATER, SUCH THAT THE RULES ARE INPUT FOR THE MAIN PROGRAM.
-	// ...
+	std::vector<Category> setOfCategories;
+	Category gasoline("gasoline");
+	setOfCategories.push_back(gasoline);
+	std::function<void(int)> shellInNameFunction; // ??? At the moment, I have no idea how I should define such a function to get what I want. ???
+	Rule shellinNameRule(shellInNameFunction); // ??? I get 'Segmentation fault (core dumped)' error. What is wrong with this command? ???
 
 	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
-	/*
 	bool booleanRule=false;
 	BankAccountEntry bankAccountEntry;
 	Category category;
@@ -61,11 +65,13 @@ int main (void)
 
 	for (unsigned int iBankAccountEntry=0;iBankAccountEntry<setOfBankAccountEntries.size();iBankAccountEntry++)
 	{
-		std::cout<<"Processing bank entry "<<iBankAccountEntry<<" of "<<setOfBankAccountEntries.size()<<".\n"]);
+		std::cout<<"Processing bank entry "<<iBankAccountEntry<<" of "<<setOfBankAccountEntries.size()<<".\n";
 
 		booleanRule=false; // Reset per instance of BankAccountEntry.
 
 		bankAccountEntry=setOfBankAccountEntries[iBankAccountEntry];
+
+		/*
 		for (unsigned int iCategory=0;iCategory<setOfCategories.size();iCategory++)
 		{
 			category=setOfCategories[iCategory];
@@ -81,18 +87,19 @@ int main (void)
 				}
 			}
 		}
+		*/
 
 		if (booleanRule==false)
 		{
 			std::cout<<"Unable to categorize this bank account entry.\n";
 		}
 	}
-	 */
 
 	// Post processing of categories.
 	// ...
 
 	std::cout<<"\n\nHello world.\n\n";
 	
+	std::cout<<"\n\nEnd of program.\n\n";
 	return 0;
 }

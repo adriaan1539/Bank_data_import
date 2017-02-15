@@ -20,6 +20,7 @@ class BankAccountEntry
 		unsigned int iRule;
 	protected:
 	public:
+		BankAccountEntry();
 		BankAccountEntry(	unsigned int year,
 							unsigned int month,
 							unsigned int day,

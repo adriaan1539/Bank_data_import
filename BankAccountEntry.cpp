@@ -2,6 +2,10 @@
 #include <fstream>
 #include <iostream>
 
+BankAccountEntry::BankAccountEntry()
+{
+}
+
 BankAccountEntry::BankAccountEntry(	unsigned int year,
 									unsigned int month,
 									unsigned int day,
