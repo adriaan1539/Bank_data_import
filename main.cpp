@@ -41,14 +41,18 @@ int main (void)
 	std::vector<Category> setOfCategories;
 	Category gasoline("gasoline");
 	setOfCategories.push_back(gasoline);
-	std::function<bool(BankAccountEntry)> shellInNameFunction=ShellInName;
-	Rule shellinNameRule(shellInNameFunction); // ??? I get 'Segmentation fault (core dumped)' error. What is wrong with this command? ???
+	
+	std::cout<<"\n\n"<<setOfCategories[0].GetNameCategory()<<"\n\n"; // TEST.
+	
+	std::function<bool(BankAccountEntry)> shellInNameFunction=ShellInName;	
+	Rule shellinNameRule(shellInNameFunction);
 
 	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
 	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
 
 	// Post processing of categories.
 	// ...
+	setOfCategories[0].PrintSetOfBankAccountEntryIndices();
 
 	std::cout<<"\n\nHello world.\n\n";
 	

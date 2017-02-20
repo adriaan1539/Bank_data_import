@@ -1,4 +1,5 @@
 #include "Category.h"
+#include <iostream>
 
 Category::Category()
 {
@@ -11,7 +12,20 @@ Category::Category(std::string nameCategory)
 
 void Category::SetIndexBankAccountEntry(unsigned int iBankAccountEntry)
 {
-	setOfIndices.push_back(iBankAccountEntry);
+	setOfBankAccountEntryIndices.push_back(iBankAccountEntry);
+}
+
+std::string Category::GetNameCategory()
+{
+	return nameCategory;
+}
+
+void Category::PrintSetOfBankAccountEntryIndices()
+{
+	for (unsigned int iSetOfBankAccountEntryIndices=0;iSetOfBankAccountEntryIndices<setOfBankAccountEntryIndices.size();iSetOfBankAccountEntryIndices++)
+	{
+		std::cout<<setOfBankAccountEntryIndices[iSetOfBankAccountEntryIndices]<<"\n";
+	}
 }
 
 Rule::Rule()
@@ -20,5 +34,6 @@ Rule::Rule()
 
 Rule::Rule(std::function<bool(BankAccountEntry)> rule)
 {
-	setOfRules.push_back(rule);
+	this->ruleFunction=rule;
+	setOfRules.push_back(*this);
 }

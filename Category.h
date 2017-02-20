@@ -12,13 +12,15 @@ class Category
 {
 	private:
 		std::string nameCategory;
-		std::vector<int> setOfIndices;
+		std::vector<int> setOfBankAccountEntryIndices;
 	protected:
 	public:
 		Category();
-		Category(std::string nameCategory);
+		Category(std::string nameCategory);		
+		std::string GetNameCategory();
+		void PrintSetOfBankAccountEntryIndices();
 		void SetIndexBankAccountEntry(unsigned int iBankAccountEntry);
-		std::vector<Rule> setOfRules;
+		std::vector<Rule> setOfRules;		
 };
 
 class Rule : public Category
@@ -27,7 +29,7 @@ class Rule : public Category
 	protected:
 	public:
 		Rule();
-		Rule(std::function<bool(BankAccountEntry)> rule);
+		Rule(std::function<bool(BankAccountEntry)> rule);		
 		std::function<bool(BankAccountEntry)> ruleFunction;
 };
 #endif
