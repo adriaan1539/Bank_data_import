@@ -20,8 +20,10 @@ bool ShellInName(BankAccountEntry bankAccountEntry)
 	std::string nameOrDescription=bankAccountEntry.nameOrDescription;
 	std::string subString="SHELL";
 	std::size_t found=nameOrDescription.find(subString);
+	std::cout<<"\n\nChecking rule 'ShellInName'.\n\n"; // TEST.
 	if (0<=found && found<=nameOrDescription.size()-1)
 	{
+	
 		compliantWithRule=true;
 	}
 
@@ -45,14 +47,20 @@ int main (void)
 	std::cout<<"\n\n"<<setOfCategories[0].GetNameCategory()<<"\n\n"; // TEST.
 	
 	std::function<bool(BankAccountEntry)> shellInNameFunction=ShellInName;	
-	Rule shellinNameRule(shellInNameFunction);
+	Rule shellinNameRule(shellInNameFunction,"Shell in name.");
+	gasoline.setOfRules.push_back(shellinNameRule);
+	
+	std::cout<<"\n\n"<<shellinNameRule.GetNameRule()<<"\n\n";
+	std::cout<<"\n\n"<<gasoline.GetNumberOfRules()<<"\n\n";
+	
+	setOfCategories[0].PrintNameOfAllRules(); // TEST. ??? Why is this test not working? ???
 
 	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
 	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
 
 	// Post processing of categories.
 	// ...
-	setOfCategories[0].PrintSetOfBankAccountEntryIndices();
+	setOfCategories[0].PrintSetOfBankAccountEntryIndices(); // TEST. ??? Why is this test not working? ???
 
 	std::cout<<"\n\nHello world.\n\n";
 	
