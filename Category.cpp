@@ -1,5 +1,6 @@
 #include "Category.h"
 #include <iostream>
+#include "Rule.h"
 
 Category::Category()
 {
@@ -7,17 +8,17 @@ Category::Category()
 
 Category::Category(std::string nameCategory)
 {
-	this->nameCategory=nameCategory;
+	this->name=nameCategory;
 }
 
-void Category::SetIndexBankAccountEntry(unsigned int iBankAccountEntry)
+void Category::AddRule(Rule rule)
 {
-	setOfBankAccountEntryIndices.push_back(iBankAccountEntry);
+	this->setOfRules.push_back(rule);
 }
 
 std::string Category::GetNameCategory()
 {
-	return nameCategory;
+	return name;
 }
 
 int Category::GetNumberOfRules()
