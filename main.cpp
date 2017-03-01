@@ -54,7 +54,7 @@ int main (void)
 
 	// Post processing of categories.
 	// ...
-	//setOfCategories[0].PrintSetOfBankAccountEntryIndices();
+	setOfCategories[0].PrintSetOfBankAccountEntryIndices();
 
 	
 	
