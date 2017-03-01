@@ -25,6 +25,7 @@ bool ShellInName(BankAccountEntry bankAccountEntry)
 	{
 		compliantWithRule=true;
 	}
+
 	return compliantWithRule;
 }
 
@@ -40,7 +41,6 @@ int main (void)
 	// Define categories and rules
 	std::vector<Category> setOfCategories;
 	Category gasoline("gasoline");
-
 	std::function<bool(BankAccountEntry)> shellInNameFunction=ShellInName;	
 	Rule shellInNameRule(shellInNameFunction,"Shell in name.");
 	gasoline.AddRule(shellInNameRule);
@@ -49,13 +49,15 @@ int main (void)
 	setOfCategories.push_back(gasoline);
 	setOfCategories[0].PrintNameOfAllRules();
 
-	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit
-	//CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
+	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
+	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
 
 	// Post processing of categories.
 	// ...
 	//setOfCategories[0].PrintSetOfBankAccountEntryIndices();
 
+	
+	
 	std::cout<<"\n\nEnd of program.\n\n";
 	return 0;
 }

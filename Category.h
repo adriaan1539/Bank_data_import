@@ -10,7 +10,7 @@ class Category
 {
 	private:
 		std::string name;
-		std::vector<int> setOfBankAccountEntryIndices;
+		std::vector<BankAccountEntry*> setOfBankAccountEntries;
 		std::vector<Rule> setOfRules;
 	protected:
 	public:
@@ -20,8 +20,9 @@ class Category
 		void AddRule(Rule rule);
 		std::string GetNameCategory();
 		int GetNumberOfRules();
+		std::vector<Rule> GetSetOfRules();
 		void PrintNameOfAllRules();
 		void PrintSetOfBankAccountEntryIndices();
-		void SetIndexBankAccountEntry(unsigned int iBankAccountEntry);
+		void SetBankAccountEntry(BankAccountEntry* bankAccountEntry);
 };
 #endif

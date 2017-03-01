@@ -6,8 +6,8 @@
 #include "Category.h"
 #include <vector>
 
-void CategorizeBankAccountEntries(	std::vector<BankAccountEntry> setOfBankAccountEntries,
-									std::vector<Category> setOfCategories);
+void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccountEntries,
+									std::vector<Category>& setOfCategories);
 
 #endif
 
