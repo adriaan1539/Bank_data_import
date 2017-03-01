@@ -23,7 +23,6 @@ bool ShellInName(BankAccountEntry bankAccountEntry)
 	std::cout<<"\n\nChecking rule 'ShellInName'.\n\n"; // TEST.
 	if (0<=found && found<=nameOrDescription.size()-1)
 	{
-	
 		compliantWithRule=true;
 	}
 
@@ -39,28 +38,23 @@ int main (void)
 	// Extract the data per file and save it in vectors.
 	std::vector<BankAccountEntry> setOfBankAccountEntries=ImportBankAccountEntries(listOfInputFiles);
 
-	// Define rules. WE SHOULD CONSTRUCT THIS BETTER LATER, SUCH THAT THE RULES ARE INPUT FOR THE MAIN PROGRAM.
+	// Define categories and rules. WE SHOULD CONSTRUCT THIS BETTER LATER, SUCH THAT THE RULES ARE INPUT FOR THE MAIN PROGRAM.
 	std::vector<Category> setOfCategories;
 	Category gasoline("gasoline");
-	setOfCategories.push_back(gasoline);
-	
-	std::cout<<"\n\n"<<setOfCategories[0].GetNameCategory()<<"\n\n"; // TEST.
-	
 	std::function<bool(BankAccountEntry)> shellInNameFunction=ShellInName;	
 	Rule shellinNameRule(shellInNameFunction,"Shell in name.");
-	gasoline.setOfRules.push_back(shellinNameRule);
+	gasoline.AddRule(shellinNameRule);
 	
-	std::cout<<"\n\n"<<shellinNameRule.GetNameRule()<<"\n\n";
-	std::cout<<"\n\n"<<gasoline.GetNumberOfRules()<<"\n\n";
-	
+	// Add categories to 'setOfCategories'.
+	setOfCategories.push_back(gasoline);
 	setOfCategories[0].PrintNameOfAllRules(); // TEST. ??? Why is this test not working? ???
 
 	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
-	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
+	//CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
 
 	// Post processing of categories.
 	// ...
-	setOfCategories[0].PrintSetOfBankAccountEntryIndices(); // TEST. ??? Why is this test not working? ???
+	//setOfCategories[0].PrintSetOfBankAccountEntryIndices(); // TEST. ??? Why is this test not working? ???
 
 	std::cout<<"\n\nHello world.\n\n";
 	

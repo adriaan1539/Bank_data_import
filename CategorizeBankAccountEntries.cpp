@@ -21,6 +21,7 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry> setOfBankAccoun
 
 		for (unsigned int iCategory=0;iCategory<setOfCategories.size();iCategory++)
 		{
+			/*
 			category=setOfCategories[iCategory];
 			setOfRules=category.setOfRules;
 			for (unsigned int iRule=0;iRule<setOfRules.size();iRule++)
@@ -34,6 +35,7 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry> setOfBankAccoun
 					category.SetIndexBankAccountEntry(iBankAccountEntry);
 				}
 			}
+			*/
 		}
 
 		if (compliantWithRule==false)

@@ -42,18 +42,7 @@ void Category::PrintSetOfBankAccountEntryIndices()
 	}
 }
 
-Rule::Rule()
+void Category::SetIndexBankAccountEntry(unsigned int iBankAccountEntry)
 {
-}
-
-Rule::Rule(	std::function<bool(BankAccountEntry)> rule,
-			std::string nameRule)
-{
-	this->ruleFunction=rule;
-	this->nameRule=nameRule;
-}
-
-std::string Rule::GetNameRule()
-{
-	return nameRule;
+	setOfBankAccountEntryIndices.push_back(iBankAccountEntry);
 }
