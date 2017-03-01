@@ -50,7 +50,7 @@ int main (void)
 	setOfCategories[0].PrintNameOfAllRules(); // TEST. ??? Why is this test not working? ???
 
 	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
-	//CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
+	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
 
 	// Post processing of categories.
 	// ...

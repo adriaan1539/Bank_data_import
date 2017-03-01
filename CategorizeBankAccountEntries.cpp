@@ -1,12 +1,12 @@
 #include "CategorizeBankAccountEntries.h"
 #include <iostream>
 
-void CategorizeBankAccountEntries(	std::vector<BankAccountEntry> setOfBankAccountEntries,
-									std::vector<Category> setOfCategories)
+void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccountEntries,
+									std::vector<Category>& setOfCategories)
 {
 	bool compliantWithRule;
-	BankAccountEntry bankAccountEntry;
-	Category category;
+	BankAccountEntry* bankAccountEntry;
+	Category* category;
 	std::vector<Rule> setOfRules;
 	Rule rule;
 	std::function<bool(BankAccountEntry)> ruleFunction;
@@ -17,25 +17,23 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry> setOfBankAccoun
 
 		compliantWithRule=false; // Reset per instance of BankAccountEntry.
 
-		bankAccountEntry=setOfBankAccountEntries[iBankAccountEntry];
+		bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
+		bankAccountEntry->printToConsole();
 
 		for (unsigned int iCategory=0;iCategory<setOfCategories.size();iCategory++)
 		{
-			/*
-			category=setOfCategories[iCategory];
-			setOfRules=category.setOfRules;
+			category=&setOfCategories[iCategory];
+			setOfRules=category->GetSetOfRules();
 			for (unsigned int iRule=0;iRule<setOfRules.size();iRule++)
 			{
 				rule=setOfRules[iRule];
 				ruleFunction=rule.ruleFunction;
-				compliantWithRule=ruleFunction(bankAccountEntry);
+				compliantWithRule=ruleFunction(*bankAccountEntry);
 				if (compliantWithRule==true)
 				{
-					bankAccountEntry.setIndexCategoryAndRule(iCategory,iRule);
-					category.SetIndexBankAccountEntry(iBankAccountEntry);
+					category->SetBankAccountEntry(bankAccountEntry);
 				}
 			}
-			*/
 		}
 
 		if (compliantWithRule==false)

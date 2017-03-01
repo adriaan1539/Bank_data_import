@@ -1,6 +1,7 @@
 #include "Category.h"
 #include <iostream>
 #include "Rule.h"
+#include <string>
 
 Category::Category()
 {
@@ -26,6 +27,11 @@ int Category::GetNumberOfRules()
 	return setOfRules.size();
 }
 
+std::vector<Rule> Category::GetSetOfRules()
+{
+	return this->setOfRules;
+}
+
 void Category::PrintNameOfAllRules()
 {
 	for (unsigned int iRule=0;iRule<setOfRules.size();iRule++)
@@ -36,13 +42,13 @@ void Category::PrintNameOfAllRules()
 
 void Category::PrintSetOfBankAccountEntryIndices()
 {
-	for (unsigned int iSetOfBankAccountEntryIndices=0;iSetOfBankAccountEntryIndices<setOfBankAccountEntryIndices.size();iSetOfBankAccountEntryIndices++)
+	for (unsigned int iSetOfBankAccountEntryIndices=0;iSetOfBankAccountEntryIndices<setOfBankAccountEntries.size();iSetOfBankAccountEntryIndices++)
 	{
-		std::cout<<setOfBankAccountEntryIndices[iSetOfBankAccountEntryIndices]<<"\n";
+		std::cout<<setOfBankAccountEntries[iSetOfBankAccountEntryIndices]<<"\n";
 	}
 }
 
-void Category::SetIndexBankAccountEntry(unsigned int iBankAccountEntry)
+void Category::SetBankAccountEntry(BankAccountEntry* bankAccountEntry)
 {
-	setOfBankAccountEntryIndices.push_back(iBankAccountEntry);
+	setOfBankAccountEntries.push_back(bankAccountEntry);
 }
