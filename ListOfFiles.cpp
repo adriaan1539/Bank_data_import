@@ -20,7 +20,10 @@ std::vector<std::string> ListOfFiles (std::string dirName)
 	std::vector<std::string> names;
 	for(auto& entry:list())
 	{
-		names.push_back(entry.path().string());
+		if (!is_directory(entry.path()))
+		{
+			names.push_back(entry.path().string());
+		}
 	}
 
 	// Print the entries of the vector of strings 'names'.

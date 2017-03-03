@@ -9,20 +9,21 @@
 class Category
 {
 	private:
-		std::string name;
-		std::vector<BankAccountEntry*> setOfBankAccountEntries;
-		std::vector<Rule> setOfRules;
+		std::string 					name;
+		std::vector<BankAccountEntry*> 	setOfBankAccountEntries;
+		std::vector<Rule> 				setOfRules;
 	protected:
 	public:
 		Category();
 		Category(std::string nameCategory);
 		
-		void AddRule(Rule rule);
-		std::string GetNameCategory();
-		int GetNumberOfRules();
-		std::vector<Rule> GetSetOfRules();
-		void PrintNameOfAllRules();
-		void PrintSetOfBankAccountEntryIndices();
-		void SetBankAccountEntry(BankAccountEntry* bankAccountEntry);
+		void 							AddRule(Rule rule);
+		std::string 					GetNameCategory();
+		int 							GetNumberOfRules();
+		std::vector<BankAccountEntry*> 	GetSetOfBankAccountEntries();
+		std::vector<Rule> 				GetSetOfRules();
+		void 							PrintNameOfAllRules();
+		void 							PrintSetOfBankAccountEntryIndices();
+		void 							SetBankAccountEntry(BankAccountEntry* bankAccountEntry);
 };
 #endif

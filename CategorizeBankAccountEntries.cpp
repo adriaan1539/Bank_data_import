@@ -13,12 +13,11 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 
 	for (unsigned int iBankAccountEntry=0;iBankAccountEntry<setOfBankAccountEntries.size();iBankAccountEntry++)
 	{
-		std::cout<<"Processing bank entry "<<iBankAccountEntry<<" of "<<setOfBankAccountEntries.size()<<".\n";
+		std::cout<<"Processing bank entry "<<iBankAccountEntry<<" of "<<setOfBankAccountEntries.size()<<". ";
 
 		compliantWithRule=false; // Reset per instance of BankAccountEntry.
 
 		bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
-		bankAccountEntry->printToConsole();
 
 		for (unsigned int iCategory=0;iCategory<setOfCategories.size();iCategory++)
 		{
@@ -36,9 +35,13 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 			}
 		}
 
-		if (compliantWithRule==false)
+		if (compliantWithRule==true)
 		{
-			std::cout<<"Unable to categorize this bank account entry.\n";
+			std::cout<<"SUCCESS.\n";
+		}
+		else if (compliantWithRule==false)
+		{
+			std::cout<<"FAILED.\n";
 		}
 	}
 }

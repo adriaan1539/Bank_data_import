@@ -27,6 +27,11 @@ int Category::GetNumberOfRules()
 	return setOfRules.size();
 }
 
+std::vector<BankAccountEntry*> Category::GetSetOfBankAccountEntries()
+{
+	return this->setOfBankAccountEntries;
+}
+
 std::vector<Rule> Category::GetSetOfRules()
 {
 	return this->setOfRules;

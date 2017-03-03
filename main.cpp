@@ -41,22 +41,21 @@ int main (void)
 	// Define categories and rules
 	std::vector<Category> setOfCategories;
 	Category gasoline("gasoline");
-	std::function<bool(BankAccountEntry)> shellInNameFunction=ShellInName;	
-	Rule shellInNameRule(shellInNameFunction,"Shell in name.");
-	gasoline.AddRule(shellInNameRule);
-	
-	// Add categories to 'setOfCategories'
-	setOfCategories.push_back(gasoline);
-	setOfCategories[0].PrintNameOfAllRules();
+	std::function<bool(BankAccountEntry)> shellInNameFunction=ShellInName;
+//	Rule shellInNameRule(shellInNameFunction,"Shell in name.");
+//	gasoline.AddRule(shellInNameRule);
 
-	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
-	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
-
-	// Post processing of categories.
-	// ...
-	setOfCategories[0].PrintSetOfBankAccountEntryIndices();
-
-	
+//	// Add categories to 'setOfCategories'
+//	setOfCategories.push_back(gasoline);
+//	//setOfCategories[0].PrintNameOfAllRules(); // TEST.
+//
+//	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
+//	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
+//
+//	// Post processing of categories.
+//	//setOfCategories[0].PrintSetOfBankAccountEntryIndices(); // TEST.
+//	//std::vector<BankAccountEntry*> setOfBankAccountEntries2=setOfCategories[0].GetSetOfBankAccountEntries(); // TEST.
+//	//setOfBankAccountEntries2[0]->printToConsole(); // TEST.
 	
 	std::cout<<"\n\nEnd of program.\n\n";
 	return 0;
