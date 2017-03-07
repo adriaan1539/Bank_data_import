@@ -1,4 +1,4 @@
 "Datum","Naam / Omschrijving","Rekening","Tegenrekening","Code","Af Bij","Bedrag (EUR)","MutatieSoort","Mededelingen"
 "20160103","MW JANE DOE","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Af","12,34","Internetbankieren","Mededeling_3"
-"20160102","MW JANE DOE","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Af","12,34","Internetbankieren","Mededeling_2"
+"20160102","ESSO","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Af","12,34","Internetbankieren","Mededeling_2"
 "20160101","SHELL","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Af","12,34","Internetbankieren","Mededeling_1"

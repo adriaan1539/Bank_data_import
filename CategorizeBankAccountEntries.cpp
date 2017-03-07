@@ -12,6 +12,8 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 	std::function<bool(BankAccountEntry)> ruleFunction;
 	int numberOfSuccesfullyProcessed=0;
 	int numberOfFailedToProcess=0;
+	unsigned int iCategory=0;
+	unsigned int iRule=0;
 
 	for (unsigned int iBankAccountEntry=0;iBankAccountEntry<setOfBankAccountEntries.size();iBankAccountEntry++)
 	{
@@ -21,11 +23,13 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 
 		bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
 
-		for (unsigned int iCategory=0;iCategory<setOfCategories.size();iCategory++)
+		iCategory=0; // Reset
+		while (compliantWithRule==false && iCategory<setOfCategories.size())
 		{
 			category=&setOfCategories[iCategory];
 			setOfRules=category->GetSetOfRules();
-			for (unsigned int iRule=0;iRule<setOfRules.size();iRule++)
+			iRule=0; // Reset
+			while (compliantWithRule==false && iRule<setOfRules.size())
 			{
 				rule=setOfRules[iRule];
 				ruleFunction=rule.ruleFunction;
@@ -33,8 +37,11 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 				if (compliantWithRule==true)
 				{
 					category->SetBankAccountEntry(bankAccountEntry);
+					bankAccountEntry->printToConsole();
 				}
+				iRule++;
 			}
+			iCategory++;
 		}
 
 		if (compliantWithRule==true)
