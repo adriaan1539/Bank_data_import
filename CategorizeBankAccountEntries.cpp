@@ -44,12 +44,12 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 			iCategory++;
 		}
 
-		if (compliantWithRule==true)
+		if (compliantWithRule)
 		{
 			numberOfSuccesfullyProcessed++;
 			std::cout<<"SUCCESS.\n";
 		}
-		else if (compliantWithRule==false)
+		else
 		{
 			numberOfFailedToProcess++;
 			std::cout<<"FAILED.\n";
