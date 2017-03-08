@@ -17,6 +17,11 @@ void Category::AddRule(Rule rule)
 	this->setOfRules.push_back(rule);
 }
 
+double Category::GetAmountTotal()
+{
+	return amountTotal;
+}
+
 std::string Category::GetNameCategory()
 {
 	return name;
@@ -56,4 +61,5 @@ void Category::PrintSetOfBankAccountEntryIndices()
 void Category::SetBankAccountEntry(BankAccountEntry* bankAccountEntry)
 {
 	setOfBankAccountEntries.push_back(bankAccountEntry);
+	amountTotal=amountTotal+bankAccountEntry->GetAmount();
 }

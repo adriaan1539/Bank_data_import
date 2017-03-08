@@ -29,6 +29,11 @@ BankAccountEntry::BankAccountEntry(	unsigned int year,
 	this->note=note;
 }
 
+double BankAccountEntry::GetAmount(void)
+{
+	return amount;
+}
+
 void BankAccountEntry::printToConsole(void)
 {
 	std::cout<<"year: "<<year<<"\n";

@@ -32,6 +32,7 @@ class BankAccountEntry
 							std::string sortOfMutation,
 							std::string note);
 
+		double GetAmount(void);
 		void printToConsole(void);
 		void printToFile(std::string);
 		void setIndexCategoryAndRule(	unsigned int iCategory,

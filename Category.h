@@ -9,6 +9,7 @@
 class Category
 {
 	private:
+		double							amountTotal=0.0;
 		std::string 					name;
 		std::vector<BankAccountEntry*> 	setOfBankAccountEntries;
 		std::vector<Rule> 				setOfRules;
@@ -17,13 +18,14 @@ class Category
 		Category();
 		Category(std::string nameCategory);
 		
-		void 							AddRule(Rule rule);
+		void 							AddRule(Rule);
+		double		 					GetAmountTotal();
 		std::string 					GetNameCategory();
 		int 							GetNumberOfRules();
 		std::vector<BankAccountEntry*> 	GetSetOfBankAccountEntries();
 		std::vector<Rule> 				GetSetOfRules();
 		void 							PrintNameOfAllRules();
 		void 							PrintSetOfBankAccountEntryIndices();
-		void 							SetBankAccountEntry(BankAccountEntry* bankAccountEntry);
+		void 							SetBankAccountEntry(BankAccountEntry*);
 };
 #endif

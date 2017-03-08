@@ -12,6 +12,7 @@
 #include <iostream>
 #include "ListOfFiles.h"
 #include <regex>
+#include "PieChartOfCategories.h"
 #include <string>
 #include "StringInName.h"
 #include <vector>
@@ -35,6 +36,7 @@ int main (void)
 //	setOfCategories[0].PrintSetOfBankAccountEntryIndices(); // TEST.
 //	std::vector<BankAccountEntry*> setOfBankAccountEntries2=setOfCategories[0].GetSetOfBankAccountEntries(); // TEST.
 //	setOfBankAccountEntries2[0]->printToConsole(); // TEST.
+	PieChartOfCategories(setOfCategories);
 
 	std::cout<<"\n\nEnd of program.\n\n";
 	return 0;
