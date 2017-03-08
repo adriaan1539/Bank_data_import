@@ -12,22 +12,8 @@
 #include "ListOfFiles.h"
 #include <regex>
 #include <string>
+#include "StringInName.h"
 #include <vector>
-
-bool StringInName(BankAccountEntry bankAccountEntry,std::string searchTerm)
-{
-	bool compliantWithRule=false;
-	std::string nameOrDescription=bankAccountEntry.nameOrDescription;
-	std::size_t found=nameOrDescription.find(searchTerm);
-
-	// The BankAccountEntry is compliant if the string is found
-	if (found!=std::string::npos)
-	{
-		compliantWithRule=true;
-	}
-
-	return compliantWithRule;
-}
 
 int main (void)
 {
@@ -42,7 +28,12 @@ int main (void)
 	std::vector<Category> setOfCategories;
 	Category gasoline("gasoline");
 
-	std::function<bool(BankAccountEntry)> benzineInNameFunction=[](BankAccountEntry bankAccountEntry){return StringInName(bankAccountEntry,"BENZINE");};Rule benzineInNameRule(benzineInNameFunction,"BENZINE in name.");gasoline.AddRule(benzineInNameRule);
+	std::vector<std::string> gasolineNames;
+
+	std::function<bool(BankAccountEntry)> benzineInNameFunction=[](BankAccountEntry bankAccountEntry){return StringInName(bankAccountEntry,"BENZINE");};
+	Rule benzineInNameRule(benzineInNameFunction,"BENZINE in name.");
+	gasoline.AddRule(benzineInNameRule);
+
 	std::function<bool(BankAccountEntry)> bpInNameFunction=[](BankAccountEntry bankAccountEntry){return StringInName(bankAccountEntry,"BP");};Rule bpInNameRule(bpInNameFunction,"BP in name.");gasoline.AddRule(bpInNameRule);
 	std::function<bool(BankAccountEntry)> brandstofInNameFunction=[](BankAccountEntry bankAccountEntry){return StringInName(bankAccountEntry,"BRANDSTOF");};Rule brandstofInNameRule(brandstofInNameFunction,"BRANDSTOF in name.");gasoline.AddRule(brandstofInNameRule);
 	std::function<bool(BankAccountEntry)> delfortInNameFunction=[](BankAccountEntry bankAccountEntry){return StringInName(bankAccountEntry,"DELFORT");};Rule delfortInNameRule(delfortInNameFunction,"DELFORT in name.");gasoline.AddRule(delfortInNameRule);
