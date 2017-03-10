@@ -1,0 +1,32 @@
+% Compile with the command <<lualatex -shell-escape filename>>.
+\documentclass[margin=1cm]{standalone}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+\pgfplotstableread[col sep=comma]{categoryAmounts.txt}\datatable
+\makeatletter
+\pgfplotsset
+{
+    /pgfplots/flexible xticklabels from table/.code n args={3}
+    {
+        \pgfplotstableread[#3]{#1}\coordinate@table
+        \pgfplotstablegetcolumn{#2}\of{\coordinate@table}\to\pgfplots@xticklabels
+        \let\pgfplots@xticklabel=\pgfplots@user@ticklabel@list@x
+    }
+}
+\makeatother
+
+\begin{document}
+	\begin{tikzpicture}
+		\begin{axis}
+		[
+			ybar,
+			flexible xticklabels from table={categoryAmounts.txt}{category}{col sep=comma},
+			xtick=data
+		]
+			\addplot table[x expr=\coordindex,y=amountTotal]{\datatable};
+
+		\end{axis}
+	\end{tikzpicture}
+\end{document}

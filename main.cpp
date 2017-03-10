@@ -12,7 +12,6 @@
 #include <iostream>
 #include "ListOfFiles.h"
 #include <regex>
-#include "PieChartOfCategories.h"
 #include <string>
 #include "StringInName.h"
 #include <vector>
@@ -36,7 +35,20 @@ int main (void)
 //	setOfCategories[0].PrintSetOfBankAccountEntryIndices(); // TEST.
 //	std::vector<BankAccountEntry*> setOfBankAccountEntries2=setOfCategories[0].GetSetOfBankAccountEntries(); // TEST.
 //	setOfBankAccountEntries2[0]->printToConsole(); // TEST.
-	PieChartOfCategories(setOfCategories);
+
+	std::ofstream outputFileStream;
+	std::string dirOutput="output";
+	std::string fileName=dirOutput.append("/bar_chart_category_vs_amounts/categoryAmounts.txt");
+	outputFileStream.open(fileName,std::ios::out);
+	outputFileStream<<"category,amountTotal\n";
+	for (unsigned int iCategory=0;iCategory<setOfCategories.size();iCategory++)
+	{
+		Category category=setOfCategories[iCategory];
+		std::string name=category.GetName();
+		double amountTotal=category.GetAmountTotal();
+		outputFileStream<<name<<","<<amountTotal<<"\n";
+	}
+	outputFileStream.close();
 
 	std::cout<<"\n\nEnd of program.\n\n";
 	return 0;

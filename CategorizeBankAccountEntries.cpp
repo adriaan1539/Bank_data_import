@@ -37,7 +37,6 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 				if (compliantWithRule==true)
 				{
 					category->SetBankAccountEntry(bankAccountEntry);
-//					bankAccountEntry->printToConsole();
 				}
 				iRule++;
 			}

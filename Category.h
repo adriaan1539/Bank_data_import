@@ -20,7 +20,7 @@ class Category
 		
 		void 							AddRule(Rule);
 		double		 					GetAmountTotal();
-		std::string 					GetNameCategory();
+		std::string 					GetName();
 		int 							GetNumberOfRules();
 		std::vector<BankAccountEntry*> 	GetSetOfBankAccountEntries();
 		std::vector<Rule> 				GetSetOfRules();

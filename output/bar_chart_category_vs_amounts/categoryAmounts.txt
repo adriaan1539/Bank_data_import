@@ -1,0 +1,2 @@
+category,amountTotal
+gasoline,-24.68

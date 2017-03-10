@@ -22,7 +22,7 @@ double Category::GetAmountTotal()
 	return amountTotal;
 }
 
-std::string Category::GetNameCategory()
+std::string Category::GetName()
 {
 	return name;
 }
