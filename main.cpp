@@ -6,6 +6,7 @@
 #include "boost/progress.hpp"
 #include "CategorizeBankAccountEntries.h"
 #include "Category.h"
+#include "ExportCategoriesVsAmounts.h"
 #include <fstream>
 #include "ImportBankAccountEntries.h"
 #include "ImportCategories.h"
@@ -31,24 +32,10 @@ int main (void)
 	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
 	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
 
-	// Post processing of categories.
-//	setOfCategories[0].PrintSetOfBankAccountEntryIndices(); // TEST.
-//	std::vector<BankAccountEntry*> setOfBankAccountEntries2=setOfCategories[0].GetSetOfBankAccountEntries(); // TEST.
-//	setOfBankAccountEntries2[0]->printToConsole(); // TEST.
-
-	std::ofstream outputFileStream;
+	// Save data for post processing.
 	std::string dirOutput="output";
 	std::string fileName=dirOutput.append("/bar_chart_category_vs_amounts/categoryAmounts.txt");
-	outputFileStream.open(fileName,std::ios::out);
-	outputFileStream<<"category,amountTotal\n";
-	for (unsigned int iCategory=0;iCategory<setOfCategories.size();iCategory++)
-	{
-		Category category=setOfCategories[iCategory];
-		std::string name=category.GetName();
-		double amountTotal=category.GetAmountTotal();
-		outputFileStream<<name<<","<<amountTotal<<"\n";
-	}
-	outputFileStream.close();
+	ExportCategoriesVsAmounts(setOfCategories,fileName);
 
 	std::cout<<"\n\nEnd of program.\n\n";
 	return 0;
