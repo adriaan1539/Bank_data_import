@@ -34,6 +34,26 @@ double BankAccountEntry::GetAmount(void)
 	return amount;
 }
 
+std::string BankAccountEntry::GetNameOrDescription(void)
+{
+	return nameOrDescription;
+}
+
+unsigned int BankAccountEntry::GetDay(void)
+{
+	return day;
+}
+
+unsigned int BankAccountEntry::GetMonth(void)
+{
+	return month;
+}
+
+unsigned int BankAccountEntry::GetYear(void)
+{
+	return year;
+}
+
 void BankAccountEntry::printToConsole(void)
 {
 	std::cout<<"year: "<<year<<"\n";

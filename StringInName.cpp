@@ -3,7 +3,7 @@
 bool StringInName(BankAccountEntry bankAccountEntry,std::string searchTerm)
 {
 	bool compliantWithRule=false;
-	std::string nameOrDescription=bankAccountEntry.nameOrDescription;
+	std::string nameOrDescription=bankAccountEntry.GetNameOrDescription();
 	std::size_t found=nameOrDescription.find(searchTerm);
 
 	// The BankAccountEntry is compliant if the string is found

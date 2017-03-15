@@ -6,18 +6,18 @@
 class BankAccountEntry
 {
 	private:
-		unsigned int year;
-		unsigned int month;
-		unsigned int day;
-		//std::string nameOrDescription;
-		std::string accountNumberConsidered;
-		std::string  accountNumberContra;
-		std::string code;
-		double amount;
-		std::string sortOfMutation;
-		std::string note;
-		unsigned int iCategory;
-		unsigned int iRule;
+		double 			amount;
+		std::string 	nameOrDescription;
+		std::string 	accountNumberConsidered;
+		std::string 	accountNumberContra;
+		std::string 	code;
+		std::string 	sortOfMutation;
+		std::string 	note;
+		unsigned int 	day;
+		unsigned int 	iCategory;
+		unsigned int 	iRule;
+		unsigned int 	month;
+		unsigned int 	year;
 	protected:
 	public:
 		BankAccountEntry();
@@ -32,12 +32,15 @@ class BankAccountEntry
 							std::string sortOfMutation,
 							std::string note);
 
-		double GetAmount(void);
-		void printToConsole(void);
-		void printToFile(std::string);
-		void setIndexCategoryAndRule(	unsigned int iCategory,
-										unsigned int iRule);
+		double 			GetAmount(void);
+		std::string 	GetNameOrDescription(void);
+		unsigned int 	GetDay(void);
+		unsigned int 	GetMonth(void);
+		unsigned int 	GetYear(void);
+		void 			printToConsole(void);
+		void 			printToFile(std::string);
+		void 			setIndexCategoryAndRule(	unsigned int iCategory,
+													unsigned int iRule);
 
-		std::string nameOrDescription;
 };
 #endif
