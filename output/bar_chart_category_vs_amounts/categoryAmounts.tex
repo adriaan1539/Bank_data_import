@@ -3,6 +3,7 @@
 
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
+\usepackage{shellesc}
 
 \pgfplotstableread[col sep=comma]{categoryAmounts.txt}\datatable
 \makeatletter
@@ -23,7 +24,8 @@
 		[
 			ybar,
 			flexible xticklabels from table={categoryAmounts.txt}{category}{col sep=comma},
-			xtick=data
+			xtick=data,
+			nodes near coords,
 		]
 			\addplot table[x expr=\coordindex,y=amountTotal]{\datatable};
 

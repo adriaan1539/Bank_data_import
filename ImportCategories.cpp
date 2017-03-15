@@ -4,6 +4,8 @@
 std::vector<Category> ImportCategories()
 {
 	std::vector<Category> setOfCategories;
+
+//	Gasoline.
 	Category gasoline("gasoline");
 	std::vector<std::string> gasolineNames={"BENZINE",
 											"BP",
@@ -30,9 +32,41 @@ std::vector<Category> ImportCategories()
 		Rule inNameRule(inNameFunction,gasolineName.append(" in name."));
 		gasoline.AddRule(inNameRule);
 	}
-
-	// Add categories to 'setOfCategories'
 	setOfCategories.push_back(gasoline);
+
+//	Mortgage.
+	Category mortgage("mortgage");
+	std::vector<std::string> mortgageNames={"AEGON"};
+
+	for (unsigned int iMortgageNames=0;iMortgageNames<mortgageNames.size();iMortgageNames++)
+	{
+		std::string mortgageName=mortgageNames[iMortgageNames];
+		std::function<bool(BankAccountEntry)> inNameFunction=[mortgageName](BankAccountEntry bankAccountEntry){return StringInName(bankAccountEntry,mortgageName);};
+		Rule inNameRule(inNameFunction,mortgageName.append(" in name."));
+		mortgage.AddRule(inNameRule);
+	}
+	setOfCategories.push_back(mortgage);
+
+//	Supermarket.
+	Category superMarket("supermarket");
+	std::vector<std::string> superMarketNames={	"ALBERT HEIJN",
+												"C1000",
+												"CASTELEIJN BROOD",
+												"COOP",
+												"DEN TOOM",
+												"EXTRAMARKT",
+												"HEIJDEN",
+												"JUMBO",
+												"LIDL"};
+
+	for (unsigned int iSuperMarketNames=0;iSuperMarketNames<superMarketNames.size();iSuperMarketNames++)
+	{
+		std::string superMarketName=superMarketNames[iSuperMarketNames];
+		std::function<bool(BankAccountEntry)> inNameFunction=[superMarketName](BankAccountEntry bankAccountEntry){return StringInName(bankAccountEntry,superMarketName);};
+		Rule inNameRule(inNameFunction,superMarketName.append(" in name."));
+		superMarket.AddRule(inNameRule);
+	}
+	setOfCategories.push_back(superMarket);
 
 	return setOfCategories;
 }

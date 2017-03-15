@@ -1,8 +1,8 @@
 #include "ExportCategoriesVsAmounts.h"
 #include <fstream>
 
-void ExportCategoriesVsAmounts(	std::vector<Category> setOfCategories,
-								std::string fileName)
+void ExportCategoriesVsAmounts(	std::vector<Category>& setOfCategories,
+								std::string& fileName)
 {
 	std::ofstream outputFileStream;
 	outputFileStream.open(fileName,std::ios::out);

@@ -5,8 +5,8 @@
 #include <string>
 #include <vector>
 
-void ExportCategoriesVsAmounts(	std::vector<Category>,
-								std::string);
+void ExportCategoriesVsAmounts(	std::vector<Category>&,
+								std::string&);
 
 #endif
 
