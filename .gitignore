@@ -2,3 +2,6 @@
 /.settings/
 .cproject
 .project
+*.aux
+*.log
+*.pdf
