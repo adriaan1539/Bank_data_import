@@ -32,6 +32,12 @@ int main (void)
 								2016,12,31};
 	FilterOnDateRange(setOfBankAccountEntries,dateRange);
 
+	for (unsigned int iBankAccountEntry=0;iBankAccountEntry<setOfBankAccountEntries.size();iBankAccountEntry++)
+	{
+		BankAccountEntry* bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
+		bankAccountEntry->printToConsole();
+	}
+
 	// Define categories and rules
 	std::vector<Category> setOfCategories=ImportCategories();
 

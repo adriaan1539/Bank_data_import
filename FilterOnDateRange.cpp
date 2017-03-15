@@ -9,8 +9,8 @@ void FilterOnDateRange(	std::vector<BankAccountEntry>& setOfBankAccountEntries,
 	unsigned int yearRangeEnd=dateRange[3];
 	unsigned int monthRangeEnd=dateRange[4];
 	unsigned int dayRangeEnd=dateRange[5];
-	std::vector<BankAccountEntry*> setOfBankAccountEntriesRange;
-	for (unsigned int iBankAccountEntry=0;iBankAccountEntry<setOfBankAccountEntries.size();iBankAccountEntry++)
+	unsigned int iBankAccountEntry=0;
+	while (iBankAccountEntry<setOfBankAccountEntries.size())
 	{
 		BankAccountEntry* bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
 		unsigned int year=bankAccountEntry->GetYear();
@@ -20,7 +20,11 @@ void FilterOnDateRange(	std::vector<BankAccountEntry>& setOfBankAccountEntries,
 			monthRangeStart<=month && month<=monthRangeEnd &&
 			dayRangeStart<=day && day<=dayRangeEnd)
 		{
-			setOfBankAccountEntriesRange.push_back(bankAccountEntry);
+			iBankAccountEntry++;
+		}
+		else
+		{
+			setOfBankAccountEntries.erase(setOfBankAccountEntries.begin()+iBankAccountEntry);
 		}
 	}
 }
