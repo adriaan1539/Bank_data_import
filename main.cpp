@@ -7,6 +7,7 @@
 #include "CategorizeBankAccountEntries.h"
 #include "Category.h"
 #include "ExportCategoriesVsAmounts.h"
+#include "FilterOnDateRange.h"
 #include <fstream>
 #include "ImportBankAccountEntries.h"
 #include "ImportCategories.h"
@@ -29,15 +30,7 @@ int main (void)
 	// Filter on given date ranges as given by the user. !!! SHOULD BE GIVEN AS INPUT TO THE MAIN FUNCTION LATER. !!!
 	std::vector<int> dateRange={2016,1,1,
 								2016,12,31};
-	for (unsigned int iBankAccountEntry=0;iBankAccountEntry<setOfBankAccountEntries.size();iBankAccountEntry++)
-	{
-		BankAccountEntry bankAccountEntry=setOfBankAccountEntries[iBankAccountEntry];
-//		int year=;
-	}
-
-
-
-
+	FilterOnDateRange(setOfBankAccountEntries,dateRange);
 
 	// Define categories and rules
 	std::vector<Category> setOfCategories=ImportCategories();
