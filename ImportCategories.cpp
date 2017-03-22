@@ -31,6 +31,11 @@ std::function<bool(BankAccountEntry, std::string)> stringInNameRuleFunction = []
 
 std::vector<Category> ImportCategories()
 {
+	std::vector<std::function<bool(BankAccountEntry, std::string)>> functions = {
+		stringInNameRuleFunction
+	};
+	std::vector<std::string> functionNames = {"in name"};
+
 	std::vector<Category> setOfCategories;
 
 //	Gasoline.
@@ -51,22 +56,18 @@ std::vector<Category> ImportCategories()
 											"TINQ",
 											"TOTAL",
 											"VAN T HART"}};
-	std::vector<std::function<bool(BankAccountEntry, std::string)>> functions = {
-		stringInNameRuleFunction
-	};
 
-	std::vector<std::string> functionNames = {"in name"};
 
 	Category gasoline = CreateCategory("gasoline", functions, functionNames, gasolineNames);
 	setOfCategories.push_back(gasoline);
 
 //	Mortgage.
-//	std::vector<std::string> mortgageNames={"AEGON"};
-//	Category mortgage = CreateNameCategory("mortgage", mortgageNames);
-//	setOfCategories.push_back(mortgage);
+	std::vector<std::vector<std::string>> mortgageNames={{"AEGON"}};
+	Category mortgage = CreateCategory("mortgage", functions, functionNames, mortgageNames);
+	setOfCategories.push_back(mortgage);
 
 //	Supermarket.
-/*	std::vector<std::string> superMarketNames={	"ALBERT HEIJN",
+	std::vector<std::vector<std::string>> superMarketNames={{"ALBERT HEIJN",
 												"C1000",
 												"CASTELEIJN BROOD",
 												"COOP",
@@ -74,8 +75,8 @@ std::vector<Category> ImportCategories()
 												"EXTRAMARKT",
 												"HEIJDEN",
 												"JUMBO",
-												"LIDL"};
-	Category supermarket = CreateNameCategory("supermarket", superMarketNames);
-	setOfCategories.push_back(supermarket);*/
+												"LIDL"}};
+	Category supermarket = CreateCategory("supermarket", functions, functionNames, superMarketNames);
+	setOfCategories.push_back(supermarket);
 	return setOfCategories;
 }
