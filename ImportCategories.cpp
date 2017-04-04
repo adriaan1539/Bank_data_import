@@ -32,19 +32,21 @@ Category CreateCategory(std::string categoryName,
 
 // Rule function: stringInName
 std::function<bool(BankAccountEntry, std::string)> stringInNameRuleFunction
-		= [](BankAccountEntry bankAccountEntry, std::string name) -> bool {	return StringInName(bankAccountEntry, name);};
+		= [](BankAccountEntry bankAccountEntry, std::string searchTerm) -> bool {	return StringInName(bankAccountEntry, searchTerm);};
 
-// Rule function: match bankAccountNumber
+// Rule function: stringInNote
+std::function<bool(BankAccountEntry, std::string)> stringInNoteRuleFunction
+		= [](BankAccountEntry bankAccountEntry, std::string searchTerm) -> bool {	return StringInNote(bankAccountEntry, searchTerm);};
 
 std::vector<Category> ImportCategories()
 {
-	std::vector<std::function<bool(BankAccountEntry, std::string)>> functions = {stringInNameRuleFunction};
-	std::vector<std::string> functionNames = {"in name"};
+	std::vector<std::function<bool(BankAccountEntry, std::string)>> functions = {stringInNameRuleFunction,stringInNoteRuleFunction};
+	std::vector<std::string> functionNames = {"in name or description","in note"};
 
 	std::vector<Category> setOfCategories;
 
 //	Gasoline.
-	std::vector<std::vector<std::string>> gasolineNames={{"BENZINE",
+	std::vector<std::string> gasolineNames={"BENZINE",
 											"BP",
 											"BRANDSTOF",
 											"DELFORT",
@@ -60,28 +62,28 @@ std::vector<Category> ImportCategories()
 											"TEXACO",
 											"TINQ",
 											"TOTAL",
-											"VAN T HART"}};
+											"VAN T HART"};
+	std::vector<std::vector<std::string>> gasolineArgs={gasolineNames,gasolineNames};
 
-
-	Category gasoline = CreateCategory("gasoline", functions, functionNames, gasolineNames);
+	Category gasoline = CreateCategory("gasoline", functions, functionNames, gasolineArgs);
 	setOfCategories.push_back(gasoline);
 
-//	Mortgage.
-	std::vector<std::vector<std::string>> mortgageNames={{"AEGON"}};
-	Category mortgage = CreateCategory("mortgage", functions, functionNames, mortgageNames);
-	setOfCategories.push_back(mortgage);
-
-//	Supermarket.
-	std::vector<std::vector<std::string>> superMarketNames={{"ALBERT HEIJN",
-												"C1000",
-												"CASTELEIJN BROOD",
-												"COOP",
-												"DEN TOOM",
-												"EXTRAMARKT",
-												"HEIJDEN",
-												"JUMBO",
-												"LIDL"}};
-	Category supermarket = CreateCategory("supermarket", functions, functionNames, superMarketNames);
-	setOfCategories.push_back(supermarket);
+////	Mortgage.
+//	std::vector<std::vector<std::string>> mortgageNames={{"AEGON"}};
+//	Category mortgage = CreateCategory("mortgage", functions, functionNames, mortgageNames);
+//	setOfCategories.push_back(mortgage);
+//
+////	Supermarket.
+//	std::vector<std::vector<std::string>> superMarketNames={{"ALBERT HEIJN",
+//												"C1000",
+//												"CASTELEIJN BROOD",
+//												"COOP",
+//												"DEN TOOM",
+//												"EXTRAMARKT",
+//												"HEIJDEN",
+//												"JUMBO",
+//												"LIDL"}};
+//	Category supermarket = CreateCategory("supermarket", functions, functionNames, superMarketNames);
+//	setOfCategories.push_back(supermarket);
 	return setOfCategories;
 }
