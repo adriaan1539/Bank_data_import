@@ -1,7 +1,11 @@
 #include "ImportCategories.h"
 #include "StringInName.h"
 
-void AddRulesToCategory(std::string ruleName, std::function<bool(BankAccountEntry, std::string)> ruleFunction, std::vector<std::string> args, Category& category){
+void AddRulesToCategory(std::string ruleName,
+						std::function<bool(BankAccountEntry, std::string)> ruleFunction,
+						std::vector<std::string> args,
+						Category& category)
+{
 	for (unsigned int i=0; i<args.size(); i++)
 	{
 		std::string arg=args[i];
@@ -11,7 +15,11 @@ void AddRulesToCategory(std::string ruleName, std::function<bool(BankAccountEntr
 	}
 }
 
-Category CreateCategory(std::string categoryName, std::vector<std::function<bool(BankAccountEntry, std::string)>> ruleFunctions, std::vector<std::string> setOfRuleNames, std::vector<std::vector<std::string>> setOfRuleArgs){
+Category CreateCategory(std::string categoryName,
+						std::vector<std::function<bool(BankAccountEntry, std::string)>> ruleFunctions,
+						std::vector<std::string> setOfRuleNames,
+						std::vector<std::vector<std::string>> setOfRuleArgs)
+{
 	Category category(categoryName);
 	for (unsigned int i=0; i<ruleFunctions.size(); i++)
 	{
@@ -23,17 +31,14 @@ Category CreateCategory(std::string categoryName, std::vector<std::function<bool
 }
 
 // Rule function: stringInName
-std::function<bool(BankAccountEntry, std::string)> stringInNameRuleFunction = [](BankAccountEntry bankAccountEntry, std::string name) -> bool {
-	return StringInName(bankAccountEntry, name);
-};
+std::function<bool(BankAccountEntry, std::string)> stringInNameRuleFunction
+		= [](BankAccountEntry bankAccountEntry, std::string name) -> bool {	return StringInName(bankAccountEntry, name);};
 
 // Rule function: match bankAccountNumber
 
 std::vector<Category> ImportCategories()
 {
-	std::vector<std::function<bool(BankAccountEntry, std::string)>> functions = {
-		stringInNameRuleFunction
-	};
+	std::vector<std::function<bool(BankAccountEntry, std::string)>> functions = {stringInNameRuleFunction};
 	std::vector<std::string> functionNames = {"in name"};
 
 	std::vector<Category> setOfCategories;
