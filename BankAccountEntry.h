@@ -34,6 +34,7 @@ class BankAccountEntry
 
 		double 			GetAmount(void);
 		std::string 	GetNameOrDescription(void);
+		std::string 	GetNote(void);
 		unsigned int 	GetDay(void);
 		unsigned int 	GetMonth(void);
 		unsigned int 	GetYear(void);

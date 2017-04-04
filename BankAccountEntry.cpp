@@ -39,6 +39,11 @@ std::string BankAccountEntry::GetNameOrDescription(void)
 	return nameOrDescription;
 }
 
+std::string BankAccountEntry::GetNote(void)
+{
+	return note;
+}
+
 unsigned int BankAccountEntry::GetDay(void)
 {
 	return day;

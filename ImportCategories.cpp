@@ -1,5 +1,5 @@
 #include "ImportCategories.h"
-#include "StringInName.h"
+#include "BankAccountEntryStringFunctions.h"
 
 void AddRulesToCategory(std::string ruleName,
 						std::function<bool(BankAccountEntry, std::string)> ruleFunction,

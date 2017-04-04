@@ -1,6 +1,7 @@
 #include "BankAccountEntry.h"
 #include "BankAccountEntryFormat.h"
 #include "BankAccountEntryParser.h"
+#include "BankAccountEntryStringFunctions.h"
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
 #include "boost/progress.hpp"
@@ -15,7 +16,6 @@
 #include "ListOfFiles.h"
 #include <regex>
 #include <string>
-#include "StringInName.h"
 #include <vector>
 
 int main (void)
@@ -28,15 +28,15 @@ int main (void)
 	std::vector<BankAccountEntry> setOfBankAccountEntries=ImportBankAccountEntries(listOfInputFiles);
 
 	// Filter on given date ranges as given by the user. !!! SHOULD BE GIVEN AS INPUT TO THE MAIN FUNCTION LATER. !!!
-	std::vector<int> dateRange={2016,1,1,
-								2016,12,31};
-	FilterOnDateRange(setOfBankAccountEntries,dateRange);
+//	std::vector<int> dateRange={2016,1,1,
+//								2016,12,31};
+//	FilterOnDateRange(setOfBankAccountEntries,dateRange);
 
-	for (unsigned int iBankAccountEntry=0;iBankAccountEntry<setOfBankAccountEntries.size();iBankAccountEntry++)
-	{
-		BankAccountEntry* bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
-		bankAccountEntry->printToConsole();
-	}
+//	for (unsigned int iBankAccountEntry=0;iBankAccountEntry<setOfBankAccountEntries.size();iBankAccountEntry++)
+//	{
+//		BankAccountEntry* bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
+//		bankAccountEntry->printToConsole();
+//	}
 
 	// Define categories and rules
 	std::vector<Category> setOfCategories=ImportCategories();
