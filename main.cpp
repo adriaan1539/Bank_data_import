@@ -7,6 +7,7 @@
 #include "boost/progress.hpp"
 #include "CategorizeBankAccountEntries.h"
 #include "Category.h"
+#include "ExportBankAccountEntries.h"
 #include "ExportCategoriesVsAmounts.h"
 #include "FilterOnDateRange.h"
 #include <fstream>
@@ -47,7 +48,8 @@ int main (void)
 	// Save data for post processing.
 	std::string dirOutput="output";
 	std::string fileName=dirOutput.append("/bar_chart_category_vs_amounts/categoryAmounts.txt");
-	ExportCategoriesVsAmounts(setOfCategories,fileName);
+	ExportBankAccountEntries(setOfBankAccountEntries,fileName);
+	//ExportCategoriesVsAmounts(setOfCategories,fileName);
 
 	std::cout<<"\n\nEnd of program.\n\n";
 	return 0;

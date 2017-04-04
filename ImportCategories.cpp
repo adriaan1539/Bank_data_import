@@ -65,7 +65,10 @@ std::vector<Category> ImportCategories()
 											"VAN T HART"};
 	std::vector<std::vector<std::string>> gasolineArgs={gasolineNames,gasolineNames};
 
-	Category gasoline = CreateCategory("gasoline", functions, functionNames, gasolineArgs);
+	Category gasoline = CreateCategory(	"gasoline",
+										functions,
+										functionNames,
+										gasolineArgs);
 	setOfCategories.push_back(gasoline);
 
 ////	Mortgage.
