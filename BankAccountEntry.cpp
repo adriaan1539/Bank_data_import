@@ -1,6 +1,7 @@
 #include "BankAccountEntry.h"
 #include <fstream>
 #include <iostream>
+#include "minicsv.h"
 
 BankAccountEntry::BankAccountEntry()
 {
@@ -97,4 +98,22 @@ void BankAccountEntry::setIndexCategoryAndRule(	unsigned int iCategory,
 {
 	this->iCategory=iCategory;
 	this->iRule=iRule;
+}
+
+std::string BankAccountEntry::ToCSV(void) {
+	mini::csv::ostringstream os;
+	os.set_delimiter(',', "\\,");
+
+	os << this->year
+			<< this->month
+			<< this->day
+			<< this->nameOrDescription
+			<< this->accountNumberConsidered
+			<< this->accountNumberContra
+			<< this->code
+			<< this->amount
+			<< this->sortOfMutation
+			<< this->note;
+
+	return os.get_text();
 }

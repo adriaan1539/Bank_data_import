@@ -42,6 +42,6 @@ class BankAccountEntry
 		void 			printToFile(std::string);
 		void 			setIndexCategoryAndRule(	unsigned int iCategory,
 													unsigned int iRule);
-
+		std::string		ToCSV(void);
 };
 #endif
