@@ -10,7 +10,6 @@
 #include "Category.h"
 #include "ExportBankAccountEntries.h"
 #include "ExportCategoriesVsAmounts.h"
-#include "FilterOnDateRange.h"
 #include <fstream>
 #include "ImportBankAccountEntries.h"
 #include "ImportCategories.h"
@@ -29,17 +28,6 @@ int main (void)
 	// Extract the data per file and save it in vectors
 	std::vector<BankAccountEntry> setOfBankAccountEntries=ImportBankAccountEntries(listOfInputFiles);
 
-	// Filter on given date ranges as given by the user. !!! SHOULD BE GIVEN AS INPUT TO THE MAIN FUNCTION LATER. !!!
-//	std::vector<int> dateRange={2016,1,1,
-//								2016,12,31};
-//	FilterOnDateRange(setOfBankAccountEntries,dateRange);
-
-//	for (unsigned int iBankAccountEntry=0;iBankAccountEntry<setOfBankAccountEntries.size();iBankAccountEntry++)
-//	{
-//		BankAccountEntry* bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
-//		bankAccountEntry->printToConsole();
-//	}
-
 	// Define categories and rules
 	std::vector<Category> setOfCategories=ImportCategories();
 
@@ -52,8 +40,8 @@ int main (void)
 	ExportBankAccountEntries(setOfBankAccountEntries,fileName);
 	//ExportCategoriesVsAmounts(setOfCategories,fileName);
 
+	// Export the bank account data to a CSV file.
 	std::string OUTPUT_FILE = "output/out.csv";
-
 	std::cout << "Exporting to " << OUTPUT_FILE << std::endl;
 	ExportBankAccountEntries(setOfBankAccountEntries, OUTPUT_FILE);
 
