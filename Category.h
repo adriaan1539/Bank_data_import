@@ -6,6 +6,9 @@
 #include <string>
 #include <vector>
 
+class BankAccountEntry; // Forward declaration.
+class Rule; // Forward declaration.
+
 class Category
 {
 	private:

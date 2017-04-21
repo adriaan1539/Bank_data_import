@@ -45,6 +45,25 @@ std::string BankAccountEntry::GetNote(void)
 	return note;
 }
 
+std::string BankAccountEntry::ToCSV(void)
+{
+	mini::csv::ostringstream os;
+	os.set_delimiter(',', "\\,");
+
+	os << this->year
+			<< this->month
+			<< this->day
+			<< this->nameOrDescription
+			<< this->accountNumberConsidered
+			<< this->accountNumberContra
+			<< this->code
+			<< this->amount
+			<< this->sortOfMutation
+			<< this->note;
+
+	return os.get_text();
+}
+
 unsigned int BankAccountEntry::GetDay(void)
 {
 	return day;
@@ -60,7 +79,7 @@ unsigned int BankAccountEntry::GetYear(void)
 	return year;
 }
 
-void BankAccountEntry::printToConsole(void)
+void BankAccountEntry::PrintToConsole(void)
 {
 	std::cout<<"year: "<<year<<"\n";
 	std::cout<<"month: "<<month<<"\n";
@@ -74,7 +93,7 @@ void BankAccountEntry::printToConsole(void)
 	std::cout<<"note: "<<note<<"\n\n";
 }
 
-void BankAccountEntry::printToFile(std::string fileName)
+void BankAccountEntry::PrintToFile(std::string fileName)
 {
 	std::ofstream outputFileStream;
 	outputFileStream.open(fileName,std::ios::app);
@@ -93,27 +112,9 @@ void BankAccountEntry::printToFile(std::string fileName)
 	outputFileStream.close();
 }
 
-void BankAccountEntry::setIndexCategoryAndRule(	unsigned int iCategory,
-												unsigned int iRule)
+void BankAccountEntry::SetIndexCategoryAndRule(	Category* category,
+												Rule* rule)
 {
-	this->iCategory=iCategory;
-	this->iRule=iRule;
-}
-
-std::string BankAccountEntry::ToCSV(void) {
-	mini::csv::ostringstream os;
-	os.set_delimiter(',', "\\,");
-
-	os << this->year
-			<< this->month
-			<< this->day
-			<< this->nameOrDescription
-			<< this->accountNumberConsidered
-			<< this->accountNumberContra
-			<< this->code
-			<< this->amount
-			<< this->sortOfMutation
-			<< this->note;
-
-	return os.get_text();
+	this->category=category;
+	this->rule=rule;
 }

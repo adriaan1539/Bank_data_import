@@ -2,9 +2,13 @@
 #define RULE_H
 
 #include "BankAccountEntry.h"
+#include "Category.h"
 #include <functional>
 #include <string>
 #include <vector>
+
+class BankAccountEntry; // Forward declaration.
+class Category; // Forward declaration.
 
 class Rule
 {
