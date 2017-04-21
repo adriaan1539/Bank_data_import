@@ -2,6 +2,7 @@
 #include "BankAccountEntryFormat.h"
 #include "BankAccountEntryParser.h"
 #include "BankAccountEntryStringFunctions.h"
+#include "ExportBankAccountEntries.h"
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
 #include "boost/progress.hpp"
@@ -51,6 +52,11 @@ int main (void)
 	ExportBankAccountEntries(setOfBankAccountEntries,fileName);
 	//ExportCategoriesVsAmounts(setOfCategories,fileName);
 
-	std::cout<<"\n\nEnd of program.\n\n";
+	std::string OUTPUT_FILE = "output/out.csv";
+
+	std::cout << "Exporting to " << OUTPUT_FILE << std::endl;
+	ExportBankAccountEntries(setOfBankAccountEntries, OUTPUT_FILE);
+
+	std::cout << "\n\nEnd of program." << std::endl;
 	return 0;
 }
