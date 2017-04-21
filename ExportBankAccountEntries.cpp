@@ -1,10 +1,14 @@
 #include "ExportBankAccountEntries.h"
+#include <fstream>
 
-void ExportBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccountEntries,
-								std::string& fileName)
+void ExportBankAccountEntries(std::vector<BankAccountEntry>& setOfBankAccountEntries,
+							  std::string& fileName)
 {
-	for (unsigned int iBankAccountEntry=0;iBankAccountEntry<setOfBankAccountEntries.size();iBankAccountEntry++)
+	std::ofstream output;
+	output.open(fileName, std::ofstream::out | std::ofstream::trunc);
+
+	for (unsigned int i=0; i < setOfBankAccountEntries.size(); i++)
 	{
-		// Write bank account entry data to CSV file.
+		output << setOfBankAccountEntries[i].ToCSV() << "\n";
 	}
 }
