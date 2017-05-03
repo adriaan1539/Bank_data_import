@@ -9,7 +9,7 @@
 #include "CategorizeBankAccountEntries.h"
 #include "Category.h"
 #include "ExportBankAccountEntries.h"
-#include "ExportCategoriesVsAmounts.h"
+#include "ExportCategories.h"
 #include <fstream>
 #include "ImportBankAccountEntries.h"
 #include "ImportCategories.h"
@@ -18,6 +18,7 @@
 #include <regex>
 #include <string>
 #include <vector>
+#include <map>
 
 int main (void)
 {
@@ -35,15 +36,20 @@ int main (void)
 	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
 
 	// Save data for post processing.
-	std::string dirOutput="output";
-	std::string fileName=dirOutput.append("/bar_chart_category_vs_amounts/categoryAmounts.txt");
+	std::string OUTPUT_DIR="output";
+	std::string fileName=OUTPUT_DIR + "/bar_chart_category_vs_amounts/categoryAmounts.txt";
 	ExportBankAccountEntries(setOfBankAccountEntries,fileName);
 	//ExportCategoriesVsAmounts(setOfCategories,fileName);
 
 	// Export the bank account data to a CSV file.
-	std::string OUTPUT_FILE = "output/out.csv";
+	std::map<std::string, std::vector<int>> categories;
+	std::string OUTPUT_FILE = OUTPUT_DIR + "/bankAccountEntries.csv";
 	std::cout << "Exporting to " << OUTPUT_FILE << std::endl;
-	ExportBankAccountEntries(setOfBankAccountEntries, OUTPUT_FILE);
+	categories = ExportBankAccountEntries(setOfBankAccountEntries, OUTPUT_FILE);
+
+	// Export the categories + bank accounts
+	std::string CATEGORY_OUTPUT_FILE = OUTPUT_DIR + "/categories.csv";
+	ExportCategories(categories, CATEGORY_OUTPUT_FILE);
 
 	std::cout << "\n\nEnd of program." << std::endl;
 	return 0;

@@ -122,3 +122,7 @@ void BankAccountEntry::SetCategoryAndRuleName(std::string category, std::string 
 	this->categoryName = category;
 	this->ruleName = rule;
 }
+
+std::string BankAccountEntry::GetCategoryName(void) {
+	return this->categoryName;
+}

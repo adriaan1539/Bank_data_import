@@ -4,8 +4,9 @@
 #include "BankAccountEntry.h"
 #include <string>
 #include <vector>
+#include <map>
 
-void ExportBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccountEntries,
+std::map<std::string, std::vector<int>> ExportBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccountEntries,
 								std::string& fileName);
 #endif
 
