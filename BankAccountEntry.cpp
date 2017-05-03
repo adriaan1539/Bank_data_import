@@ -28,6 +28,8 @@ BankAccountEntry::BankAccountEntry(	unsigned int year,
 	this->amount=amount;
 	this->sortOfMutation=sortOfMutation;
 	this->note=note;
+	this->categoryName = "";
+	this->ruleName = "";
 }
 
 double BankAccountEntry::GetAmount(void)
@@ -59,7 +61,9 @@ std::string BankAccountEntry::ToCSV(void)
 			<< this->code
 			<< this->amount
 			<< this->sortOfMutation
-			<< this->note;
+			<< this->note
+			<< this->categoryName
+			<< this->ruleName;
 
 	return os.get_text();
 }
@@ -112,9 +116,8 @@ void BankAccountEntry::PrintToFile(std::string fileName)
 	outputFileStream.close();
 }
 
-void BankAccountEntry::SetIndexCategoryAndRule(	Category* category,
-												Rule* rule)
+void BankAccountEntry::SetCategoryAndRuleName(std::string category, std::string rule)
 {
-	this->category=category;
-	this->rule=rule;
+	this->categoryName = category;
+	this->ruleName = rule;
 }
