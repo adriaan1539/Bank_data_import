@@ -1,7 +1,6 @@
 #ifndef BANKACCOUNTENTRY_H
 #define BANKACCOUNTENTRY_H
 
-#include "Rule.h"
 #include <string>
 
 class BankAccountEntry
