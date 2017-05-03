@@ -1,33 +1,17 @@
-print ("Hello World!")
-
 import csv
+from BankAccountEntry import BankAccountEntry
 
-class Complex:
-    def __init__(self, realpart, imagpart):
-        self.r = realpart
-        self.i = imagpart
+with open('setOfCategories.csv',newline='') as cSVFile:
+    setOfCategoriesList=csv.reader(cSVFile,delimiter=',')
+    setOfCategories=[]
+    for row in setOfCategoriesList:
+        category=Category(*row)
+        setOfCategories.append(category)
 
-x = Complex(3.0,-4.5)
-print(x.r)
-print(x.i)
+with open('setOfBankAccountEntries.csv',newline='') as cSVFile:
+    setOfBankAccountEntriesList=csv.reader(cSVFile,delimiter=',')
+    setOfBankAccountEntries=[]
+    for row in setOfBankAccountEntriesList:
+        bankAccountEntry=BankAccountEntry(*row)
+        setOfBankAccountEntries.append(bankAccountEntry)
 
-class BankAccountEntry:
-    def __init__(self,
-                 category,
-                 amount,
-                 rule,
-                 nameOrDescription,
-                 accountNumberConsidered,
-                 accountNumberContra,
-                 code,
-                 sortOfMutation,
-                 note,
-                 day,
-                 month,
-                 year):
-        self.category=category
-
-with open('eggs.csv',newline='') as cSVFile:
-    spamreader = csv.reader(cSVFile, delimiter=',')
-    for row in spamreader:
-        print(', '.join(row))
