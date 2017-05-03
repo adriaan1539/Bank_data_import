@@ -9,6 +9,6 @@ void ExportBankAccountEntries(std::vector<BankAccountEntry>& setOfBankAccountEnt
 
 	for (unsigned int i=0; i < setOfBankAccountEntries.size(); i++)
 	{
-		output << setOfBankAccountEntries[i].ToCSV() << "\n";
+		output << setOfBankAccountEntries[i].ToCSV(i) << "\n";
 	}
 }
