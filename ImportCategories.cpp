@@ -10,7 +10,7 @@ void AddRulesToCategory(std::string ruleName,
 	{
 		std::string arg=args[i];
 		std::function<bool(BankAccountEntry)> localFunction=[arg,ruleFunction](BankAccountEntry bankAccountEntry){return ruleFunction(bankAccountEntry, arg);};
-		Rule rule(localFunction, arg.append(" found."));
+		Rule rule(localFunction, ruleName);
 		category.AddRule(rule);
 	}
 }

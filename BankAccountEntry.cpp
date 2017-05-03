@@ -47,12 +47,13 @@ std::string BankAccountEntry::GetNote(void)
 	return note;
 }
 
-std::string BankAccountEntry::ToCSV(void)
+std::string BankAccountEntry::ToCSV(int index)
 {
 	mini::csv::ostringstream os;
 	os.set_delimiter(',', "\\,");
 
-	os << this->year
+	os << index
+			<< this->year
 			<< this->month
 			<< this->day
 			<< this->nameOrDescription
@@ -120,4 +121,8 @@ void BankAccountEntry::SetCategoryAndRuleName(std::string category, std::string 
 {
 	this->categoryName = category;
 	this->ruleName = rule;
+}
+
+std::string BankAccountEntry::GetCategoryName(void) {
+	return this->categoryName;
 }

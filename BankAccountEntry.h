@@ -35,7 +35,8 @@ class BankAccountEntry
 		double 			GetAmount(void);
 		std::string 	GetNameOrDescription(void);
 		std::string 	GetNote(void);
-		std::string		ToCSV(void);
+		std::string		ToCSV(int index);
+		std::string		GetCategoryName(void);
 		unsigned int 	GetDay(void);
 		unsigned int 	GetMonth(void);
 		unsigned int 	GetYear(void);
