@@ -1,19 +1,15 @@
 #ifndef BANKACCOUNTENTRY_H
 #define BANKACCOUNTENTRY_H
 
-#include "Category.h"
 #include "Rule.h"
 #include <string>
-
-class Category; // Forward declaration.
-class Rule; // Forward declaration.
 
 class BankAccountEntry
 {
 	private:
-		Category*		category;
+		std::string		categoryName;
+		std::string		ruleName;
 		double 			amount;
-		Rule* 			rule;
 		std::string 	nameOrDescription;
 		std::string 	accountNumberConsidered;
 		std::string 	accountNumberContra;
@@ -46,7 +42,6 @@ class BankAccountEntry
 		unsigned int 	GetYear(void);
 		void 			PrintToConsole(void);
 		void 			PrintToFile(std::string);
-		void 			SetIndexCategoryAndRule(	Category* category,
-													Rule* rule);
+		void 			SetCategoryAndRuleName(std::string category, std::string rule);
 };
 #endif
