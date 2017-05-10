@@ -4,7 +4,6 @@
 void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccountEntries,
 									std::vector<Category>& setOfCategories)
 {
-	bool compliantWithRule;
 	BankAccountEntry* bankAccountEntry;
 	Category* category;
 	std::vector<Rule> setOfRules;
@@ -19,32 +18,33 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 	{
 		std::cout<<"Processing bank entry "<<iBankAccountEntry<<" of "<<setOfBankAccountEntries.size()<<". ";
 
-		compliantWithRule=false; // Reset per instance of BankAccountEntry.
-
 		bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
+		int matches = 0;
 
 		iCategory=0; // Reset
-		while (compliantWithRule==false && iCategory<setOfCategories.size())
+		while (iCategory<setOfCategories.size())
 		{
 			category=&setOfCategories[iCategory];
 			setOfRules=category->GetSetOfRules();
 			iRule=0; // Reset
-			while (compliantWithRule==false && iRule<setOfRules.size())
+			while (iRule<setOfRules.size())
 			{
 				rule=setOfRules[iRule];
 				ruleFunction=rule.ruleFunction;
-				compliantWithRule=ruleFunction(*bankAccountEntry);
+				bool compliantWithRule = ruleFunction(*bankAccountEntry);
 				if (compliantWithRule==true)
 				{
-					category->SetBankAccountEntry(bankAccountEntry);
-					bankAccountEntry->SetCategoryAndRuleName(category->GetName(),rule.GetNameRule());
+					category->AddBankAccountEntry(bankAccountEntry);
+					bankAccountEntry->AddCategoryAndRuleName(category->GetName(),rule.GetNameRule());
+					matches++;
+					break; // exit rule while loop
 				}
 				iRule++;
 			}
 			iCategory++;
 		}
 
-		if (compliantWithRule)
+		if (matches > 0)
 		{
 			numberOfSuccesfullyProcessed++;
 			std::cout<<"SUCCESS.\n";

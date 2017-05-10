@@ -29,6 +29,6 @@ class Category
 		std::vector<Rule> 				GetSetOfRules();
 		void 							PrintNameOfAllRules();
 		void 							PrintSetOfBankAccountEntryIndices();
-		void 							SetBankAccountEntry(BankAccountEntry*);
+		void 							AddBankAccountEntry(BankAccountEntry*);
 };
 #endif
