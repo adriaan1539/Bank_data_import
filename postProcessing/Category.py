@@ -1,9 +1,11 @@
 class Category:
     def __init__(self,
-                 category,
-                 bankAccountEntryIndices):
-        self.category=category
-        self.bankAccountEntryIndices=bankAccountEntryIndices
+                 name,
+                 bankAccountEntryIndices,
+                 amount):
+        self.name = name
+        self.bankAccountEntryIndices = bankAccountEntryIndices
+        self.amount = amount
 
     def GetBankAccountEntryIndices(self):
         return self.bankAccountEntryIndices

@@ -3,5 +3,9 @@
 .cproject
 .project
 *.aux
+*.csv
 *.log
 *.pdf
+*.txt
+.idea*
+__pycache__*
