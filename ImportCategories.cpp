@@ -71,6 +71,12 @@ std::vector<Category> ImportCategories()
 										gasolineArgs);
 	setOfCategories.push_back(gasoline);
 
+	// Special TANGO category (testing)
+	std::vector<std::string> tangoNames={"TANGO"};
+	std::vector<std::vector<std::string>> tangoArgs={tangoNames, tangoNames};
+	Category tango = CreateCategory("TANGOO",functions, functionNames, tangoArgs);
+	setOfCategories.push_back(tango);
+
 ////	Mortgage.
 //	std::vector<std::vector<std::string>> mortgageNames={{"AEGON"}};
 //	Category mortgage = CreateCategory("mortgage", functions, functionNames, mortgageNames);
