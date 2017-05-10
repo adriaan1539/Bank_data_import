@@ -9,7 +9,7 @@ void ExportCategories(std::map<std::string, std::vector<int>> categories, std::s
 	 if(os.is_open())
 	 {
 		 for(auto const& category : categories) {
-			 os << category.first << JoinVector(category.second, ";");
+			 os << category.first << JoinVector(category.second, ";") << NEWLINE;
 		 }
 	 }
 	 os.flush();
