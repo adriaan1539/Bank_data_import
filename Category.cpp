@@ -58,7 +58,7 @@ void Category::PrintSetOfBankAccountEntryIndices()
 	}
 }
 
-void Category::SetBankAccountEntry(BankAccountEntry* bankAccountEntry)
+void Category::AddBankAccountEntry(BankAccountEntry* bankAccountEntry)
 {
 	setOfBankAccountEntries.push_back(bankAccountEntry);
 	amountTotal=amountTotal+bankAccountEntry->GetAmount();

@@ -2,12 +2,14 @@
 #define BANKACCOUNTENTRY_H
 
 #include <string>
+#include <vector>
 
 class BankAccountEntry
 {
 	private:
-		std::string		categoryName;
-		std::string		ruleName;
+		std::vector<std::string> categories;
+		std::vector<std::string> rules;
+
 		double 			amount;
 		std::string 	nameOrDescription;
 		std::string 	accountNumberConsidered;
@@ -36,12 +38,13 @@ class BankAccountEntry
 		std::string 	GetNameOrDescription(void);
 		std::string 	GetNote(void);
 		std::string		ToCSV(int index);
-		std::string		GetCategoryName(void);
+		std::string		GetCategoryNames(void);
+		std::string		GetRuleNames(void);
 		unsigned int 	GetDay(void);
 		unsigned int 	GetMonth(void);
 		unsigned int 	GetYear(void);
 		void 			PrintToConsole(void);
 		void 			PrintToFile(std::string);
-		void 			SetCategoryAndRuleName(std::string category, std::string rule);
+		void 			AddCategoryAndRuleName(std::string category, std::string rule);
 };
 #endif

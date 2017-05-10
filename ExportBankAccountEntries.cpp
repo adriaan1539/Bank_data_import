@@ -14,7 +14,7 @@ std::map<std::string, std::vector<int>> ExportBankAccountEntries(std::vector<Ban
 		BankAccountEntry bae = setOfBankAccountEntries[i];
 		output << bae.ToCSV(i) << "\n";
 
-		std::string category = bae.GetCategoryName();
+		std::string category = bae.GetCategoryNames();
 		if(category != "") {
 			if(categories.find(category) == categories.end()) {
 				categories.insert(std::pair<std::string, std::vector<int>>(category, std::vector<int> {i}));

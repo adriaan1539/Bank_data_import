@@ -36,8 +36,8 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 				compliantWithRule=ruleFunction(*bankAccountEntry);
 				if (compliantWithRule==true)
 				{
-					category->SetBankAccountEntry(bankAccountEntry);
-					bankAccountEntry->SetCategoryAndRuleName(category->GetName(),rule.GetNameRule());
+					category->AddBankAccountEntry(bankAccountEntry);
+					bankAccountEntry->AddCategoryAndRuleName(category->GetName(),rule.GetNameRule());
 				}
 				iRule++;
 			}

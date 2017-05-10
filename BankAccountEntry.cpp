@@ -1,4 +1,5 @@
 #include "BankAccountEntry.h"
+#include "JoinVectorToString.h"
 #include <fstream>
 #include <iostream>
 #include "minicsv.h"
@@ -28,8 +29,6 @@ BankAccountEntry::BankAccountEntry(	unsigned int year,
 	this->amount=amount;
 	this->sortOfMutation=sortOfMutation;
 	this->note=note;
-	this->categoryName = "";
-	this->ruleName = "";
 }
 
 double BankAccountEntry::GetAmount(void)
@@ -63,8 +62,8 @@ std::string BankAccountEntry::ToCSV(int index)
 			<< this->amount
 			<< this->sortOfMutation
 			<< this->note
-			<< this->categoryName
-			<< this->ruleName;
+			<< this->GetCategoryNames()
+			<< this->GetRuleNames();
 
 	return os.get_text();
 }
@@ -117,12 +116,18 @@ void BankAccountEntry::PrintToFile(std::string fileName)
 	outputFileStream.close();
 }
 
-void BankAccountEntry::SetCategoryAndRuleName(std::string category, std::string rule)
+void BankAccountEntry::AddCategoryAndRuleName(std::string category, std::string rule)
 {
-	this->categoryName = category;
-	this->ruleName = rule;
+	this->categories.push_back(category);
+	this->rules.push_back(rule);
 }
 
-std::string BankAccountEntry::GetCategoryName(void) {
-	return this->categoryName;
+std::string BankAccountEntry::GetCategoryNames(void) {
+	return JoinVector(this->categories, ";");
 }
+
+std::string BankAccountEntry::GetRuleNames(void) {
+	return JoinVector(this->rules, ";");
+}
+
+
