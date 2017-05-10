@@ -46,5 +46,7 @@ class BankAccountEntry
 		void 			PrintToConsole(void);
 		void 			PrintToFile(std::string);
 		void 			AddCategoryAndRuleName(std::string category, std::string rule);
+
+		std::vector<std::string> GetCategories(void);
 };
 #endif

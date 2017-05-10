@@ -126,6 +126,10 @@ std::string BankAccountEntry::GetCategoryNames(void) {
 	return JoinVector(this->categories, ";");
 }
 
+std::vector<std::string> BankAccountEntry::GetCategories() {
+	return this->categories;
+}
+
 std::string BankAccountEntry::GetRuleNames(void) {
 	return JoinVector(this->rules, ";");
 }
