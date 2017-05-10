@@ -1,6 +1,8 @@
-import csv
 from BankAccountEntry import BankAccountEntry
 from Category import Category
+
+import csv
+import matplotlib.pyplot as plt
 
 # Import bank account entries from external csv file.
 with open('setOfBankAccountEntries.csv', newline='') as cSVFile:
@@ -26,34 +28,27 @@ with open('setOfCategories.csv', newline='') as cSVFile:
                             categoryAmount)
         setOfCategories.append(category)
 
-# Plot
-# for iCategory in range(len(setOfCategories)):
+# Plot.
+x = []
+xTicks = []
+for iCategory in range(len(setOfCategories)):
+    category = setOfCategories[iCategory]
+    x.append(categoryAmount)
+    xTicks.append(categoryName)
+
+print(x)
+print(xTicks)
 
 # Histogram of categories vs amounts.
 # x = numpy.array(numberOfStepsBatch).astype(numpy.int)
-# fig,ax=plt.subplots()
+fig,ax=plt.subplots()
+ax.hist(x,normed=False)
 # ax.hist(x,
 #         bins=numpy.arange(min(x)[0]-0.5,max(x)[0]+1+0.5,1),
 #         normed=1,
 #         edgecolor='black')
-# ax.set_xticks(range(min(x)[0],max(x)[0]+1))
-# plt.xticks(rotation=70)
-# plt.title("Normalized distribution of the number of necessary steps in the pick and sort process")
-# plt.xlabel("number of steps")
-# plt.ylabel("normalized share in distribution")
-# ax.text(1,
-#         1,
-#         "$N_{batch}=$"+str(x.size)+
-#         "\n$N_{kits}=$"+str(int(numberOfKitsBatch[0][0]))+
-#         "\n$N_{plies}=$"+str(int(numberOfPliesBatch[0][0]))+
-#         "\n$N_{plies\_in\_kit\_lower\_bound}=$"+str(int(numberOfPliesInKitLowerBoundBatch[0][0]))+
-#         "\n$N_{plies\_in\_kit\_upper\_bound}=$"+str(int(numberOfPliesInKitUpperBoundBatch[0][0]))+
-#         "\n$\mu=$"+str('{0:.2f}'.format(numpy.mean(x)))+"="+str('{0:.2f}'.format(numpy.mean(x)/int(numberOfPliesBatch[0][0])))+"$\cdot N_{plies}$"+
-#         "\n$\sigma=$"+str('{0:.2f}'.format(numpy.std(x)))+"="+str('{0:.2f}'.format(numpy.std(x)/int(numberOfPliesBatch[0][0])))+"$\cdot N_{plies}$"+
-#         "\n$m=$"+str('{0:.2f}'.format(numpy.median(x)))+"="+str('{0:.2f}'.format(numpy.median(x)/int(numberOfPliesBatch[0][0])))+"$\cdot N_{plies}$",
-#         verticalalignment='top',
-#         horizontalalignment='right',
-#         multialignment='right',
-#         transform=ax.transAxes)
+plt.xticks(x, xTicks , rotation=70)
+plt.xlabel("category")
+plt.ylabel("expense")
 # fig.set_size_inches(2*16/2.54,2*9/2.54)
-#plt.show()
+plt.show()
