@@ -24,16 +24,16 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 		bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
 
 		iCategory=0; // Reset
-		while (compliantWithRule==false && iCategory<setOfCategories.size())
+		while (iCategory<setOfCategories.size())
 		{
 			category=&setOfCategories[iCategory];
 			setOfRules=category->GetSetOfRules();
 			iRule=0; // Reset
-			while (compliantWithRule==false && iRule<setOfRules.size())
+			while (iRule<setOfRules.size())
 			{
 				rule=setOfRules[iRule];
 				ruleFunction=rule.ruleFunction;
-				compliantWithRule=ruleFunction(*bankAccountEntry);
+				compliantWithRule = compliantWithRule || ruleFunction(*bankAccountEntry);
 				if (compliantWithRule==true)
 				{
 					category->AddBankAccountEntry(bankAccountEntry);
