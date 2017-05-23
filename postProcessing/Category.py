@@ -3,9 +3,15 @@ class Category:
                  name,
                  bankAccountEntryIndices,
                  amount):
-        self.name = name
-        self.bankAccountEntryIndices = bankAccountEntryIndices
-        self.amount = amount
+        self.__amount = amount
+        self.__bankAccountEntryIndices = bankAccountEntryIndices
+        self.__name = name
+
+    def GetAmount(self):
+        return self.__amount
 
     def GetBankAccountEntryIndices(self):
-        return self.bankAccountEntryIndices
+        return self.__bankAccountEntryIndices
+
+    def GetName(self):
+        return self.__name
