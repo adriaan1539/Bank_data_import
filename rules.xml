@@ -1,4 +1,4 @@
-<rules>
+<rules name="Default rules">
 	<rule>
 		<name>Gasoline</name>
 		<functions>
