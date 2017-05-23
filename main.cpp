@@ -16,6 +16,7 @@
 #include <iostream>
 #include "ListOfFiles.h"
 #include <regex>
+#include "RuleConfigurationParser.h"
 #include <string>
 #include <vector>
 #include <map>
@@ -25,6 +26,10 @@ int main (void)
 	// List files we will import to extract data from. We should make this an input argument of the program later
 	std::string dirInput="input";
 	std::vector<std::string> listOfInputFiles=ListOfFiles(dirInput);
+
+	std::string configurationFile = "rules.xml";
+	RuleConfigurationParser ruleConfiguration;
+	ruleConfiguration.LoadRulesFromFile(configurationFile);
 
 	// Extract the data per file and save it in vectors
 	std::vector<BankAccountEntry> setOfBankAccountEntries=ImportBankAccountEntries(listOfInputFiles);
