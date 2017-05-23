@@ -4,7 +4,7 @@
 	</categories>
 	<rules name="Default rules">
 		<rule>
-			<category>Gasoline</Gasoline>
+			<category>Gasoline</category>
 			<functions>
 				<function>
 					<name>StringInName</name>

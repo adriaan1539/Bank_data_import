@@ -29,7 +29,7 @@ int main (void)
 
 	std::string configurationFile = "config.xml";
 	ConfigurationParser ruleConfiguration;
-	ruleConfiguration.LoadRulesFromFile(configurationFile);
+	ruleConfiguration.LoadConfigurationFromFile(configurationFile);
 
 	// Extract the data per file and save it in vectors
 	std::vector<BankAccountEntry> setOfBankAccountEntries=ImportBankAccountEntries(listOfInputFiles);
