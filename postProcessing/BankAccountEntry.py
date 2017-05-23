@@ -12,18 +12,18 @@ class BankAccountEntry:
                  note,
                  category,
                  rule):
-        self.year = int(year)
-        self.month = int(month)
-        self.day = int(day)
-        self.nameOrDescription = nameOrDescription
-        self.accountNumberConsidered = accountNumberConsidered
-        self.accountNumberContra = accountNumberContra
-        self.code = code
-        self.amount = float(amount)
-        self.sortOfMutation = sortOfMutation
-        self.note = note
-        self.category = category
-        self.rule = rule
+        self.__year = int(year)
+        self.__month = int(month)
+        self.__day = int(day)
+        self.__nameOrDescription = nameOrDescription
+        self.__accountNumberConsidered = accountNumberConsidered
+        self.__accountNumberContra = accountNumberContra
+        self.__code = code
+        self.__amount = float(amount)
+        self.__sortOfMutation = sortOfMutation
+        self.__note = note
+        self.__category = category
+        self.__rule = rule
 
     def GetAmount(self):
-        return self.amount
+        return self.__amount
