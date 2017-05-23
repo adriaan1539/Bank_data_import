@@ -1,0 +1,55 @@
+<rules>
+	<rule>
+		<name>Gasoline</name>
+		<functions>
+			<function>
+				<name>StringInName</name>
+				<description>In name</description>				
+				<values>
+					<value>BENZINE</value>
+					<value>BP</value>
+					<value>BRANDSTOF</value>
+					<value>DELFORT</value>
+					<value>EASY ENERGYMETAALHOF</value>
+					<value>ESSO</value>
+					<value>GABRIELS 48 ESSEN</value>
+					<value>GULF</value>
+					<value>SCHIPPER</value>
+					<value>SHELL</value>
+					<value>TAMOIL</value>
+					<value>TANGO</value>
+					<value>TANK</value>
+					<value>TEXACO</value>
+					<value>TINQ</value>
+					<value>TOTAL</value>
+					<value>VAN T HART</value>
+				</values>
+				<datafield>nameOrDescription</datafield>
+			</function>
+			<function>
+				<name>StringInNote</name>
+				<description>In note</description>				
+				<values>
+					<value>BENZINE</value>
+					<value>BP</value>
+					<value>BRANDSTOF</value>
+					<value>DELFORT</value>
+					<value>EASY ENERGYMETAALHOF</value>
+					<value>ESSO</value>
+					<value>GABRIELS 48 ESSEN</value>
+					<value>GULF</value>
+					<value>SCHIPPER</value>
+					<value>SHELL</value>
+					<value>TAMOIL</value>
+					<value>TANGO</value>
+					<value>TANK</value>
+					<value>TEXACO</value>
+					<value>TINQ</value>
+					<value>TOTAL</value>
+					<value>VAN T HART</value>
+				</values>
+				<datafield>note</datafield>
+			</function>
+		</functions>
+	</rule>
+</rules>
