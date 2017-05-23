@@ -8,6 +8,7 @@
 #ifndef CONFIGURATIONPARSER_H_
 #define CONFIGURATIONPARSER_H_
 
+#include "Category.h"
 #include "Rule.h"
 #include "pugixml.hpp"
 #include <vector>
@@ -15,13 +16,17 @@
 class ConfigurationParser
 {
 	private:
-		std::vector<Rule> 	rules;
-		pugi::xml_document	configurationFile;
+		std::vector<Rule> 		rules;
+		std::vector<Category> 	categories;
+		pugi::xml_document		configurationFile;
+
+		void 		LoadRules();
+		void		LoadCategories();
 
 	public:
 		ConfigurationParser();
 
-		void 		LoadRulesFromFile(std::string filename);
+		void 		LoadConfigurationFromFile(std::string filename);
 
 };
 
