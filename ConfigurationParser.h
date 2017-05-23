@@ -5,24 +5,24 @@
  *      Author: terry.seidler
  */
 
-#ifndef RULECONFIGURATIONPARSER_H_
-#define RULECONFIGURATIONPARSER_H_
+#ifndef CONFIGURATIONPARSER_H_
+#define CONFIGURATIONPARSER_H_
 
 #include "Rule.h"
 #include "pugixml.hpp"
 #include <vector>
 
-class RuleConfigurationParser
+class ConfigurationParser
 {
 	private:
 		std::vector<Rule> 	rules;
 		pugi::xml_document	configurationFile;
 
 	public:
-		RuleConfigurationParser();
+		ConfigurationParser();
 
 		void 		LoadRulesFromFile(std::string filename);
 
 };
 
-#endif /* RULECONFIGURATIONPARSER_H_ */
+#endif /* CONFIGURATIONPARSER_H_ */

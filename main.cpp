@@ -16,7 +16,7 @@
 #include <iostream>
 #include "ListOfFiles.h"
 #include <regex>
-#include "RuleConfigurationParser.h"
+#include "ConfigurationParser.h"
 #include <string>
 #include <vector>
 #include <map>
@@ -27,8 +27,8 @@ int main (void)
 	std::string dirInput="input";
 	std::vector<std::string> listOfInputFiles=ListOfFiles(dirInput);
 
-	std::string configurationFile = "rules.xml";
-	RuleConfigurationParser ruleConfiguration;
+	std::string configurationFile = "config.xml";
+	ConfigurationParser ruleConfiguration;
 	ruleConfiguration.LoadRulesFromFile(configurationFile);
 
 	// Extract the data per file and save it in vectors
