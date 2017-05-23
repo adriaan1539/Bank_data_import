@@ -4,8 +4,10 @@
 .project
 *.aux
 *.csv
+*.eps
 *.log
 *.pdf
+*.tikz
 *.txt
 .idea*
 __pycache__*

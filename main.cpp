@@ -41,9 +41,9 @@ int main (void)
 	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
 
 	// Save data for post processing.
-	std::string OUTPUT_DIR="output";
-	std::string fileName=OUTPUT_DIR + "/bar_chart_category_vs_amounts/categoryAmounts.txt";
-	ExportBankAccountEntries(setOfBankAccountEntries,fileName);
+	std::string OUTPUT_DIR="postProcessing/output";
+//	std::string fileName=OUTPUT_DIR + "/bar_chart_category_vs_amounts/categoryAmounts.txt";
+//	ExportBankAccountEntries(setOfBankAccountEntries,fileName);
 	//ExportCategoriesVsAmounts(setOfCategories,fileName);
 
 	// Export the bank account data to a CSV file.
