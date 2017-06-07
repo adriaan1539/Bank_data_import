@@ -1,13 +1,9 @@
 <config>
 	<categories>
-		<category>Gasoline</category>
-	</categories>
-	<rules name="Default rules">
-		<rule>
-			<category>Gasoline</category>
-			<functions>
-				<function>
-					<name>StringInName</name>
+		<category name="gasoline">
+			<rules>
+				<rule>
+					<function>StringInName</function>
 					<description>In name</description>
 					<values>
 						<value>BENZINE</value>
@@ -29,9 +25,9 @@
 						<value>VAN T HART</value>
 					</values>
 					<datafield>nameOrDescription</datafield>
-				</function>
-				<function>
-					<name>StringInNote</name>
+				</rule>
+				<rule>
+					<function>StringInNote</function>
 					<description>In note</description>
 					<values>
 						<value>BENZINE</value>
@@ -53,8 +49,8 @@
 						<value>VAN T HART</value>
 					</values>
 					<datafield>note</datafield>
-				</function>
-			</functions>
-		</rule>
-	</rules>
+				</rule>
+			</rules>
+		</category>
+	</categories>
 </config>
