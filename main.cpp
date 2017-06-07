@@ -12,7 +12,6 @@
 #include "ExportCategories.h"
 #include <fstream>
 #include "ImportBankAccountEntries.h"
-#include "ImportCategories.h"
 #include <iostream>
 #include "ListOfFiles.h"
 #include <regex>
@@ -35,7 +34,7 @@ int main (void)
 	std::vector<BankAccountEntry> setOfBankAccountEntries=ImportBankAccountEntries(listOfInputFiles);
 
 	// Define categories and rules
-	std::vector<Category> setOfCategories=ImportCategories();
+	std::vector<Category> setOfCategories =ruleConfiguration.GetCategories();
 
 	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
 	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
