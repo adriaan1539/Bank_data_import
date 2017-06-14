@@ -40,16 +40,11 @@ int main (void)
 	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
 	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
 
-	// Save data for post processing.
-	std::string OUTPUT_DIR="postProcessing/output";
-//	std::string fileName=OUTPUT_DIR + "/bar_chart_category_vs_amounts/categoryAmounts.txt";
-//	ExportBankAccountEntries(setOfBankAccountEntries,fileName);
-	//ExportCategoriesVsAmounts(setOfCategories,fileName);
-
 	// Export the bank account data to a CSV file.
-	std::map<std::string, std::vector<int>> categories;
+	std::string OUTPUT_DIR="postProcessing/output";
 	std::string OUTPUT_FILE = OUTPUT_DIR + "/bankAccountEntries.csv";
 	std::cout << "Exporting to " << OUTPUT_FILE << std::endl;
+	std::map<std::string, std::vector<int>> categories;
 	categories = ExportBankAccountEntries(setOfBankAccountEntries, OUTPUT_FILE);
 
 	// Export the categories + bank accounts

@@ -56,6 +56,6 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 		}
 	}
 
-	std::cout<<"Processed "<<numberOfSuccesfullyProcessed<<" out of "<<setOfBankAccountEntries.size()<<" succesfully.\n";
+	std::cout<<"Processed "<<numberOfSuccesfullyProcessed<<" out of "<<setOfBankAccountEntries.size()<<" successfully.\n";
 	std::cout<<"Processing "<<numberOfFailedToProcess<<" out of "<<setOfBankAccountEntries.size()<<" failed.\n";
 }
