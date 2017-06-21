@@ -1,4 +1,4 @@
-#include "BankAccountEntryStringFunctions.h"
+#include "BankAccountEntryFilterFunctions.h"
 #include "ConfigurationParser.h"
 #include <iostream>
 
