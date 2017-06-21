@@ -11,22 +11,25 @@
 #include "Category.h"
 #include "Rule.h"
 #include "pugixml.hpp"
+#include <map>
 #include <vector>
 
 class ConfigurationParser
 {
 	private:
-		std::vector<Rule> 		rules;
-		std::vector<Category> 	categories;
-		pugi::xml_document		configurationFile;
+		std::vector<Rule> 					rules;
+		std::map<std::string, Category> 	categories;
+		pugi::xml_document					configurationFile;
 
-		void 		LoadRules();
+		void 		AddRuleToCategory(pugi::xml_node&, Category&);
 		void		LoadCategories();
+		void		MakeSureCategoryExists(std::string);
 
 	public:
 		ConfigurationParser();
 
-		void 		LoadConfigurationFromFile(std::string filename);
+		void 					LoadConfigurationFromFile(std::string);
+		std::vector<Category> 	GetCategories();
 
 };
 
