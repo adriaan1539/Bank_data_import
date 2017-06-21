@@ -1,8 +1,18 @@
 #include "BankAccountEntryStringFunctions.h"
 
-bool AccountNumberConsideredEqualTo(BankAccountEntry,std::string)
+bool AccountNumberConsideredEqualTo(BankAccountEntry bankAccountEntry,
+									std::string searchTerm)
 {
 	bool compliantWithRule=false;
+	std::string accountNumberConsidered=bankAccountEntry.GetAccountNumberConsidered();
+	std::size_t found=accountNumberConsidered.find(searchTerm);
+
+	// The BankAccountEntry is compliant if the string is found.
+	if (found!=std::string::npos)
+	{
+		compliantWithRule=true;
+	}
+
 	return compliantWithRule;
 }
 

@@ -15,7 +15,7 @@ std::map<std::string, std::vector<int>> ExportBankAccountEntries(std::vector<Ban
 		output << bae.ToCSV(i) << "\n";
 
 		std::vector<std::string> categoryNames = bae.GetCategories();
-		for(int ci=0; ci<categoryNames.size(); ci++) {
+		for(unsigned int ci=0; ci<categoryNames.size(); ci++) {
 			std::string category = categoryNames[ci];
 			if(category != "") {
 				if(categories.find(category) == categories.end()) {

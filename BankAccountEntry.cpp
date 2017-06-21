@@ -36,6 +36,26 @@ double BankAccountEntry::GetAmount(void)
 	return amount;
 }
 
+std::string	BankAccountEntry::GetAccountNumberConsidered(void)
+{
+	return accountNumberConsidered;
+}
+
+std::string	BankAccountEntry::GetAccountNumberContra(void)
+{
+	return accountNumberContra;
+}
+
+std::string BankAccountEntry::GetCategoryNames(void)
+{
+	return JoinVector(this->categories, ";");
+}
+
+std::string	BankAccountEntry::GetCode(void)
+{
+	return code;
+}
+
 std::string BankAccountEntry::GetNameOrDescription(void)
 {
 	return nameOrDescription;
@@ -44,6 +64,16 @@ std::string BankAccountEntry::GetNameOrDescription(void)
 std::string BankAccountEntry::GetNote(void)
 {
 	return note;
+}
+
+std::string BankAccountEntry::GetRuleNames(void)
+{
+	return JoinVector(this->rules, ";");
+}
+
+std::string	BankAccountEntry::GetSortOfMutation(void)
+{
+	return code;
 }
 
 std::string BankAccountEntry::ToCSV(int index)
@@ -66,6 +96,11 @@ std::string BankAccountEntry::ToCSV(int index)
 			<< this->GetRuleNames();
 
 	return os.get_text();
+}
+
+std::vector<std::string> BankAccountEntry::GetCategories()
+{
+	return this->categories;
 }
 
 unsigned int BankAccountEntry::GetDay(void)
@@ -121,17 +156,3 @@ void BankAccountEntry::AddCategoryAndRuleName(std::string category, std::string 
 	this->categories.push_back(category);
 	this->rules.push_back(rule);
 }
-
-std::string BankAccountEntry::GetCategoryNames(void) {
-	return JoinVector(this->categories, ";");
-}
-
-std::vector<std::string> BankAccountEntry::GetCategories() {
-	return this->categories;
-}
-
-std::string BankAccountEntry::GetRuleNames(void) {
-	return JoinVector(this->rules, ";");
-}
-
-

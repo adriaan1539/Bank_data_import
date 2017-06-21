@@ -6,20 +6,19 @@
 
 class BankAccountEntry
 {
-	private:
-		std::vector<std::string> categories;
-		std::vector<std::string> rules;
-
-		double 			amount;
-		std::string 	nameOrDescription;
-		std::string 	accountNumberConsidered;
-		std::string 	accountNumberContra;
-		std::string 	code;
-		std::string 	sortOfMutation;
-		std::string 	note;
-		unsigned int 	day;
-		unsigned int 	month;
-		unsigned int 	year;
+private:
+		double 						amount;
+		std::string 				nameOrDescription;
+		std::string 				accountNumberConsidered;
+		std::string 				accountNumberContra;
+		std::string 				code;
+		std::string 				sortOfMutation;
+		std::string 				note;
+		std::vector<std::string> 	categories;
+		std::vector<std::string> 	rules;
+		unsigned int 				day;
+		unsigned int 				month;
+		unsigned int 				year;
 	protected:
 	public:
 		BankAccountEntry();
@@ -34,19 +33,22 @@ class BankAccountEntry
 							std::string sortOfMutation,
 							std::string note);
 
-		double 			GetAmount(void);
-		std::string 	GetNameOrDescription(void);
-		std::string 	GetNote(void);
-		std::string		ToCSV(int index);
-		std::string		GetCategoryNames(void);
-		std::string		GetRuleNames(void);
-		unsigned int 	GetDay(void);
-		unsigned int 	GetMonth(void);
-		unsigned int 	GetYear(void);
-		void 			PrintToConsole(void);
-		void 			PrintToFile(std::string);
-		void 			AddCategoryAndRuleName(std::string category, std::string rule);
-
-		std::vector<std::string> GetCategories(void);
+		double 						GetAmount(void);
+		std::string					GetAccountNumberConsidered(void);
+		std::string					GetAccountNumberContra(void);
+		std::string					GetCategoryNames(void);
+		std::string					GetCode(void);
+		std::string 				GetNameOrDescription(void);
+		std::string 				GetNote(void);
+		std::string					GetRuleNames(void);
+		std::string					GetSortOfMutation(void);
+		std::string					ToCSV(int index);
+		std::vector<std::string> 	GetCategories(void);
+		unsigned int 				GetDay(void);
+		unsigned int 				GetMonth(void);
+		unsigned int 				GetYear(void);
+		void 						PrintToConsole(void);
+		void 						PrintToFile(std::string);
+		void 						AddCategoryAndRuleName(std::string category, std::string rule);
 };
 #endif
