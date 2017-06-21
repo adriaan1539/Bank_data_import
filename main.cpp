@@ -1,7 +1,6 @@
 #include "BankAccountEntry.h"
 #include "BankAccountEntryFormat.h"
 #include "BankAccountEntryParser.h"
-#include "BankAccountEntryStringFunctions.h"
 #include "ExportBankAccountEntries.h"
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
