@@ -66,7 +66,7 @@ void ConfigurationParser::AddRuleToCategory(pugi::xml_node &ruleNode, Category &
 	std::cout << ":::: Loading rule " << functionName << std::endl;
 
 	for(pugi::xml_node functionArg: ruleNode.child("values").children()) {
-		std::string arg=functionArg.value();
+		std::string arg=functionArg.child_value();
 		std::function<bool(BankAccountEntry)> localFunction=[arg,ruleFunction](BankAccountEntry bankAccountEntry){return ruleFunction(bankAccountEntry, arg);};
 		Rule rule(localFunction, functionName);
 		category.AddRule(rule);
