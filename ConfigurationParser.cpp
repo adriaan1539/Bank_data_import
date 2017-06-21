@@ -32,7 +32,7 @@ void ConfigurationParser::LoadConfigurationFromFile(std::string filename) {
 		this->LoadCategories();
 		std::cout << "done! " << this->categories.size() << " categories loaded." << std::endl;
 	} else {
-		std::cout << "!! ERROR loading ategories" << std::endl;
+		std::cout << "!! ERROR loading categories" << std::endl;
 	}
 }
 
