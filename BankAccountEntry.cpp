@@ -79,7 +79,7 @@ std::string	BankAccountEntry::GetSortOfMutation(void)
 std::string BankAccountEntry::ToCSV(int index)
 {
 	mini::csv::ostringstream os;
-	os.set_delimiter(',', "\\,");
+	os.set_delimiter(',', ".");
 
 	os << index
 			<< this->year

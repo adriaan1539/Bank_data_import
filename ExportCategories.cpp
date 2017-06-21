@@ -5,7 +5,7 @@
 
 void ExportCategories(std::map<std::string, std::vector<int>> categories, std::string fileName) {
 	 mini::csv::ofstream os(fileName);
-	 os.set_delimiter(',', "\\,");
+	 os.set_delimiter(',', ".");
 	 if(os.is_open())
 	 {
 		 for(auto const& category : categories) {
