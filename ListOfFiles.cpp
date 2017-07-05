@@ -20,7 +20,7 @@ std::vector<std::string> ListOfFiles (std::string dirName)
 	std::vector<std::string> names;
 	for(auto& entry:list())
 	{
-		if (!is_directory(entry.path()))
+		if (!is_directory(entry.path())) // Run only if entry is not a directory.
 		{
 			names.push_back(entry.path().string());
 		}
