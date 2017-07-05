@@ -2,15 +2,15 @@
 #include "ExportBankAccountEntries.h"
 #include "CategorizeBankAccountEntries.h"
 #include "Category.h"
+#include "ConfigurationParser.h"
 #include "ExportBankAccountEntries.h"
 #include "ExportCategories.h"
 #include "ImportBankAccountEntries.h"
 #include <iostream>
 #include "ListOfFiles.h"
-#include "ConfigurationParser.h"
+#include <map>
 #include <string>
 #include <vector>
-#include <map>
 
 const std::string INPUT_DIR="input";
 const std::string CONFIGURATION_FILE = "config.xml";
@@ -36,11 +36,12 @@ int main (void)
 	// Define categories and rules
 	std::vector<Category> setOfCategories =ruleConfiguration.GetCategories();
 
-	// Categorize data using the predefined rules. Check every bank entry object on the rules until you find a hit.
+	// Categorize data using the predefined rules.
+	std::cout<<"\nCategorize bank account entries.\n";
 	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
 
 	// Export the bank account data to a CSV file.
-	std::cout << "Exporting to " << OUTPUT_FILE << std::endl;
+	std::cout << "\nExporting bank account entries to " << OUTPUT_FILE << std::endl;
 	std::map<std::string, std::vector<int>> categories;
 	categories = ExportBankAccountEntries(setOfBankAccountEntries, OUTPUT_FILE);
 

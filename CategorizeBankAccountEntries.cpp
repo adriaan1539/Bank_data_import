@@ -16,8 +16,6 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 
 	for (unsigned int iBankAccountEntry=0;iBankAccountEntry<setOfBankAccountEntries.size();iBankAccountEntry++)
 	{
-//		std::cout<<"Processing bank entry "<<iBankAccountEntry<<" of "<<setOfBankAccountEntries.size()<<". ";
-
 		bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
 		int matches = 0;
 
