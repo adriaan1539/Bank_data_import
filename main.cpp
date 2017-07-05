@@ -17,6 +17,7 @@ const std::string CONFIGURATION_FILE = "config.xml";
 const std::string OUTPUT_DIR="postProcessing/output";
 const std::string OUTPUT_FILE = OUTPUT_DIR + "/bankAccountEntries.csv";
 const std::string CATEGORY_OUTPUT_FILE = OUTPUT_DIR + "/categories.csv";
+const char* POST_PROCESSOR = "cd postProcessing && python3 Main.py && cd ..";
 
 int main (void)
 {
@@ -41,12 +42,17 @@ int main (void)
 	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
 
 	// Export the bank account data to a CSV file.
-	std::cout << "\nExporting bank account entries to " << OUTPUT_FILE << std::endl;
+	std::cout << "\nExporting bank account entries to " << OUTPUT_FILE << ".\n	";
 	std::map<std::string, std::vector<int>> categories;
 	categories = ExportBankAccountEntries(setOfBankAccountEntries, OUTPUT_FILE);
 
 	// Export the categories + bank accounts
+	std::cout<<"\nExporting categories to "<<CATEGORY_OUTPUT_FILE<<".\n\n";
 	ExportCategories(categories, CATEGORY_OUTPUT_FILE);
+
+	// Run post processor.
+	std::cout<<"\nRunning post processor.\n\n=";
+	system(POST_PROCESSOR);
 
 	std::cout << "\n\nEnd of program." << std::endl;
 	return 0;
