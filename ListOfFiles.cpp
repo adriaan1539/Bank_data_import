@@ -29,7 +29,7 @@ std::vector<std::string> ListOfFiles (std::string dirName)
 	// Print the entries of the vector of strings 'names'.
     for (unsigned int indexNames=0;indexNames<names.size();indexNames++)
     {
-		std::cout<<names[indexNames]<<"\n";
+		std::cout<<"    "<<names[indexNames]<<"\n";
 	}
 
     return names;

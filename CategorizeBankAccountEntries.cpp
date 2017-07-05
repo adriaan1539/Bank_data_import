@@ -16,7 +16,7 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 
 	for (unsigned int iBankAccountEntry=0;iBankAccountEntry<setOfBankAccountEntries.size();iBankAccountEntry++)
 	{
-		std::cout<<"Processing bank entry "<<iBankAccountEntry<<" of "<<setOfBankAccountEntries.size()<<". ";
+//		std::cout<<"Processing bank entry "<<iBankAccountEntry<<" of "<<setOfBankAccountEntries.size()<<". ";
 
 		bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
 		int matches = 0;
@@ -47,15 +47,13 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 		if (matches > 0)
 		{
 			numberOfSuccesfullyProcessed++;
-			std::cout<<"SUCCESS.\n";
+			std::cout<<"\rWe have "<<numberOfSuccesfullyProcessed<<" successes and "<<numberOfFailedToProcess<<" failures out of "<<setOfBankAccountEntries.size()<<".";
 		}
 		else
 		{
 			numberOfFailedToProcess++;
-			std::cout<<"FAILED.\n";
+			std::cout<<"\rWe have "<<numberOfSuccesfullyProcessed<<" successes and "<<numberOfFailedToProcess<<" failures out of "<<setOfBankAccountEntries.size()<<".";
 		}
 	}
-
-	std::cout<<"Processed "<<numberOfSuccesfullyProcessed<<" out of "<<setOfBankAccountEntries.size()<<" successfully.\n";
-	std::cout<<"Processing "<<numberOfFailedToProcess<<" out of "<<setOfBankAccountEntries.size()<<" failed.\n";
+	std::cout<<std::endl;
 }
