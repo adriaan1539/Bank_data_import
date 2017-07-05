@@ -12,15 +12,23 @@
 #include <vector>
 #include <map>
 
+const std::string INPUT_DIR="input";
+const std::string CONFIGURATION_FILE = "config.xml";
+const std::string OUTPUT_DIR="postProcessing/output";
+const std::string OUTPUT_FILE = OUTPUT_DIR + "/bankAccountEntries.csv";
+const std::string CATEGORY_OUTPUT_FILE = OUTPUT_DIR + "/categories.csv";
+
 int main (void)
 {
-	// List files we will import to extract data from. We should make this an input argument of the program later
-	std::string dirInput="input";
-	std::vector<std::string> listOfInputFiles=ListOfFiles(dirInput);
+	std::cout<<"Start of program.\n\n";
 
-	std::string configurationFile = "config.xml";
+	// List files we will import to extract data from.
+	std::cout<<"Reading files from directory '"<<INPUT_DIR<<"':"<<std::endl;
+	std::vector<std::string> listOfInputFiles=ListOfFiles(INPUT_DIR);
+
+	// Load categories from configuration file.
 	ConfigurationParser ruleConfiguration;
-	ruleConfiguration.LoadConfigurationFromFile(configurationFile);
+	ruleConfiguration.LoadConfigurationFromFile(CONFIGURATION_FILE);
 
 	// Extract the data per file and save it in vectors
 	std::vector<BankAccountEntry> setOfBankAccountEntries=ImportBankAccountEntries(listOfInputFiles);
@@ -32,14 +40,11 @@ int main (void)
 	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
 
 	// Export the bank account data to a CSV file.
-	std::string OUTPUT_DIR="postProcessing/output";
-	std::string OUTPUT_FILE = OUTPUT_DIR + "/bankAccountEntries.csv";
 	std::cout << "Exporting to " << OUTPUT_FILE << std::endl;
 	std::map<std::string, std::vector<int>> categories;
 	categories = ExportBankAccountEntries(setOfBankAccountEntries, OUTPUT_FILE);
 
 	// Export the categories + bank accounts
-	std::string CATEGORY_OUTPUT_FILE = OUTPUT_DIR + "/categories.csv";
 	ExportCategories(categories, CATEGORY_OUTPUT_FILE);
 
 	std::cout << "\n\nEnd of program." << std::endl;
