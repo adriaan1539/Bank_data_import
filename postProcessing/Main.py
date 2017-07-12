@@ -3,7 +3,11 @@ from Category import Category
 from matplotlib2tikz import save as tikz_save
 
 import csv
+import datetime
 import matplotlib.pyplot as plt
+
+from PlotForm import PlotForm
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 # Import bank account entries from external csv file.
 with open('output/bankAccountEntries.csv', newline='') as cSVFile:
@@ -51,3 +55,28 @@ plt.ylabel("expense")
 plt.tight_layout()
 fig.savefig("category_vs_amount.eps")
 #tikz_save("category_vs_amount.tikz")
+#
+
+import sys
+app = QtWidgets.QApplication(sys.argv)
+Form = QtWidgets.QWidget()
+ui = PlotForm()
+ui.setupUi(Form)
+
+def button_pressed(self):
+    print("Button pressed")
+ui.pushButton.clicked.connect(button_pressed)
+
+def year_changed(self):
+    print("Year changed")
+
+ui.yearCombo.currentIndexChanged.connect(year_changed)
+
+# add today - 10 years => current year to 'yearCombo'
+now = datetime.datetime.now()
+for x in range(now.year - 10, now.year + 1):
+    ui.yearCombo.addItem(str(x), x)
+
+# show the form
+Form.show()
+sys.exit(app.exec_())
