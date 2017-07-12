@@ -2,7 +2,7 @@
 #include <fstream>
 
 std::map<std::string, std::vector<int>> ExportBankAccountEntries(std::vector<BankAccountEntry>& setOfBankAccountEntries,
-							  std::string& fileName)
+							  	  	  	  	  	  	  	  	  	 const std::string& fileName)
 {
 	std::map<std::string, std::vector<int>> categories;
 

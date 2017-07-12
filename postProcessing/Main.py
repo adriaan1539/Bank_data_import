@@ -25,7 +25,7 @@ with open('output/categories.csv', newline='') as cSVFile:
         categoryName = row[0]
         bankAccountEntryIndices = [int(i) for i in row[1].split(';')]
         categoryAmount = 0
-        for iBankAccountEntry in range(len(setOfBankAccountEntries)):
+        for iBankAccountEntry in bankAccountEntryIndices:
             bankAccountEntry = setOfBankAccountEntries[iBankAccountEntry]
             categoryAmount = categoryAmount + bankAccountEntry.GetAmount()
         category = Category(categoryName,
@@ -45,14 +45,17 @@ for iCategory in range(len(setOfCategories)):
 
 print(x)
 print(xTicks)
+print(y)
 
 # Bar plot of categories vs amounts.
 fig, ax = plt.subplots()
 plt.bar(x, y)
-plt.xticks(x, xTicks, rotation=70)
+plt.xticks(x, xTicks, rotation=70, ha='right')
 plt.xlabel("category")
 plt.ylabel("expense")
 plt.tight_layout()
+ax.grid(b=True)
+plt.show()
 fig.savefig("category_vs_amount.eps")
 #tikz_save("category_vs_amount.tikz")
 #

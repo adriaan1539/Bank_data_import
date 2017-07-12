@@ -14,6 +14,3 @@ void ExportCategories(std::map<std::string, std::vector<int>> categories, std::s
 	 }
 	 os.flush();
 }
-
-
-
