@@ -7,6 +7,8 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+import matplotlib.pyplot as plt
 
 class PlotForm(object):
     def setupUi(self, Form):
@@ -61,6 +63,10 @@ class PlotForm(object):
         self.plot_layout.setContentsMargins(0, 0, 0, 0)
         self.plot_layout.setObjectName("plot_layout")
         self.verticalLayout.addWidget(self.horizontalWidget_2)
+
+        self.figure = plt.figure()
+        self.canvas = FigureCanvas(self.figure)
+        self.plot_layout.addWidget(self.canvas)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)

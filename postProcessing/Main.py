@@ -55,7 +55,7 @@ plt.xlabel("category")
 plt.ylabel("expense")
 plt.tight_layout()
 ax.grid(b=True)
-plt.show()
+# plt.show()
 fig.savefig("category_vs_amount.eps")
 #tikz_save("category_vs_amount.tikz")
 #
