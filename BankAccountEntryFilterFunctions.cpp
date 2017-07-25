@@ -1,4 +1,5 @@
 #include "BankAccountEntryFilterFunctions.h"
+#include <algorithm> // For 'tolower'.
 
 bool AccountNumberConsideredEqualTo(BankAccountEntry bankAccountEntry,
 									std::string searchTerm)
@@ -97,8 +98,10 @@ bool MutationEqualTo(	BankAccountEntry bankAccountEntry,
 bool StringInName(	BankAccountEntry bankAccountEntry,
 					std::string searchTerm)
 {
-	bool compliantWithRule=false;
+    bool compliantWithRule=false;
 	std::string nameOrDescription=bankAccountEntry.GetNameOrDescription();
+	std::transform(nameOrDescription.begin(), nameOrDescription.end(), nameOrDescription.begin(), ::tolower);
+	std::transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
 	std::size_t found=nameOrDescription.find(searchTerm);
 
 	if (found!=std::string::npos)
