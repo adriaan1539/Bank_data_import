@@ -1,6 +1,7 @@
 from BankAccountEntry import BankAccountEntry
 from Category import Category
 from matplotlib2tikz import save as tikz_save
+from collections import defaultdict
 
 import csv
 import datetime
@@ -27,11 +28,11 @@ def plot(ui, setOfCategories, year):
         ui.plot(x, y, xTicks)
 
 years = dict()
-
+setOfCategoriesPerYear = defaultdict(list)
+setOfBankAccountEntries = []
 # Import bank account entries from external csv file.
 with open('output/bankAccountEntries.csv', newline='') as cSVFile:
     setOfBankAccountEntriesList = csv.reader(cSVFile, delimiter=',')
-    setOfBankAccountEntries = []
     for row in setOfBankAccountEntriesList:
         bankAccountEntry = BankAccountEntry(*row[1:13])
         setOfBankAccountEntries.append(bankAccountEntry)
@@ -39,35 +40,44 @@ with open('output/bankAccountEntries.csv', newline='') as cSVFile:
 # Import categories from external csv file.
 with open('output/categories.csv', newline='') as cSVFile:
     setOfCategoriesList = csv.reader(cSVFile, delimiter=',')
-    setOfCategories = []
+
     for row in setOfCategoriesList:
         categoryName = row[0]
         bankAccountEntryIndices = [int(i) for i in row[1].split(';')]
-        categoryAmount = 0
+        categoryAmountPerYear = defaultdict(int)
         for iBankAccountEntry in bankAccountEntryIndices:
             bankAccountEntry = setOfBankAccountEntries[iBankAccountEntry]
-            categoryAmount = categoryAmount + bankAccountEntry.GetAmount()
-            years[bankAccountEntry.GetYear()] = 1
+            year = bankAccountEntry.GetYear()
+            years[year] = 1
+            categoryAmountPerYear[year] += bankAccountEntry.GetAmount()
+            categoryAmountPerYear[0] += bankAccountEntry.GetAmount()
 
-        category = Category(categoryName,
-                            bankAccountEntryIndices,
-                            categoryAmount)
-        setOfCategories.append(category)
+        for year in categoryAmountPerYear:
+            category = Category(categoryName,
+                                bankAccountEntryIndices,
+                                categoryAmountPerYear[year])
+            setOfCategoriesPerYear[year].append(category)
 
 app = QtWidgets.QApplication(sys.argv)
 Form = QtWidgets.QWidget()
 ui = PlotForm()
 ui.setupUi(Form)
 
-plot(ui, setOfCategories, "")
+plot(ui, setOfCategoriesPerYear[0], "")
 
 def button_pressed(self):
     print("Button pressed")
 ui.pushButton.clicked.connect(button_pressed)
 
-
 def year_changed(self):
-    print("Year changed")
+    year = ui.yearCombo.currentText();
+    print("Year changed to " + year)
+    if year == "All":
+        year = 0
+    else:
+        year = int(year)
+    plot(ui, setOfCategoriesPerYear[year], "")
+
 ui.yearCombo.currentIndexChanged.connect(year_changed)
 
 ui.yearCombo.addItem("All", 0)
