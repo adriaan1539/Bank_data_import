@@ -26,6 +26,8 @@ def plot(ui, setOfCategories, year):
         print(y)
         ui.plot(x, y, xTicks)
 
+years = dict()
+
 # Import bank account entries from external csv file.
 with open('output/bankAccountEntries.csv', newline='') as cSVFile:
     setOfBankAccountEntriesList = csv.reader(cSVFile, delimiter=',')
@@ -45,6 +47,8 @@ with open('output/categories.csv', newline='') as cSVFile:
         for iBankAccountEntry in bankAccountEntryIndices:
             bankAccountEntry = setOfBankAccountEntries[iBankAccountEntry]
             categoryAmount = categoryAmount + bankAccountEntry.GetAmount()
+            years[bankAccountEntry.GetYear()] = 1
+
         category = Category(categoryName,
                             bankAccountEntryIndices,
                             categoryAmount)
@@ -64,13 +68,11 @@ ui.pushButton.clicked.connect(button_pressed)
 
 def year_changed(self):
     print("Year changed")
-
 ui.yearCombo.currentIndexChanged.connect(year_changed)
 
-# add today - 10 years => current year to 'yearCombo'
-now = datetime.datetime.now()
-for x in range(now.year - 10, now.year + 1):
-    ui.yearCombo.addItem(str(x), x)
+ui.yearCombo.addItem("All", 0)
+for year in years:
+    ui.yearCombo.addItem(str(year), year)
 
 # show the form
 Form.show()
