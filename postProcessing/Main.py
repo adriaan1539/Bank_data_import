@@ -8,6 +8,23 @@ import matplotlib.pyplot as plt
 
 from PlotForm import PlotForm
 from PyQt5 import QtCore, QtGui, QtWidgets
+import sys
+
+def plot(ui, setOfCategories, year):
+    # Plot.
+    x = []
+    xTicks = []
+    y = []
+    for iCategory in range(len(setOfCategories)):
+        category = setOfCategories[iCategory]
+        x.append(iCategory)
+        xTicks.append(category.GetName())
+        y.append(category.GetAmount())
+
+        print(x)
+        print(xTicks)
+        print(y)
+        ui.plot(x, y, xTicks)
 
 # Import bank account entries from external csv file.
 with open('output/bankAccountEntries.csv', newline='') as cSVFile:
@@ -33,42 +50,17 @@ with open('output/categories.csv', newline='') as cSVFile:
                             categoryAmount)
         setOfCategories.append(category)
 
-# Plot.
-x = []
-xTicks = []
-y = []
-for iCategory in range(len(setOfCategories)):
-    category = setOfCategories[iCategory]
-    x.append(iCategory)
-    xTicks.append(category.GetName())
-    y.append(category.GetAmount())
-
-print(x)
-print(xTicks)
-print(y)
-
-# Bar plot of categories vs amounts.
-fig, ax = plt.subplots()
-plt.bar(x, y)
-plt.xticks(x, xTicks, rotation=70, ha='right')
-plt.xlabel("category")
-plt.ylabel("expense")
-plt.tight_layout()
-ax.grid(b=True)
-# plt.show()
-fig.savefig("category_vs_amount.eps")
-#tikz_save("category_vs_amount.tikz")
-#
-
-import sys
 app = QtWidgets.QApplication(sys.argv)
 Form = QtWidgets.QWidget()
 ui = PlotForm()
 ui.setupUi(Form)
 
+plot(ui, setOfCategories, "")
+
 def button_pressed(self):
     print("Button pressed")
 ui.pushButton.clicked.connect(button_pressed)
+
 
 def year_changed(self):
     print("Year changed")

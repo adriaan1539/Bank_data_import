@@ -76,3 +76,18 @@ class PlotForm(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "Year"))
         self.pushButton.setText(_translate("Form", "Push de button"))
+
+    def plot(self, x, y, xTicks):
+        # Bar plot of categories vs amounts.
+        self.figure.clear()
+
+        fig = self.figure.add_subplot(111)
+        ax = self.figure.add_subplot(111)
+        plt.bar(x, y)
+        plt.xticks(x, xTicks, rotation=70, ha='right')
+        plt.xlabel("category")
+        plt.ylabel("expense")
+        plt.tight_layout()
+
+        ax.grid(b=True)
+        self.canvas.draw()
