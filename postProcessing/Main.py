@@ -21,10 +21,6 @@ def plot(ui, setOfCategories, year):
         x.append(iCategory)
         xTicks.append(category.GetName())
         y.append(category.GetAmount())
-
-        print(x)
-        print(xTicks)
-        print(y)
         ui.plot(x, y, xTicks)
 
 years = dict()
