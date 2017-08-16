@@ -10,6 +10,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import matplotlib.pyplot as plt
 
+
 class PlotForm(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -56,8 +57,7 @@ class PlotForm(object):
         self.verticalLayout.addWidget(self.horizontalWidget)
         self.horizontalWidget_2 = QtWidgets.QWidget(Form)
         self.horizontalWidget_2.setAutoFillBackground(False)
-        self.horizontalWidget_2.setStyleSheet("background-color:black;\n"
-"color: #FFF;")
+        self.horizontalWidget_2.setStyleSheet("background-color:black;\n" "color: #FFF;")
         self.horizontalWidget_2.setObjectName("horizontalWidget_2")
         self.plot_layout = QtWidgets.QHBoxLayout(self.horizontalWidget_2)
         self.plot_layout.setContentsMargins(0, 0, 0, 0)

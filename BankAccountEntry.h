@@ -44,9 +44,9 @@ private:
 		std::string					GetSortOfMutation(void);
 		std::string					ToCSV(int index);
 		std::vector<std::string> 	GetCategories(void);
-		unsigned int 				GetDay(void);
-		unsigned int 				GetMonth(void);
-		unsigned int 				GetYear(void);
+		unsigned int 				GetDay(void) const;
+		unsigned int 				GetMonth(void) const;
+		unsigned int 				GetYear(void) const;
 		void 						PrintToConsole(void);
 		void 						PrintToFile(std::string);
 		void 						AddCategoryAndRuleName(std::string category, std::string rule);

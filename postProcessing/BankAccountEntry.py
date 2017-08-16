@@ -28,5 +28,11 @@ class BankAccountEntry:
     def GetAmount(self):
         return self.__amount
 
+    def GetDay(self):
+        return self.__day
+
+    def GetMonth(self):
+        return self.__month
+
     def GetYear(self):
         return self.__year

@@ -11,6 +11,7 @@ from PlotForm import PlotForm
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
+
 def plot(ui, setOfCategories, year):
     # Plot.
     x = []
@@ -32,6 +33,9 @@ with open('output/bankAccountEntries.csv', newline='') as cSVFile:
     for row in setOfBankAccountEntriesList:
         bankAccountEntry = BankAccountEntry(*row[1:13])
         setOfBankAccountEntries.append(bankAccountEntry)
+
+# import pdb
+# pdb.set_trace()
 
 # Import categories from external csv file.
 with open('output/categories.csv', newline='') as cSVFile:
@@ -61,12 +65,14 @@ ui.setupUi(Form)
 
 plot(ui, setOfCategoriesPerYear[0], "")
 
+
 def button_pressed(self):
     print("Button pressed")
 ui.pushButton.clicked.connect(button_pressed)
 
+
 def year_changed(self):
-    year = ui.yearCombo.currentText();
+    year = ui.yearCombo.currentText()
     print("Year changed to " + year)
     if year == "All":
         year = 0

@@ -103,17 +103,17 @@ std::vector<std::string> BankAccountEntry::GetCategories()
 	return this->categories;
 }
 
-unsigned int BankAccountEntry::GetDay(void)
+unsigned int BankAccountEntry::GetDay(void) const
 {
 	return day;
 }
 
-unsigned int BankAccountEntry::GetMonth(void)
+unsigned int BankAccountEntry::GetMonth(void) const
 {
 	return month;
 }
 
-unsigned int BankAccountEntry::GetYear(void)
+unsigned int BankAccountEntry::GetYear(void) const
 {
 	return year;
 }
