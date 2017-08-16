@@ -8,6 +8,7 @@ class BankAccountEntry
 {
 private:
 		double 						amount;
+		int							balance;
 		std::string 				nameOrDescription;
 		std::string 				accountNumberConsidered;
 		std::string 				accountNumberContra;
@@ -34,6 +35,7 @@ private:
 							std::string note);
 
 		double 						GetAmount(void);
+		int							GetBalance(void);
 		std::string					GetAccountNumberConsidered(void);
 		std::string					GetAccountNumberContra(void);
 		std::string					GetCategoryNames(void);
@@ -47,8 +49,9 @@ private:
 		unsigned int 				GetDay(void) const;
 		unsigned int 				GetMonth(void) const;
 		unsigned int 				GetYear(void) const;
+		void 						AddCategoryAndRuleName(std::string category, std::string rule);
 		void 						PrintToConsole(void);
 		void 						PrintToFile(std::string);
-		void 						AddCategoryAndRuleName(std::string category, std::string rule);
+		void						SetBalance(int);
 };
 #endif

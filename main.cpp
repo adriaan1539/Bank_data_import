@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "BankAccountEntry.h"
 #include "ExportBankAccountEntries.h"
 #include "CategorizeBankAccountEntries.h"
@@ -9,6 +10,7 @@
 #include <iostream>
 #include "ListOfFiles.h"
 #include <map>
+#include "SortByDate.cpp"
 #include <string>
 #include <vector>
 
@@ -33,6 +35,15 @@ int main (void)
 
 	// Extract the data per file and save it in vectors
 	std::vector<BankAccountEntry> setOfBankAccountEntries=ImportBankAccountEntries(listOfInputFiles);
+	std::sort(setOfBankAccountEntries.begin(), setOfBankAccountEntries.end(), SortByDate());
+
+	// Ask user to give the balance at the time of the last bank account entry.
+	BankAccountEntry bankAccountEntryLast = setOfBankAccountEntries[setOfBankAccountEntries.size()-1];
+	std::cout<<"The last bank account entry is "<<bankAccountEntryLast.ToCSV(0)<<".\n";
+	std::cout<<"What was the balance at the time of this bank account entry?\n";
+	int balance;
+	std::cin>>balance;
+//	TO DO: Set the balance for all the bank account entries here!
 
 	// Define categories and rules
 	std::vector<Category> setOfCategories =ruleConfiguration.GetCategories();
@@ -53,6 +64,7 @@ int main (void)
 	// Run post processor.
 	std::cout<<"\nRunning post processor.\n\n=";
 	system(POST_PROCESSOR);
+
 
 	std::cout << "\n\nEnd of program." << std::endl;
 	return 0;

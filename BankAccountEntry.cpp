@@ -36,6 +36,11 @@ double BankAccountEntry::GetAmount(void)
 	return amount;
 }
 
+int BankAccountEntry::GetBalance(void)
+{
+	return balance;
+}
+
 std::string	BankAccountEntry::GetAccountNumberConsidered(void)
 {
 	return accountNumberConsidered;
@@ -118,6 +123,12 @@ unsigned int BankAccountEntry::GetYear(void) const
 	return year;
 }
 
+void BankAccountEntry::AddCategoryAndRuleName(std::string category, std::string rule)
+{
+	this->categories.push_back(category);
+	this->rules.push_back(rule);
+}
+
 void BankAccountEntry::PrintToConsole(void)
 {
 	std::cout<<"year: "<<year<<"\n";
@@ -151,8 +162,7 @@ void BankAccountEntry::PrintToFile(std::string fileName)
 	outputFileStream.close();
 }
 
-void BankAccountEntry::AddCategoryAndRuleName(std::string category, std::string rule)
+void BankAccountEntry::SetBalance(int balance)
 {
-	this->categories.push_back(category);
-	this->rules.push_back(rule);
+	this->balance = balance;
 }
