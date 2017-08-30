@@ -83,7 +83,7 @@ def year_changed(self):
 ui.yearCombo.currentIndexChanged.connect(year_changed)
 
 ui.yearCombo.addItem("All", 0)
-for year in years:
+for year in sorted(years):
     ui.yearCombo.addItem(str(year), year)
 
 # show the form
