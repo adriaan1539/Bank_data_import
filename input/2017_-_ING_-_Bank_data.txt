@@ -1,0 +1,7 @@
+"Datum","Naam / Omschrijving","Rekening","Tegenrekening","Code","Af Bij","Bedrag (EUR)","MutatieSoort","Mededelingen"
+"20170103","LIDL","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Af","22,34","Internetbankieren","Mededeling_3"
+"20170102","AEGON","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Af","2,34","Internetbankieren","Mededeling_2"
+"20170101","Shell","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Af","12,34","Internetbankieren","Mededeling_1"
+"20170401","Zhekov","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Bij","412,34","Internetbankieren","Mededeling_1"
+"20170401","haid","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Bij","289,34","Internetbankieren","Mededeling_1"
+"20170401","veleva","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Bij","89,34","Internetbankieren","Mededeling_1"

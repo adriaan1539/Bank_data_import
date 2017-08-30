@@ -50,9 +50,6 @@ class PlotForm(object):
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
 
-        self.pushButton = QtWidgets.QPushButton(self.horizontalWidget)
-        self.pushButton.setObjectName("pushButton")
-        self.verticalLayout_2.addWidget(self.pushButton)
         self.options_layout.addLayout(self.verticalLayout_2)
         self.verticalLayout.addWidget(self.horizontalWidget)
         self.horizontalWidget_2 = QtWidgets.QWidget(Form)
@@ -75,7 +72,6 @@ class PlotForm(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "Year"))
-        self.pushButton.setText(_translate("Form", "Push de button"))
 
     def plot(self, x, y, xTicks):
         # Bar plot of categories vs amounts.
