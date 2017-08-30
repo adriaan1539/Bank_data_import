@@ -37,13 +37,30 @@ int main (void)
 	std::vector<BankAccountEntry> setOfBankAccountEntries=ImportBankAccountEntries(listOfInputFiles);
 	std::sort(setOfBankAccountEntries.begin(), setOfBankAccountEntries.end(), SortByDate());
 
-	// Ask user to give the balance at the time of the last bank account entry.
-	BankAccountEntry bankAccountEntryLast = setOfBankAccountEntries[setOfBankAccountEntries.size()-1];
-	std::cout<<"The last bank account entry is "<<bankAccountEntryLast.ToCSV(0)<<".\n";
+	// Determine balance for every bank account entry by asking the user to give the balance at the time of the last bank account entry.
+//	Balance(&setOfBankAccountEntries);
+
+
+
+
+	BankAccountEntry* bankAccountEntryLast = &setOfBankAccountEntries[setOfBankAccountEntries.size()-1];
+	std::cout<<"The last bank account entry is: \n\n"<<bankAccountEntryLast->ToCSV(0)<<"\n\n";
 	std::cout<<"What was the balance at the time of this bank account entry?\n";
-	int balance;
+	double balance;
 	std::cin>>balance;
-//	TO DO: Set the balance for all the bank account entries here!
+	bankAccountEntryLast->SetBalance(balance);
+	BankAccountEntry* bankAccountEntryOneLater;
+	double balanceOneLater;
+	BankAccountEntry* bankAccountEntry;
+	double amount;
+	for (int iBankAccountEntry=setOfBankAccountEntries.size()-2;iBankAccountEntry>=0;iBankAccountEntry--)
+	{
+		bankAccountEntryOneLater=&setOfBankAccountEntries[iBankAccountEntry+1];
+		balanceOneLater=bankAccountEntryOneLater->GetBalance();
+		amount=bankAccountEntryOneLater->GetAmount();
+		bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
+		bankAccountEntry->SetBalance(balanceOneLater-amount);
+	}
 
 	// Define categories and rules
 	std::vector<Category> setOfCategories =ruleConfiguration.GetCategories();
@@ -63,8 +80,7 @@ int main (void)
 
 	// Run post processor.
 	std::cout<<"\nRunning post processor.\n\n=";
-	system(POST_PROCESSOR);
-
+//	system(POST_PROCESSOR);
 
 	std::cout << "\n\nEnd of program." << std::endl;
 	return 0;

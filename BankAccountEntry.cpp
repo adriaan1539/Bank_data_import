@@ -36,7 +36,7 @@ double BankAccountEntry::GetAmount(void)
 	return amount;
 }
 
-int BankAccountEntry::GetBalance(void)
+double BankAccountEntry::GetBalance(void)
 {
 	return balance;
 }
@@ -98,7 +98,8 @@ std::string BankAccountEntry::ToCSV(int index)
 			<< this->sortOfMutation
 			<< this->note
 			<< this->GetCategoryNames()
-			<< this->GetRuleNames();
+			<< this->GetRuleNames()
+			<< this->balance;
 
 	return os.get_text();
 }
@@ -162,7 +163,7 @@ void BankAccountEntry::PrintToFile(std::string fileName)
 	outputFileStream.close();
 }
 
-void BankAccountEntry::SetBalance(int balance)
+void BankAccountEntry::SetBalance(double balance)
 {
 	this->balance = balance;
 }

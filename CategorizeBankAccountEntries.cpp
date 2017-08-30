@@ -45,13 +45,11 @@ void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccou
 		if (matches > 0)
 		{
 			numberOfSuccesfullyProcessed++;
-			std::cout<<"\rWe have "<<numberOfSuccesfullyProcessed<<" successes and "<<numberOfFailedToProcess<<" failures out of "<<setOfBankAccountEntries.size()<<".";
 		}
 		else
 		{
 			numberOfFailedToProcess++;
-			std::cout<<"\rWe have "<<numberOfSuccesfullyProcessed<<" successes and "<<numberOfFailedToProcess<<" failures out of "<<setOfBankAccountEntries.size()<<".";
 		}
 	}
-	std::cout<<std::endl;
+	std::cout<<"\rWe have "<<numberOfSuccesfullyProcessed<<" successes and "<<numberOfFailedToProcess<<" failures out of "<<setOfBankAccountEntries.size()<<".\n";
 }

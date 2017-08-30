@@ -8,7 +8,7 @@ class BankAccountEntry
 {
 private:
 		double 						amount;
-		int							balance;
+		double						balance;
 		std::string 				nameOrDescription;
 		std::string 				accountNumberConsidered;
 		std::string 				accountNumberContra;
@@ -35,7 +35,7 @@ private:
 							std::string note);
 
 		double 						GetAmount(void);
-		int							GetBalance(void);
+		double						GetBalance(void);
 		std::string					GetAccountNumberConsidered(void);
 		std::string					GetAccountNumberContra(void);
 		std::string					GetCategoryNames(void);
@@ -52,6 +52,6 @@ private:
 		void 						AddCategoryAndRuleName(std::string category, std::string rule);
 		void 						PrintToConsole(void);
 		void 						PrintToFile(std::string);
-		void						SetBalance(int);
+		void						SetBalance(double);
 };
 #endif
