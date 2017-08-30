@@ -1,5 +1,6 @@
 #include <algorithm>
 #include "BankAccountEntry.h"
+#include "BankAccountEntrySetBalance.cpp"
 #include "ExportBankAccountEntries.h"
 #include "CategorizeBankAccountEntries.h"
 #include "Category.h"
@@ -38,29 +39,7 @@ int main (void)
 	std::sort(setOfBankAccountEntries.begin(), setOfBankAccountEntries.end(), SortByDate());
 
 	// Determine balance for every bank account entry by asking the user to give the balance at the time of the last bank account entry.
-//	Balance(&setOfBankAccountEntries);
-
-
-
-
-	BankAccountEntry* bankAccountEntryLast = &setOfBankAccountEntries[setOfBankAccountEntries.size()-1];
-	std::cout<<"The last bank account entry is: \n\n"<<bankAccountEntryLast->ToCSV(0)<<"\n\n";
-	std::cout<<"What was the balance at the time of this bank account entry?\n";
-	double balance;
-	std::cin>>balance;
-	bankAccountEntryLast->SetBalance(balance);
-	BankAccountEntry* bankAccountEntryOneLater;
-	double balanceOneLater;
-	BankAccountEntry* bankAccountEntry;
-	double amount;
-	for (int iBankAccountEntry=setOfBankAccountEntries.size()-2;iBankAccountEntry>=0;iBankAccountEntry--)
-	{
-		bankAccountEntryOneLater=&setOfBankAccountEntries[iBankAccountEntry+1];
-		balanceOneLater=bankAccountEntryOneLater->GetBalance();
-		amount=bankAccountEntryOneLater->GetAmount();
-		bankAccountEntry=&setOfBankAccountEntries[iBankAccountEntry];
-		bankAccountEntry->SetBalance(balanceOneLater-amount);
-	}
+	BankAccountEntrySetBalance(setOfBankAccountEntries);
 
 	// Define categories and rules
 	std::vector<Category> setOfCategories =ruleConfiguration.GetCategories();
