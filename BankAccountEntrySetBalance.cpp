@@ -1,6 +1,6 @@
 #include "BankAccountEntry.h"
+#include "BankAccountEntrySetBalance.h"
 #include <iostream>
-#include <vector>
 
 void BankAccountEntrySetBalance(std::vector<BankAccountEntry>& setOfBankAccountEntries)
 {

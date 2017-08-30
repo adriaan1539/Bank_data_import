@@ -1,6 +1,6 @@
 #include <algorithm>
 #include "BankAccountEntry.h"
-#include "BankAccountEntrySetBalance.cpp"
+#include "BankAccountEntrySetBalance.h"
 #include "ExportBankAccountEntries.h"
 #include "CategorizeBankAccountEntries.h"
 #include "Category.h"
@@ -59,7 +59,7 @@ int main (void)
 
 	// Run post processor.
 	std::cout<<"\nRunning post processor.\n\n=";
-//	system(POST_PROCESSOR);
+	system(POST_PROCESSOR);
 
 	std::cout << "\n\nEnd of program." << std::endl;
 	return 0;

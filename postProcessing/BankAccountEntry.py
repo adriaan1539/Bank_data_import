@@ -11,7 +11,8 @@ class BankAccountEntry:
                  sortOfMutation,
                  note,
                  category,
-                 rule):
+                 rule,
+                 balance):
         self.__year = int(year)
         self.__month = int(month)
         self.__day = int(day)
@@ -24,9 +25,13 @@ class BankAccountEntry:
         self.__note = note
         self.__category = category
         self.__rule = rule
+        self.__balance = balance
 
     def GetAmount(self):
         return self.__amount
+
+    def GetBalance(self):
+        return self.__balance
 
     def GetDay(self):
         return self.__day

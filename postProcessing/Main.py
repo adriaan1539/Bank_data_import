@@ -31,7 +31,7 @@ setOfBankAccountEntries = []
 with open('output/bankAccountEntries.csv', newline='') as cSVFile:
     setOfBankAccountEntriesList = csv.reader(cSVFile, delimiter=',')
     for row in setOfBankAccountEntriesList:
-        bankAccountEntry = BankAccountEntry(*row[1:13])
+        bankAccountEntry = BankAccountEntry(*row[1:14])
         setOfBankAccountEntries.append(bankAccountEntry)
 
 # import pdb
