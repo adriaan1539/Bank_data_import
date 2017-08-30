@@ -65,12 +65,6 @@ ui.setupUi(Form)
 
 plot(ui, setOfCategoriesPerYear[0], "")
 
-
-def button_pressed(self):
-    print("Button pressed")
-ui.pushButton.clicked.connect(button_pressed)
-
-
 def year_changed(self):
     year = ui.yearCombo.currentText()
     print("Year changed to " + year)
