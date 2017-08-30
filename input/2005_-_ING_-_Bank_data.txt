@@ -1,0 +1,5 @@
+"Datum","Naam / Omschrijving","Rekening","Tegenrekening","Code","Af Bij","Bedrag (EUR)","MutatieSoort","Mededelingen"
+"20050411","AEGON","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Af","12,34","Internetbankieren","Hypotheek"
+"20050308","albert heijn","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Af","12,34","Internetbankieren","Supermarkt"
+"20050410","Jumbo","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Af","12,34","Internetbankieren","Jumbo"
+"20050909","02-07-15 11:11 GELDAUTOMAAT     ","NL02 INGB 1234 5678 90","","GM","Af","50","Geldautomaat","ICE LUTON A/P / LUTON ***A444 841316 KOSTEN"

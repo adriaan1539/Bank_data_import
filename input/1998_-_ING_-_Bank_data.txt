@@ -1,0 +1,4 @@
+"Datum","Naam / Omschrijving","Rekening","Tegenrekening","Code","Af Bij","Bedrag (EUR)","MutatieSoort","Mededelingen"
+"19981225","LIDL","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Af","12,34","Internetbankieren","el lidl"
+"19981024","ONLINE.NL","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Af","12,34","Internetbankieren","Internet"
+"19981112","AEGON","NL01 INGB 1234 5678 90","NL02 INGB 1234 5678 90","GT","Af","12,34","Internetbankieren","hypotheek"
