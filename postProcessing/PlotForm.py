@@ -8,6 +8,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
+
 import matplotlib.pyplot as plt
 
 
@@ -64,6 +66,9 @@ class PlotForm(object):
         self.figure = plt.figure()
         self.canvas = FigureCanvas(self.figure)
         self.plot_layout.addWidget(self.canvas)
+        self.toolbar = NavigationToolbar(self.canvas, None)
+        self.verticalLayout.addWidget(self.toolbar)
+
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
