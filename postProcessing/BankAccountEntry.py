@@ -25,7 +25,7 @@ class BankAccountEntry:
         self.__note = note
         self.__category = category
         self.__rule = rule
-        self.__balance = balance
+        self.__balance = float(balance)
 
     def GetAmount(self):
         return self.__amount
