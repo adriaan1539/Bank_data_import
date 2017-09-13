@@ -3,6 +3,7 @@
 #include "BankAccountEntrySetBalance.h"
 #include "ExportBankAccountEntries.h"
 #include "CategorizeBankAccountEntries.h"
+#include "CategorizeBankAccountEntriesByYear.h"
 #include "Category.h"
 #include "ConfigurationParser.h"
 #include "ExportBankAccountEntries.h"
@@ -51,7 +52,7 @@ int main (void)
 	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
 
 	// Categorize bank account data to year, month and day.
-	yearToBankAccountEntryIndices = CategorizeBankAccountEntriesByYear(setOfBankAccountEntries)
+	std::map<int,std::vector<int>> yearToBankAccountEntryIndices = CategorizeBankAccountEntriesByYear(setOfBankAccountEntries);
 
 	// Export the bank account data to a CSV file.
 	std::cout << "\nExporting bank account entries to " << OUTPUT_FILE << ".\n	";
