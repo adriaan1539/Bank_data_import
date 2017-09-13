@@ -31,13 +31,13 @@ class BarWindow(QMainWindow, Ui_Bar):
     def __init__(self, home):
         super(BarWindow, self).__init__(home)
         self.home = home
-        self.setupUi(self)
+        self.setupUi(self, "Bar")
 
 class PlotWindow(QMainWindow, Ui_Bar):
     def __init__(self, home):
         super(PlotWindow, self).__init__(home)
         self.home = home
-        self.setupUi(self)
+        self.setupUi(self, "2D Plot")
         
 if __name__ == '__main__':
     app = QApplication(sys.argv)

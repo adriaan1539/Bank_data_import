@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Bar(object):
-    def setupUi(self, BarDialog):
+    def setupUi(self, BarDialog, title):
         BarDialog.setObjectName("BarDialog")
         BarDialog.resize(640, 480)
         self.gridLayout = QtWidgets.QGridLayout()
@@ -34,11 +34,12 @@ class Ui_Bar(object):
         self.yearCombo.setGeometry(QtCore.QRect(20, 20, 103, 36))
         self.yearCombo.setObjectName("yearCombo")
         self.gridLayout.addWidget(self.widget, 0, 0, 1, 1)
+        self.title = title
 
         self.retranslateUi(BarDialog)
         QtCore.QMetaObject.connectSlotsByName(BarDialog)
 
     def retranslateUi(self, BarDialog):
         _translate = QtCore.QCoreApplication.translate
-        BarDialog.setWindowTitle(_translate("BarDialog", "Dialog"))
+        BarDialog.setWindowTitle(_translate("BarDialog", self.title))
 
