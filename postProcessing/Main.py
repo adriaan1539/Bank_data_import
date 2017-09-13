@@ -95,28 +95,28 @@ plt.ylabel('balance in [euro]')
 plt.tight_layout()
 plt.show()
 
-# app = QtWidgets.QApplication(sys.argv)
-# Form = QtWidgets.QWidget()
-# ui = PlotForm()
-# ui.setupUi(Form)
-#
-# plot(ui, setOfCategoriesPerYear[0], "")
-#
-# def year_changed(self):
-#     year = ui.yearCombo.currentText()
-#     print("Year changed to " + year)
-#     if year == "All":
-#         year = 0
-#     else:
-#         year = int(year)
-#     plot(ui, setOfCategoriesPerYear[year], "")
-#
-# ui.yearCombo.currentIndexChanged.connect(year_changed)
-#
-# ui.yearCombo.addItem("All", 0)
-# for year in sorted(years):
-#     ui.yearCombo.addItem(str(year), year)
-#
-# # show the form
-# Form.show()
-# sys.exit(app.exec_())
+app = QtWidgets.QApplication(sys.argv)
+Form = QtWidgets.QWidget()
+ui = PlotForm()
+ui.setupUi(Form)
+
+plot(ui, setOfCategoriesPerYear[0], "")
+
+def year_changed(self):
+    year = ui.yearCombo.currentText()
+    print("Year changed to " + year)
+    if year == "All":
+        year = 0
+    else:
+        year = int(year)
+    plot(ui, setOfCategoriesPerYear[year], "")
+
+ui.yearCombo.currentIndexChanged.connect(year_changed)
+
+ui.yearCombo.addItem("All", 0)
+for year in sorted(years):
+    ui.yearCombo.addItem(str(year), year)
+
+# show the form
+Form.show()
+sys.exit(app.exec_())

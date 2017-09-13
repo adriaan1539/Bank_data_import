@@ -1,6 +1,6 @@
 <config>
 	<categories>
-        <category name="Cafes_and_restaurants">
+		<category name="Cafes_and_restaurants">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -26,8 +26,8 @@
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Clothing">
+		</category>
+		<category name="Clothing">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -42,8 +42,8 @@
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Construction_AD67">
+		</category>
+		<category name="Construction_AD67">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -57,8 +57,8 @@
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Education">
+		</category>
+		<category name="Education">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -69,12 +69,12 @@
 						<value>DUO HOOFDREKENING</value>
 						<value>INFORMATIE BEHEER G</value>
 						<value>TU DELFT</value>
-                        <value>VSSD</value>
+						<value>VSSD</value>
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Energy_AD67">
+		</category>
+		<category name="Energy_AD67">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -87,8 +87,8 @@
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Fines">
+		</category>
+		<category name="Fines">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -99,8 +99,8 @@
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Friends">
+		</category>
+		<category name="Friends">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -108,23 +108,23 @@
 					<values>
 						<value>B. VAN DIJK</value>
 						<value>B.J. SCHRAM</value>
-                        <value>BART VAN DIJK</value>
-                        <value>BECKERS</value>
-                        <value>BOONACKER</value>
-                        <value>CABRITA</value>
-                        <value>DAMEN</value>
-                        <value>ESRAIL</value>
-                        <value>FRISHERT</value>
-                        <value>IEMANE</value>
-                        <value>KREUGER</value>
-                        <value>SEIDLER</value>
-                        <value>THOMASSEN</value>
-                        <value>TIGELAAR</value>
+						<value>BART VAN DIJK</value>
+						<value>BECKERS</value>
+						<value>BOONACKER</value>
+						<value>CABRITA</value>
+						<value>DAMEN</value>
+						<value>ESRAIL</value>
+						<value>FRISHERT</value>
+						<value>IEMANE</value>
+						<value>KREUGER</value>
+						<value>SEIDLER</value>
+						<value>THOMASSEN</value>
+						<value>TIGELAAR</value>
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Gasoline">
+		</category>
+		<category name="Gasoline">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -173,8 +173,8 @@
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Health">
+		</category>
+		<category name="Health">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -182,16 +182,16 @@
 					<values>
 						<value>FA-MED</value>
 						<value>KRALINGSE APOTHEEK</value>
-                        <value>PODOTHERAPIE</value>
-                        <value>PUGLIESE</value>
-                        <value>ROMBOUT KAPPERS</value>
-                        <value>TANDARTS</value>
-                        <value>ZORGTOESLAG</value>
+						<value>PODOTHERAPIE</value>
+						<value>PUGLIESE</value>
+						<value>ROMBOUT KAPPERS</value>
+						<value>TANDARTS</value>
+						<value>ZORGTOESLAG</value>
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Insurance">
+		</category>
+		<category name="Insurance">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -202,8 +202,8 @@
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Internet_AD67">
+		</category>
+		<category name="Internet_AD67">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -214,8 +214,8 @@
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Internet_D21">
+		</category>
+		<category name="Internet_D21">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -225,8 +225,8 @@
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Mortgage">
+		</category>
+		<category name="Mortgage">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -236,8 +236,8 @@
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Public_transport">
+		</category>
+		<category name="Public_transport">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -248,8 +248,8 @@
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Salary">
+		</category>
+		<category name="Salary">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -257,13 +257,13 @@
 					<values>
 						<value>INFRAFLEX</value>
 						<value>OPERATOR GROEP DELFT</value>
-                        <value>TASS INT</value>
-                        <value>UWV</value>
+						<value>TASS INT</value>
+						<value>UWV</value>
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Shops_diverse">
+		</category>
+		<category name="Shops_diverse">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -271,19 +271,19 @@
 					<values>
 						<value>ACTION</value>
 						<value>BIJENKORF</value>
-                        <value>BLOKKER</value>
-                        <value>BOL.COM</value>
-                        <value>KRUIDVAT</value>
-                        <value>MARSKRAMER</value>
-                        <value>MEDIA MARKT</value>
-                        <value>REMBRANDT</value>
-                        <value>V&D</value>
-                        <value>XENOS</value>
+						<value>BLOKKER</value>
+						<value>BOL.COM</value>
+						<value>KRUIDVAT</value>
+						<value>MARSKRAMER</value>
+						<value>MEDIA MARKT</value>
+						<value>REMBRANDT</value>
+						<value>V&D</value>
+						<value>XENOS</value>
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Sports">
+		</category>
+		<category name="Sports">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -291,17 +291,17 @@
 					<values>
 						<value>ARY VAN KAMPEN</value>
 						<value>BLACK SHEEP</value>
-                        <value>BLEEKEMOLEN</value>
-                        <value>DE UITHOF</value>
-                        <value>F. L. LANGENBERG</value>
-                        <value>GO KART</value>
-                        <value>HOLLANDINDOORKARTI</value>
-                        <value>KLIMCENTRUM</value>
+						<value>BLEEKEMOLEN</value>
+						<value>DE UITHOF</value>
+						<value>F. L. LANGENBERG</value>
+						<value>GO KART</value>
+						<value>HOLLANDINDOORKARTI</value>
+						<value>KLIMCENTRUM</value>
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Supermarket">
+		</category>
+		<category name="Supermarket">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -309,18 +309,18 @@
 					<values>
 						<value>ALBERT HEIJN</value>
 						<value>C1000</value>
-                        <value>CASTELEIJN BROOD</value>
-                        <value>COOP</value>
-                        <value>DEN TOOM</value>
-                        <value>EXTRAMARKT</value>
-                        <value>HEIJDEN</value>
-                        <value>JUMBO</value>
-                        <value>LIDL</value>
+						<value>CASTELEIJN BROOD</value>
+						<value>COOP</value>
+						<value>DEN TOOM</value>
+						<value>EXTRAMARKT</value>
+						<value>HEIJDEN</value>
+						<value>JUMBO</value>
+						<value>LIDL</value>
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Tax">
+		</category>
+		<category name="Tax">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -329,9 +329,9 @@
 						<value>BELASTING</value>
 					</values>
 				</rule>
-			</rules>            
-        </category>
-        <category name="Telephone">
+			</rules>
+		</category>
+		<category name="Telephone">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -339,13 +339,13 @@
 					<values>
 						<value>KPN</value>
 						<value>SIMYO</value>
-                        <value>T-MOBILE NETHERLANDS</value>
-                        <value>TELFORT</value>
+						<value>T-MOBILE NETHERLANDS</value>
+						<value>TELFORT</value>
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Tenants_AD67">
+		</category>
+		<category name="Tenants_AD67">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -353,25 +353,25 @@
 					<values>
 						<value>HAID</value>
 						<value>OU YANG</value>
-                        <value>ZHEKOV</value>
+						<value>ZHEKOV</value>
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Tenants_D21">
+		</category>
+		<category name="Tenants_D21">
 			<rules>
 				<rule>
 					<function>StringInName</function>
 					<description>In name</description>
 					<values>
-                        <value>DIMITROV</value>
+						<value>DIMITROV</value>
 						<value>MARSHAM</value>
 						<value>VELEVA</value>
 					</values>
 				</rule>
 			</rules>
-        </category>
-        <category name="Vehicles">
+		</category>
+		<category name="Vehicles">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -379,21 +379,21 @@
 					<values>
 						<value>AUTODEMONTAGE</value>
 						<value>AUTOMATERIALEN</value>
-                        <value>BENJAN MOTOREN</value>
-                        <value>CAR-SHOP</value>
-                        <value>JARNO</value>
-                        <value>JATECH</value>
-                        <value>KORTELAND MOTOREN</value>
-                        <value>MARTIJN S MOTORKLEDI</value>
-                        <value>MIJNAUTOONDERDELEN.NL</value>
-                        <value>MOTO EQUIPMENT</value>
-                        <value>MOTOPORT</value>
-                        <value>MOTORGOEDKOOP.NL</value>
-                        <value>PEUGEOT</value>
-                        <value>W. & S. ROTTERDAM</value>
+						<value>BENJAN MOTOREN</value>
+						<value>CAR-SHOP</value>
+						<value>JARNO</value>
+						<value>JATECH</value>
+						<value>KORTELAND MOTOREN</value>
+						<value>MARTIJN S MOTORKLEDI</value>
+						<value>MIJNAUTOONDERDELEN.NL</value>
+						<value>MOTO EQUIPMENT</value>
+						<value>MOTOPORT</value>
+						<value>MOTORGOEDKOOP.NL</value>
+						<value>PEUGEOT</value>
+						<value>W. & S. ROTTERDAM</value>
 					</values>
 				</rule>
 			</rules>
-        </category>
+		</category>
 	</categories>
 </config>

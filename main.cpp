@@ -36,6 +36,8 @@ int main (void)
 
 	// Extract the data per file and save it in vectors
 	std::vector<BankAccountEntry> setOfBankAccountEntries=ImportBankAccountEntries(listOfInputFiles);
+
+	// Sort the bank account entries by year, then by month, then by day.
 	std::sort(setOfBankAccountEntries.begin(), setOfBankAccountEntries.end(), SortByDate());
 
 	// Determine balance for every bank account entry by asking the user to give the balance at the time of the last bank account entry.
@@ -47,6 +49,9 @@ int main (void)
 	// Categorize data using the predefined rules.
 	std::cout<<"\nCategorize bank account entries.\n";
 	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
+
+	// Categorize bank account data to year, month and day.
+	yearToBankAccountEntryIndices = CategorizeBankAccountEntriesByYear(setOfBankAccountEntries)
 
 	// Export the bank account data to a CSV file.
 	std::cout << "\nExporting bank account entries to " << OUTPUT_FILE << ".\n	";
