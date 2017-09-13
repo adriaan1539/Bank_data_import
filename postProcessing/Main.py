@@ -57,6 +57,7 @@ with open('output/categories.csv', newline='') as cSVFile:
                                 categoryAmountPerYear[year])
             setOfCategoriesPerYear[year].append(category)
 
+# Extract the balance data from te bank account entries.
 yearMonthDaySerialDateNumberBalance = []
 serialDateNumber = 0
 for bankAccountEntry in setOfBankAccountEntries:
@@ -76,15 +77,22 @@ for bankAccountEntry in setOfBankAccountEntries:
                                                 serialDateNumber,
                                                 bankAccountEntry.GetBalance()])
 
+# Depict the balance as a function of time.
 x = [yearMonthDaySerialDateNumberBalance[i][3] for i in range(len(yearMonthDaySerialDateNumberBalance))]
-xTicks = [str(yearMonthDaySerialDateNumberBalance[i][0]) + "-" +
-          str(yearMonthDaySerialDateNumberBalance[i][1]) + "-" +
-          str(yearMonthDaySerialDateNumberBalance[i][2]) if str(yearMonthDaySerialDateNumberBalance[i][2]) == 1 else '' for i in range(len(yearMonthDaySerialDateNumberBalance))]
+xTicks = []
+for i in range(len(yearMonthDaySerialDateNumberBalance)):
+    if yearMonthDaySerialDateNumberBalance[i][2] == 1:
+        xTicks.append(str(yearMonthDaySerialDateNumberBalance[i][0]) + "-" +
+                      str(yearMonthDaySerialDateNumberBalance[i][1]) + "-" +
+                      str(yearMonthDaySerialDateNumberBalance[i][2]))
+    else:
+        xTicks.append('')
 y = [yearMonthDaySerialDateNumberBalance[i][4] for i in range(len(yearMonthDaySerialDateNumberBalance))]
 plt.plot(x, y)
 plt.xlabel('serial date number')
-plt.xticks(x, xTicks, rotation='vertical')
+plt.xticks(x, xTicks, rotation=45, ha='right')
 plt.ylabel('balance in [euro]')
+plt.tight_layout()
 plt.show()
 
 # app = QtWidgets.QApplication(sys.argv)
