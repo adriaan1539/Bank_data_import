@@ -32,7 +32,7 @@
    <property name="styleSheet">
     <string notr="true">background-color: #666</string>
    </property>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="barButton">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -51,7 +51,7 @@
      <string>📊</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="plotButton">
     <property name="geometry">
      <rect>
       <x>190</x>
