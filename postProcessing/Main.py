@@ -111,7 +111,7 @@ for year in [yearLast]:
         xTicksLabels.append(str(year) + "-" + str(month) + "-" + str(day))
 
 # Plot the data and the labels.
-plt.plot(x, y)
+plt.plot(x, y, marker=".")
 plt.xlabel('serial date number')
 plt.xticks(xTicks, xTicksLabels, rotation=45, ha='right')
 plt.ylabel('balance in [euro]')
