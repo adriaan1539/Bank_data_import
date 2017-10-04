@@ -79,28 +79,53 @@ for bankAccountEntry in setOfBankAccountEntries:
 
 # Depict the balance as a function of time.
 x = [yearMonthDaySerialDateNumberBalance[i][3] for i in range(len(yearMonthDaySerialDateNumberBalance))]
-xTicks = []
-for i in range(len(yearMonthDaySerialDateNumberBalance)):
-    if yearMonthDaySerialDateNumberBalance[i][2] == 1:
-        xTicks.append(str(yearMonthDaySerialDateNumberBalance[i][0]) + "-" +
-                      str(yearMonthDaySerialDateNumberBalance[i][1]) + "-" +
-                      str(yearMonthDaySerialDateNumberBalance[i][2]))
-    else:
-        xTicks.append('')
 y = [yearMonthDaySerialDateNumberBalance[i][4] for i in range(len(yearMonthDaySerialDateNumberBalance))]
+
+# Construction of the tick labels.
+yearFirst = yearMonthDaySerialDateNumberBalance[0][0]
+monthFirst = yearMonthDaySerialDateNumberBalance[0][1]
+yearLast = yearMonthDaySerialDateNumberBalance[-1][0]
+monthLast = yearMonthDaySerialDateNumberBalance[-1][1]
+xTicks = []
+xTicksLabels = []
+for year in [yearFirst]:
+    for month in range(monthFirst, 12 + 1):
+        day = 1
+        dt = datetime.datetime(year=year, month=month, day=day)
+        serialDateNumber = time.mktime(dt.timetuple())
+        xTicks.append(serialDateNumber)
+        xTicksLabels.append(str(year) + "-" + str(month) + "-" + str(day))
+for year in range(yearFirst + 1, yearLast):
+    for month in range(1, 12 + 1):
+        day = 1
+        dt = datetime.datetime(year=year, month=month, day=day)
+        serialDateNumber = time.mktime(dt.timetuple())
+        xTicks.append(serialDateNumber)
+        xTicksLabels.append(str(year) + "-" + str(month) + "-" + str(day))
+for year in [yearLast]:
+    for month in range(1, monthLast + 1):
+        day = 1
+        dt = datetime.datetime(year=year, month=month, day=day)
+        serialDateNumber = time.mktime(dt.timetuple())
+        xTicks.append(serialDateNumber)
+        xTicksLabels.append(str(year) + "-" + str(month) + "-" + str(day))
+
+# Plot the data and the labels.
 plt.plot(x, y)
 plt.xlabel('serial date number')
-plt.xticks(x, xTicks, rotation=45, ha='right')
+plt.xticks(xTicks, xTicksLabels, rotation=45, ha='right')
 plt.ylabel('balance in [euro]')
 plt.tight_layout()
 plt.show()
 
+# Construct the GUI.
 app = QtWidgets.QApplication(sys.argv)
 Form = QtWidgets.QWidget()
 ui = PlotForm()
 ui.setupUi(Form)
 
 plot(ui, setOfCategoriesPerYear[0], "")
+
 
 def year_changed(self):
     year = ui.yearCombo.currentText()
