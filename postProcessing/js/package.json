@@ -1,0 +1,15 @@
+{
+  "name": "postprocessing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^0.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Terry Seidler <terry.seidler@ogd.nl> (https://terryseidler.com/)",
+  "license": "ISC"
+}
