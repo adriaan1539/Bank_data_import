@@ -14,12 +14,14 @@
 						<value>JOFEL</value>
 						<value>LA FOCACCIA</value>
 						<value>LITTLE V</value>
+                        <value>LUNCH</value>
 						<value>MC DONALDS</value>
 						<value>NEW YORK PIZZA</value>
 						<value>RESTAUR</value>
 						<value>RESTAURANT</value>
 						<value>SODEXO</value>
 						<value>SPORTCENTR. TU DELFT</value>
+                        <value>STARBUCKS</value>
 						<value>VAPIANO</value>
 						<value>YAMI YAMI</value>
 						<value>YAMMI GRILL</value>
@@ -35,7 +37,9 @@
 					<values>
 						<value>H&M</value>
 						<value>HANS TEXTIEL</value>
+						<value>OPEN32</value>
 						<value>SKATESTORE</value>
+                        <value>SOCIETY SHOP</value>
 						<value>THE STING</value>
 						<value>VAN LIER</value>
 						<value>ZARA</value>
@@ -43,7 +47,7 @@
 				</rule>
 			</rules>
 		</category>
-		<category name="Construction_AD67">
+		<category name="Construction_AD67_D21">
 			<rules>
 				<rule>
 					<function>StringInName</function>
@@ -52,6 +56,7 @@
 						<value>BOUWMAAT</value>
 						<value>GAMMA</value>
 						<value>IKEA</value>
+                        <value>LOODS 5</value>
 						<value>PLAXIS</value>
 						<value>WARMTESERVICE</value>
 					</values>
@@ -74,16 +79,63 @@
 				</rule>
 			</rules>
 		</category>
+		<category name="Electronics">
+			<rules>
+				<rule>
+					<function>StringInName</function>
+					<description>In name</description>
+					<values>
+						<value>ALTERNATE</value>
+						<value>COOLBLUE</value>
+						<value>EUROMAXI</value>
+						<value>MOKIO</value>
+						<value>SICOMPUTERS</value>
+					</values>
+				</rule>
+				<rule>
+					<function>StringInNote</function>
+					<description>In name</description>
+					<values>
+						<value>ALTERNATE</value>
+						<value>COOLBLUE</value>
+						<value>EUROMAXI</value>
+						<value>MOKIO</value>
+						<value>SICOMPUTERS</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
 		<category name="Energy_AD67">
 			<rules>
 				<rule>
 					<function>StringInName</function>
 					<description>In name</description>
 					<values>
-						<value>DELTA NV</value>
+						<value>DELTA</value>
 						<value>ENECO</value>
 						<value>ESSENT</value>
 						<value>OXXIO</value>
+					</values>
+				</rule>
+				<rule>
+					<function>StringInNote</function>
+					<description>In name</description>
+					<values>
+						<value>DELTA</value>
+						<value>ENECO</value>
+						<value>ESSENT</value>
+						<value>OXXIO</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
+		<category name="Energy_D21">
+			<rules>
+				<rule>
+					<function>AccountNumberContraEqualTo</function>
+					<description>In name</description>
+					<values>
+						<value>NL91INGB0008434666</value>
 					</values>
 				</rule>
 			</rules>
@@ -120,6 +172,18 @@
 						<value>SEIDLER</value>
 						<value>THOMASSEN</value>
 						<value>TIGELAAR</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
+		<category name="Garage_AD33">
+			<rules>
+				<rule>
+					<function>AccountNumberContraEqualTo</function>
+					<description>In name</description>
+					<values>
+						<value>676044719</value>
+                        <value>NL34ABNA0629104603</value>
 					</values>
 				</rule>
 			</rules>
@@ -174,19 +238,39 @@
 				</rule>
 			</rules>
 		</category>
+		<category name="H_Sillem-van_Hoof">
+			<rules>
+				<rule>
+					<function>AccountNumberContraEqualTo</function>
+					<description>In name</description>
+					<values>
+						<value>4048610</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
 		<category name="Health">
 			<rules>
 				<rule>
 					<function>StringInName</function>
 					<description>In name</description>
 					<values>
+                        <value>DITZO</value>
 						<value>FA-MED</value>
+                        <value>G C VAN BEEK</value>
 						<value>KRALINGSE APOTHEEK</value>
 						<value>PODOTHERAPIE</value>
 						<value>PUGLIESE</value>
 						<value>ROMBOUT KAPPERS</value>
 						<value>TANDARTS</value>
 						<value>ZORGTOESLAG</value>
+					</values>
+				</rule>
+				<rule>
+					<function>AccountNumberContraEqualTo</function>
+					<description>In name</description>
+					<values>
+						<value>686129</value>
 					</values>
 				</rule>
 			</rules>
@@ -197,7 +281,6 @@
 					<function>StringInName</function>
 					<description>In name</description>
 					<values>
-						<value>VERZEKERING</value>
 						<value>CENTRAAL BEHEER ACHMEA</value>
 					</values>
 				</rule>
@@ -237,13 +320,35 @@
 				</rule>
 			</rules>
 		</category>
-		<category name="Mortgage">
+		<category name="Mortgage_AD67">
 			<rules>
 				<rule>
-					<function>StringInName</function>
+					<function>AccountNumberContraEqualTo</function>
 					<description>In name</description>
 					<values>
-						<value>AEGON</value>
+						<value>450004627</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
+		<category name="Municipal_taxes_AD67_D21">
+			<rules>
+				<rule>
+					<function>AccountNumberContraEqualTo</function>
+					<description>In name</description>
+					<values>
+						<value>644512113</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
+		<category name="P_Sillem_en_H_Sillem-van_Hoof">
+			<rules>
+				<rule>
+					<function>AccountNumberContraEqualTo</function>
+					<description>In name</description>
+					<values>
+						<value>2785090</value>
 					</values>
 				</rule>
 			</rules>
@@ -254,8 +359,25 @@
 					<function>StringInName</function>
 					<description>In name</description>
 					<values>
-						<value>NS-</value>
 						<value>R.E.T.</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
+		<category name="Real_estate_D21">
+			<rules>
+				<rule>
+					<function>AccountNumberContraEqualTo</function>
+					<description>In name</description>
+					<values>
+						<value>NL43RABO0160186439</value>
+					</values>
+				</rule>
+				<rule>
+					<function>StringInNote</function>
+					<description>In name</description>
+					<values>
+						<value>Drijfhoutstraat 21</value>
 					</values>
 				</rule>
 			</rules>
@@ -298,6 +420,17 @@
 					<values>
 						<value>NL05AEGO0725618272</value>
                         <value>725618272</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
+		<category name="Savings_mortgage_AD67">
+			<rules>
+				<rule>
+					<function>AccountNumberContraEqualTo</function>
+					<description>In name</description>
+					<values>
+						<value>450001067</value>
 					</values>
 				</rule>
 			</rules>
@@ -345,8 +478,10 @@
 						<value>DE UITHOF</value>
 						<value>F. L. LANGENBERG</value>
 						<value>GO KART</value>
+                        <value>HIJS HOKIJ</value>
 						<value>HOLLANDINDOORKARTI</value>
 						<value>KLIMCENTRUM</value>
+                        <value>RBURGRING</value>
 					</values>
 				</rule>
 			</rules>
@@ -428,6 +563,7 @@
 					<values>
                         <value>CHIRIAC</value>
 						<value>DIMITROV</value>
+						<value>Iaconi Elena</value>
 						<value>MARSHAM</value>
 						<value>VELEVA</value>
 					</values>
@@ -440,19 +576,47 @@
 					<function>StringInName</function>
 					<description>In name</description>
 					<values>
+						<value>ALBAND</value>
 						<value>AUTODEMONTAGE</value>
 						<value>AUTOMATERIALEN</value>
 						<value>BENJAN MOTOREN</value>
 						<value>CAR-SHOP</value>
+						<value>HERMAN BUITELAAR</value>
 						<value>JARNO</value>
 						<value>JATECH</value>
 						<value>KORTELAND MOTOREN</value>
-						<value>MARTIJN S MOTORKLEDI</value>
+						<value>MARTIJN S MOTORKLE</value>
 						<value>MIJNAUTOONDERDELEN.NL</value>
 						<value>MOTO EQUIPMENT</value>
 						<value>MOTOPORT</value>
 						<value>MOTORGOEDKOOP.NL</value>
 						<value>PEUGEOT</value>
+                        <value>TOOLPROF</value>
+						<value>VOORDEELHELMEN</value>
+						<value>W. & S. ROTTERDAM</value>
+					</values>
+				</rule>
+				<rule>
+					<function>StringInNote</function>
+					<description>In name</description>
+					<values>
+						<value>ALBAND</value>
+						<value>AUTODEMONTAGE</value>
+						<value>AUTOMATERIALEN</value>
+						<value>BENJAN MOTOREN</value>
+						<value>CAR-SHOP</value>
+						<value>HERMAN BUITELAAR</value>
+						<value>JARNO</value>
+						<value>JATECH</value>
+						<value>KORTELAND MOTOREN</value>
+						<value>MARTIJN S MOTORKLE</value>
+						<value>MIJNAUTOONDERDELEN.NL</value>
+						<value>MOTO EQUIPMENT</value>
+						<value>MOTOPORT</value>
+						<value>MOTORGOEDKOOP.NL</value>
+						<value>PEUGEOT</value>
+						<value>TOOLPROF</value>
+						<value>VOORDEELHELMEN</value>
 						<value>W. & S. ROTTERDAM</value>
 					</values>
 				</rule>
@@ -461,10 +625,10 @@
 		<category name="VVE_AD67">
 			<rules>
 				<rule>
-					<function>StringInName</function>
+					<function>AccountNumberContraEqualTo</function>
 					<description>In name</description>
 					<values>
-						<value>VVE BASSENSTRAAT RDAM</value>
+						<value>405590288</value>
 					</values>
 				</rule>
 			</rules>
@@ -476,6 +640,18 @@
 					<description>In name</description>
 					<values>
 						<value>VP.A Vastgoedmanagement B.V.</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
+		<category name="Withdrawal">
+			<rules>
+				<rule>
+					<function>MutationEqualTo</function>
+					<description>In name</description>
+					<values>
+                        <value>Geldautomaat</value>
+						<value>Opname kantoor</value>
 					</values>
 				</rule>
 			</rules>
