@@ -28,30 +28,41 @@ void ConfigurationParser::LoadConfigurationFromFile(std::string filename) {
 	}
 }
 
-void ConfigurationParser::LoadCategories() {
-	for(pugi::xml_node category: this->configurationFile.child("config").child("categories").children()) {
+void ConfigurationParser::LoadCategories()
+{
+	for(pugi::xml_node category: this->configurationFile.child("config").child("categories").children())
+	{
 		std::string categoryName = category.attribute("name").value();
 		std::cout << "  Loading Category " << categoryName << std::endl;
 		this->MakeSureCategoryExists(categoryName);
 
-		for(pugi::xml_node ruleNode: category.child("rules").children()) {
+		for(pugi::xml_node ruleNode: category.child("rules").children())
+		{
 			this->AddRuleToCategory(ruleNode, this->categories[categoryName]);
 		}
 		std::cout << std::endl;
 	}
 }
 
-void ConfigurationParser::AddRuleToCategory(pugi::xml_node &ruleNode, Category &category) {
+void ConfigurationParser::AddRuleToCategory(pugi::xml_node &ruleNode, Category &category)
+{
 	std::function<bool(BankAccountEntry, std::string)> ruleFunction;
 	std::string functionName = ruleNode.child("function").child_value();
 
-
-
-	if(functionName == "StringInName") {
+	if (functionName == "StringInName")
+	{
 		ruleFunction = [](BankAccountEntry bankAccountEntry, std::string searchTerm) -> bool {	return StringInName(bankAccountEntry, searchTerm);};
-	} else if(functionName == "StringInNote") {
+	}
+	else if (functionName == "StringInNote")
+	{
 		ruleFunction = [](BankAccountEntry bankAccountEntry, std::string searchTerm) -> bool {	return StringInNote(bankAccountEntry, searchTerm);};
-	} else {
+	}
+	else if (functionName == "AccountNumberContraEqualTo")
+	{
+		ruleFunction = [](BankAccountEntry bankAccountEntry, std::string searchTerm) -> bool {	return AccountNumberContraEqualTo(bankAccountEntry, searchTerm);};
+	}
+	else
+	{
 		std::cout << "!!!! ERROR: function does not exist: " << functionName << std::endl;
 		return;
 	}

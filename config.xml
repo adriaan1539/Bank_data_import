@@ -226,6 +226,17 @@
 				</rule>
 			</rules>
 		</category>
+		<category name="Milene">
+			<rules>
+				<rule>
+					<function>StringInName</function>
+					<description>In name</description>
+					<values>
+						<value>DE RIJCK VAN DER</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
 		<category name="Mortgage">
 			<rules>
 				<rule>
@@ -255,10 +266,49 @@
 					<function>StringInName</function>
 					<description>In name</description>
 					<values>
+						<value>AIRBORNE DEVELOPMENT B.V</value>
 						<value>INFRAFLEX</value>
 						<value>OPERATOR GROEP DELFT</value>
 						<value>TASS INT</value>
 						<value>UWV</value>
+					</values>
+				</rule>
+				<rule>
+					<function>StringInNote</function>
+					<description>In name</description>
+					<values>
+						<value>DSM LIMBURG</value>
+					</values>
+				</rule>
+				<rule>
+					<function>AccountNumberContraEqualTo</function>
+					<description>AccountNumberContraEqualTo</description>
+					<values>
+						<value>518103528</value>
+						<value>NL77ABNA0518103528</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
+		<category name="Savings_Aegon">
+			<rules>
+				<rule>
+					<function>AccountNumberContraEqualTo</function>
+					<description>AccountNumberContraEqualTo</description>
+					<values>
+						<value>NL05AEGO0725618272</value>
+                        <value>725618272</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
+		<category name="Savings_NN">
+			<rules>
+				<rule>
+					<function>AccountNumberContraEqualTo</function>
+					<description>AccountNumberContraEqualTo</description>
+					<values>
+						<value>NL50NNBA2029071978</value>
 					</values>
 				</rule>
 			</rules>
@@ -297,6 +347,17 @@
 						<value>GO KART</value>
 						<value>HOLLANDINDOORKARTI</value>
 						<value>KLIMCENTRUM</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
+		<category name="Study_finance">
+			<rules>
+				<rule>
+					<function>StringInNote</function>
+					<description>In name</description>
+					<values>
+						<value>STUDIEFINANCIERING</value>
 					</values>
 				</rule>
 			</rules>
@@ -352,6 +413,7 @@
 					<description>In name</description>
 					<values>
 						<value>HAID</value>
+                        <value>ONG YING JIE</value>                        
 						<value>OU YANG</value>
 						<value>ZHEKOV</value>
 					</values>
@@ -364,6 +426,7 @@
 					<function>StringInName</function>
 					<description>In name</description>
 					<values>
+                        <value>CHIRIAC</value>
 						<value>DIMITROV</value>
 						<value>MARSHAM</value>
 						<value>VELEVA</value>
@@ -391,6 +454,28 @@
 						<value>MOTORGOEDKOOP.NL</value>
 						<value>PEUGEOT</value>
 						<value>W. & S. ROTTERDAM</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
+		<category name="VVE_AD67">
+			<rules>
+				<rule>
+					<function>StringInName</function>
+					<description>In name</description>
+					<values>
+						<value>VVE BASSENSTRAAT RDAM</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
+		<category name="VVE_D21">
+			<rules>
+				<rule>
+					<function>StringInName</function>
+					<description>In name</description>
+					<values>
+						<value>VP.A Vastgoedmanagement B.V.</value>
 					</values>
 				</rule>
 			</rules>
