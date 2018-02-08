@@ -2,8 +2,8 @@
 #include "BankAccountEntry.h"
 #include "BankAccountEntrySetBalance.h"
 #include "ExportBankAccountEntries.h"
-#include "CategorizeBankAccountEntries.h"
-#include "CategorizeBankAccountEntriesByYear.h"
+#include "CategorizeBankAccountEntriesUserDefined.h"
+#include "CategorizeBankAccountEntriesDefault.h"
 #include "Category.h"
 #include "ConfigurationParser.h"
 #include "ExportBankAccountEntries.h"
@@ -31,11 +31,7 @@ int main (void)
 	std::cout<<"Reading files from directory '"<<INPUT_DIR<<"':"<<std::endl;
 	std::vector<std::string> listOfInputFiles=ListOfFiles(INPUT_DIR);
 
-	// Load categories from configuration file.
-	ConfigurationParser ruleConfiguration;
-	ruleConfiguration.LoadConfigurationFromFile(CONFIGURATION_FILE);
-
-	// Extract the data per file and save it in vectors
+	// Extract the data per file and save it in vectors.
 	std::vector<BankAccountEntry> setOfBankAccountEntries=ImportBankAccountEntries(listOfInputFiles);
 
 	// Sort the bank account entries by year, then by month, then by day.
@@ -44,17 +40,21 @@ int main (void)
 	// Determine balance for every bank account entry by asking the user to give the balance at the time of the last bank account entry.
 	BankAccountEntrySetBalance(setOfBankAccountEntries);
 
-	// Define categories and rules
-	std::vector<Category> setOfCategories =ruleConfiguration.GetCategories();
+	// Categorize bank account data using default categories.
+	std::map<int,std::vector<int>> yearToBankAccountEntryIndices = CategorizeBankAccountEntriesDefault(setOfBankAccountEntries);
 
-	// Categorize data using the predefined rules.
-	std::cout<<"\nCategorize bank account entries.\n";
-	CategorizeBankAccountEntries(setOfBankAccountEntries,setOfCategories);
+	// Load categories from configuration file.
+	ConfigurationParser ruleConfiguration;
+	ruleConfiguration.LoadConfigurationFromFile(CONFIGURATION_FILE);
 
-	// Categorize bank account data to year, month and day.
-	std::map<int,std::vector<int>> yearToBankAccountEntryIndices = CategorizeBankAccountEntriesByYear(setOfBankAccountEntries);
+	// Define categories and rules.
+	std::vector<Category> setOfCategories = ruleConfiguration.GetCategories();
 
-	// Export the bank account data to a CSV file.
+	// Categorize bank account data using user defined categories.
+	std::cout<<"\nCategorize bank account entries using user defined categories.\n";
+	CategorizeBankAccountEntriesUserDefined(setOfBankAccountEntries,setOfCategories);
+
+	// Export the bank account data, now categorized, to a CSV file.
 	std::cout << "\nExporting bank account entries to " << OUTPUT_FILE << ".\n	";
 	std::map<std::string, std::vector<int>> categories;
 	categories = ExportBankAccountEntries(setOfBankAccountEntries, OUTPUT_FILE);

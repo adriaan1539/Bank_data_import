@@ -1,8 +1,8 @@
-#include "CategorizeBankAccountEntries.h"
+#include "CategorizeBankAccountEntriesUserDefined.h"
 #include <iostream>
 
-void CategorizeBankAccountEntries(	std::vector<BankAccountEntry>& setOfBankAccountEntries,
-									std::vector<Category>& setOfCategories)
+void CategorizeBankAccountEntriesUserDefined(	std::vector<BankAccountEntry>& setOfBankAccountEntries,
+												std::vector<Category>& setOfCategories)
 {
 	BankAccountEntry* bankAccountEntry;
 	Category* category;
