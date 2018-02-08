@@ -43,7 +43,6 @@ int main (void)
 	// Categorize bank account data using default categories.
 	std::map<int,std::vector<int>> yearToBankAccountEntryIndices = CategorizeBankAccountEntriesDefault(setOfBankAccountEntries);
 
-	/*
 	// Load categories from configuration file.
 	ConfigurationParser ruleConfiguration;
 	ruleConfiguration.LoadConfigurationFromFile(CONFIGURATION_FILE);
@@ -67,7 +66,6 @@ int main (void)
 	// Run post processor.
 	std::cout<<"\nRunning post processor.\n\n=";
 	system(POST_PROCESSOR);
-	*/
 
 	std::cout << "\n\nEnd of program." << std::endl;
 	return 0;

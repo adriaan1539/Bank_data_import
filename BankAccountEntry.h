@@ -6,7 +6,7 @@
 
 class BankAccountEntry
 {
-private:
+	private:
 		double 						amount;
 		double						balance;
 		std::string 				nameOrDescription;
