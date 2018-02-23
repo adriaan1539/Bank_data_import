@@ -12,6 +12,7 @@
 #include <vector>
 #include <map>
 
+void ExportCategories(std::map<int, std::vector<int>> categories, std::string fileName);
 void ExportCategories(std::map<std::string, std::vector<int>> categories, std::string fileName);
 
 #endif /* EXPORTCATEGORIES_H_ */

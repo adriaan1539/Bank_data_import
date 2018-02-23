@@ -22,13 +22,14 @@ const std::string INPUT_DIR="input";
 const std::string CONFIGURATION_FILE = "config.xml";
 const std::string OUTPUT_DIR="postProcessing/output";
 const std::string OUTPUT_FILE = OUTPUT_DIR + "/bankAccountEntries.csv";
+const std::string CATEGORY_ADDITIONORSUBTRACTION_OUTPUT_FILE = OUTPUT_DIR + "/additionOrSubtraction.csv";
+const std::string CATEGORY_DAY_OUTPUT_FILE = OUTPUT_DIR + "/day.csv";
+const std::string CATEGORY_DAYOFTHEWEEK_OUTPUT_FILE = OUTPUT_DIR + "/dayOfTheWeek.csv";
+const std::string CATEGORY_MONTH_OUTPUT_FILE = OUTPUT_DIR + "/month.csv";
+const std::string CATEGORY_MUTATION_OUTPUT_FILE = OUTPUT_DIR + "/mutation.csv";
+const std::string CATEGORY_YEAR_OUTPUT_FILE = OUTPUT_DIR + "/year.csv";
 const std::string CATEGORY_OUTPUT_FILE = OUTPUT_DIR + "/categories.csv";
 const char* POST_PROCESSOR = "cd postProcessing && python3 Main.py && cd ..";
-
-//auto divide(int dividend, int divisor) {
-//    struct result {int quotient; int remainder;};
-//    return result {dividend / divisor, dividend % divisor};
-//}
 
 auto CategorizeBankAccountEntriesDefault(std::vector<BankAccountEntry> setOfBankAccountEntries)
 {
@@ -160,33 +161,41 @@ int main (void)
 	BankAccountEntrySetBalance(setOfBankAccountEntries);
 
 	// Categorize bank account data using default categories.
-//    auto result = divide(14, 3);
-//    std::cout << result.quotient << ',' << result.remainder << std::endl;
-	auto result = CategorizeBankAccountEntriesDefault(setOfBankAccountEntries);
+	std::cout<<"\nCategorize bank account entries using the default categories.\n";
+	auto categoriesDefault = CategorizeBankAccountEntriesDefault(setOfBankAccountEntries);
 
-//	// Load categories from configuration file.
-//	ConfigurationParser ruleConfiguration;
-//	ruleConfiguration.LoadConfigurationFromFile(CONFIGURATION_FILE);
-//
-//	// Define categories and rules.
-//	std::vector<Category> setOfCategories = ruleConfiguration.GetCategories();
-//
-//	// Categorize bank account data using user defined categories.
-//	std::cout<<"\nCategorize bank account entries using user defined categories.\n";
-//	CategorizeBankAccountEntriesUserDefined(setOfBankAccountEntries,setOfCategories);
-//
-//	// Export the bank account data, now categorized, to a CSV file.
-//	std::cout << "\nExporting bank account entries to " << OUTPUT_FILE << ".\n	";
-//	std::map<std::string, std::vector<int>> categories;
-//	categories = ExportBankAccountEntries(setOfBankAccountEntries, OUTPUT_FILE);
-//
-//	// Export the categories + bank accounts
-//	std::cout<<"\nExporting categories to "<<CATEGORY_OUTPUT_FILE<<".\n\n";
-//	ExportCategories(categories, CATEGORY_OUTPUT_FILE);
-//
-//	// Run post processor.
-//	std::cout<<"\nRunning post processor.\n\n=";
-//	system(POST_PROCESSOR);
+	// Export default category data to CSV.
+	std::cout<<"\nExporting default categories.\n\n";
+	ExportCategories(categoriesDefault.additionOrSubtractionToBankAccountEntryIndicesTemp, CATEGORY_ADDITIONORSUBTRACTION_OUTPUT_FILE);
+	ExportCategories(categoriesDefault.dayToBankAccountEntryIndicesTemp, CATEGORY_DAY_OUTPUT_FILE);
+	ExportCategories(categoriesDefault.dayOfTheWeekToBankAccountEntryIndicesTemp, CATEGORY_DAYOFTHEWEEK_OUTPUT_FILE);
+	ExportCategories(categoriesDefault.monthToBankAccountEntryIndicesTemp, CATEGORY_MONTH_OUTPUT_FILE);
+	ExportCategories(categoriesDefault.mutationToBankAccountEntryIndicesTemp, CATEGORY_MUTATION_OUTPUT_FILE);
+	ExportCategories(categoriesDefault.yearToBankAccountEntryIndicesTemp, CATEGORY_YEAR_OUTPUT_FILE);
+
+	// Load categories from configuration file.
+	ConfigurationParser ruleConfiguration;
+	ruleConfiguration.LoadConfigurationFromFile(CONFIGURATION_FILE);
+
+	// Define categories and rules.
+	std::vector<Category> setOfCategories = ruleConfiguration.GetCategories();
+
+	// Categorize bank account data using user defined categories.
+	std::cout<<"\nCategorize bank account entries using user defined categories.\n";
+	CategorizeBankAccountEntriesUserDefined(setOfBankAccountEntries,setOfCategories);
+
+	// Export the bank account data, now categorized, to a CSV file.
+	std::cout << "\nExporting bank account entries to " << OUTPUT_FILE << ".\n	";
+	std::map<std::string, std::vector<int>> categories;
+	categories = ExportBankAccountEntries(setOfBankAccountEntries, OUTPUT_FILE);
+
+	// Export the categories + bank accounts.
+	std::cout<<"\nExporting categories to "<<CATEGORY_OUTPUT_FILE<<".\n\n";
+	ExportCategories(categories, CATEGORY_OUTPUT_FILE);
+
+	// Run post processor.
+	std::cout<<"\nRunning post processor.\n\n=";
+	system(POST_PROCESSOR);
 
 	for (int i=0;i<10;i++)
 	{
