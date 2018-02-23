@@ -14,6 +14,7 @@
 #include <map>
 #include "SortByDate.cpp"
 #include <string>
+#include <tuple>
 #include <vector>
 
 const std::string INPUT_DIR="input";
@@ -41,7 +42,7 @@ int main (void)
 	BankAccountEntrySetBalance(setOfBankAccountEntries);
 
 	// Categorize bank account data using default categories.
-	std::map<int,std::vector<int>> yearToBankAccountEntryIndices = CategorizeBankAccountEntriesDefault(setOfBankAccountEntries);
+	auto result = CategorizeBankAccountEntriesDefault(setOfBankAccountEntries);
 
 	// Load categories from configuration file.
 	ConfigurationParser ruleConfiguration;

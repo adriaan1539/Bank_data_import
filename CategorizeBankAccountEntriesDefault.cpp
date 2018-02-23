@@ -2,7 +2,7 @@
 #include "DateToDayOfWeek.h"
 #include <string>
 
-std::map<int,std::vector<int>> CategorizeBankAccountEntriesDefault(std::vector<BankAccountEntry>& setOfBankAccountEntries)
+auto CategorizeBankAccountEntriesDefault(std::vector<BankAccountEntry> setOfBankAccountEntries)
 {
 	// Declaration of maps corresponding to default properties which we will use for categorization.
 	std::map<int,std::vector<int>> additionOrSubtractionToBankAccountEntryIndices;
@@ -91,5 +91,24 @@ std::map<int,std::vector<int>> CategorizeBankAccountEntriesDefault(std::vector<B
 		}
 	}
 
-	return yearToBankAccountEntryIndices;
+	// Construct output argument.
+	struct result
+	{
+		std::map<int,std::vector<int>> additionOrSubtractionToBankAccountEntryIndicesA;
+		std::map<int,std::vector<int>> dayToBankAccountEntryIndicesA;
+		std::map<std::string,std::vector<int>> dayOfTheWeekToBankAccountEntryIndicesA;
+		std::map<int,std::vector<int>> monthToBankAccountEntryIndicesA;
+		std::map<std::string,std::vector<int>> mutationToBankAccountEntryIndicesA;
+		std::map<int,std::vector<int>> yearToBankAccountEntryIndicesA;
+	};
+
+	return result
+	{
+		additionOrSubtractionToBankAccountEntryIndices,
+		dayToBankAccountEntryIndices,
+		dayOfTheWeekToBankAccountEntryIndices,
+		monthToBankAccountEntryIndices,
+		mutationToBankAccountEntryIndices,
+		yearToBankAccountEntryIndices
+	};
 }
