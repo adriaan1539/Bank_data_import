@@ -5,6 +5,6 @@
 #include <map>
 #include <vector>
 
-auto CategorizeBankAccountEntriesDefault(std::vector<BankAccountEntry>);
+auto CategorizeBankAccountEntriesDefault2(std::vector<BankAccountEntry>);
 
 #endif
