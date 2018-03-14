@@ -1,8 +1,12 @@
 var data = {
     categories: [],
-    entries: []
+    entries: [],
+    display: {
+        columns: []
+    }
 };
 var formatDate = d3.timeFormat("%d-%b-%y");
+
 d3.queue()
 .defer(d3.csv, "/output/categories.csv")
 .defer(d3.csv, "/output/bankAccountEntries.csv")
@@ -41,11 +45,7 @@ function draw() {
         data: {
             type: "bar",
             x: "dates",
-            columns: [
-                ["dates", "2018-01-01", "2018-01-04", "2018-01-08"],
-                ["cookie", 30, 200, 100],
-                ["dookie", 130, 100, 140]
-            ]
+            columns: data.display.columns
         },
         zoom: {
             enabled: true
@@ -55,6 +55,12 @@ function draw() {
 
 function prepareData(categories, interval) {
     console.log("Data: ", categories, interval);
+
+    data.display.columns = [
+        ["dates", "2018-01-01", "2018-01-04", "2018-01-08"],
+        ["cookie", 30, 200, 100],
+        ["dookie", 130, 100, 140]
+    ];
 }
 
 $('#go_button').on('click', function () {
