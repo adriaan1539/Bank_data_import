@@ -6,9 +6,9 @@ var formatDate = d3.timeFormat("%d-%b-%y");
 d3.queue()
 .defer(d3.csv, "/output/categories.csv")
 .defer(d3.csv, "/output/bankAccountEntries.csv")
-.await(analyze);
+.await(setup);
 
-function analyze(error, categories, bankAccountEntries) {
+function setup(error, categories, bankAccountEntries) {
     if(error) { console.log(error); }
 
     data.categories = categories;
@@ -53,10 +53,19 @@ function draw() {
     });
 }
 
+function prepareData(categories, interval) {
+    console.log("Data: ", categories, interval);
+}
+
 $('#go_button').on('click', function () {
     var selectedCategories = $('#category').val();
     var interval = $('#interval').val();
 
+    if(selectedCategories.length === 0) {
+        alert("Kies een categorie, anders doet 'ie het nie!");
+        return;
+    }
+    prepareData(selectedCategories, interval);
     draw();
 });
 
