@@ -77,5 +77,5 @@ $('#go_button').on('click', function () {
 });
 
 $(document).ready(function() {
-    $('#category').multiselect();
+
 });
