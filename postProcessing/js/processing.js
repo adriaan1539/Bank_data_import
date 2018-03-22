@@ -24,8 +24,8 @@ function addCategoriesToForm(categories) {
     var categoryInput = document.getElementById('category');
     for(var category of categories) {
         var option = document.createElement('option');
-        option.value = category['Name'];
-        option.text = category['Name'];
+        option.value = category['name'];
+        option.text = category['name'];
         categoryInput.add(option, null);
     }
 }
@@ -65,6 +65,8 @@ function prepareData(categories, interval) {
 $('#go_button').on('click', function () {
     var selectedCategories = $('#category').val();
     var interval = $('#interval').val();
+    var mijnDing = '<div style="padding:5px; background-color:magenta"> koekje</div>';
+    document.body.innerHTML += mijnDing;
 
     if(selectedCategories.length === 0) {
         alert("Kies een categorie, anders doet 'ie het nie!");
