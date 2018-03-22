@@ -1,11 +1,11 @@
-var data = {
+let data = {
     categories: [],
     entries: [],
     display: {
         columns: []
     }
 };
-var formatDate = d3.timeFormat("%d-%b-%y");
+let formatDate = d3.timeFormat("%d-%b-%y");
 
 d3.queue()
 .defer(d3.csv, "/output/categories.csv")
@@ -21,9 +21,9 @@ function setup(error, categories, bankAccountEntries) {
 }
 
 function addCategoriesToForm(categories) {
-    var categoryInput = document.getElementById('category');
-    for(var category of categories) {
-        var option = document.createElement('option');
+    let categoryInput = document.getElementById('category');
+    for(let category of categories) {
+        let option = document.createElement('option');
         option.value = category['name'];
         option.text = category['name'];
         categoryInput.add(option, null);
@@ -31,13 +31,13 @@ function addCategoriesToForm(categories) {
 }
 
 function draw() {
-    var chart = bb.generate({
+    let chart = bb.generate({
         bindto: "#chart",
         axis: {
             x: {
                 type: "timeseries",
                 tick: {
-                    format: "%Y-%m-%d"
+                    format: "%Y"
                   }
             }
         },
@@ -55,17 +55,82 @@ function draw() {
 function prepareData(categories, interval) {
     console.log("Data: ", categories, interval);
 
+    let dataPerCategory = {};
+    categories.forEach(categoryName => {
+        entries = getEntriesByCategory(categoryName);
+
+        intervals = [];
+        // for each Entry in categoryName, add data
+        entryDataPerInterval = {};
+        entries.forEach(entry => {
+            let dataEntry = data.entries
+            let intervalTick = getIntervalTickFromDate(interval, entry.year, entry.month, entry.day);
+
+            if(!entryDataPerInterval.hasOwnProperty(intervalTick)) {
+                entryDataPerInterval[intervalTick] = 0;
+                if(!intervals.includes(intervalTick)) {
+                    intervals.push(intervalTick);
+                }
+            }
+            entryDataPerInterval[intervalTick] += parseFloat(entry.amount);
+        });
+        dataPerCategory[categoryName] = entryDataPerInterval;
+    });
+
+    intervals.sort();
     data.display.columns = [
-        ["dates", "2018-01-01", "2018-01-04", "2018-01-08"],
-        ["cookie", 30, 200, 100],
-        ["dookie", 130, 100, 140]
+        ["dates"].concat(intervals)
     ];
+
+    for(let category in dataPerCategory) {
+        categoryData = [category];
+        intervals.forEach(interval => {
+            if(dataPerCategory[category].hasOwnProperty(interval)) {
+                categoryData.push(dataPerCategory[category][interval]);
+            } else {
+                categoryData.push(0);
+            }
+        });
+        data.display.columns.push(categoryData);
+    }
+}
+
+function getIntervalTickFromDate(interval, year, month, day) {
+    let result = '';
+
+    switch(interval) {
+        case 'month':
+            result = year + '-' + month + '-01';
+            break;
+
+        default:
+        case 'year':
+            result = year + '-01-01';
+            break;
+    }
+    return result;
+}
+
+function getEntriesByCategory(categoryName) {
+    let entryIDs = [];
+    let entries = {};
+
+    data.categories.forEach(category => {
+        if(category.name == categoryName) {
+            entryIDs = category.entries.split(';');
+        }
+    });
+
+    entries = data.entries.filter(entry => {
+        return entryIDs.includes(entry.id);
+    });
+    return entries;
 }
 
 $('#go_button').on('click', function () {
-    var selectedCategories = $('#category').val();
-    var interval = $('#interval').val();
-    var mijnDing = '<div style="padding:5px; background-color:magenta"> koekje</div>';
+    let selectedCategories = $('#category').val();
+    let interval = $('#interval').val();
+    let mijnDing = '<div style="padding:5px; background-color:magenta"> koekje</div>';
     document.body.innerHTML += mijnDing;
 
     if(selectedCategories.length === 0) {
