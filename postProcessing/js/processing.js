@@ -17,7 +17,6 @@ function setup(error, categories, bankAccountEntries) {
 
     data.categories = categories;
     data.entries = bankAccountEntries;
-
     addCategoriesToForm(categories);
 }
 
