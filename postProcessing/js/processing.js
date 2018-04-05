@@ -53,8 +53,6 @@ function draw() {
 }
 
 function prepareData(categories, interval) {
-    console.log("Data: ", categories, interval);
-
     let dataPerCategory = {};
     intervals = [];
     categories.forEach(categoryName => {
@@ -85,7 +83,7 @@ function prepareData(categories, interval) {
         categoryData = [category];
         intervals.forEach(interval => {
             if(dataPerCategory[category].hasOwnProperty(interval)) {
-                categoryData.push(dataPerCategory[category][interval]);
+                categoryData.push(Number.parseFloat(dataPerCategory[category][interval]).toFixed(2));
             } else {
                 categoryData.push(0);
             }
