@@ -3,7 +3,8 @@ let data = {
     entries: [],
     display: {
         columns: []
-    }
+    },
+    intervalDataFormat: "%Y"
 };
 let formatDate = d3.timeFormat("%d-%b-%y");
 
@@ -37,7 +38,7 @@ function draw() {
             x: {
                 type: "timeseries",
                 tick: {
-                    format: "%Y"
+                    format: data.intervalDateFormat
                   }
             }
         },
@@ -97,11 +98,14 @@ function getIntervalTickFromDate(interval, year, month, day) {
 
     switch(interval) {
         case 'month':
-            result = year + '-' + month + '-01';
+            data.intervalDateFormat = "%B %Y";
+            let monthStr = ("0" + month).slice(-2);
+            result = year + '-' + monthStr + '-01';
             break;
 
         default:
         case 'year':
+            data.intervalDateFormat = "%Y";
             result = year + '-01-01';
             break;
     }
