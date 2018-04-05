@@ -1,10 +1,13 @@
+let currentYear = new Date().getFullYear();
 let data = {
     categories: [],
     entries: [],
     display: {
         columns: []
     },
-    intervalDataFormat: "%Y"
+    intervalDataFormat: "%Y",
+    startDate: "" + currentYear -1 + "-01-01",
+    endDate: "" + currentYear + "-12-31",
 };
 let formatDate = d3.timeFormat("%d-%b-%y");
 
@@ -64,6 +67,10 @@ function prepareData(categories, interval) {
         entries.forEach(entry => {
             let dataEntry = data.entries
             let intervalTick = getIntervalTickFromDate(interval, entry.year, entry.month, entry.day);
+            let intervalDate = Date.parse(intervalTick);
+            if(!dateInRange(intervalDate, Date.parse(data.startDate), Date.parse(data.endDate))) {
+                return;
+            }
             if(!entryDataPerInterval.hasOwnProperty(intervalTick)) {
                 entryDataPerInterval[intervalTick] = 0;
                 if(!intervals.includes(intervalTick)) {
@@ -91,6 +98,10 @@ function prepareData(categories, interval) {
         });
         data.display.columns.push(categoryData);
     }
+}
+
+function dateInRange(date, startDate, endDate) {
+    return date >= startDate && date <= endDate;
 }
 
 function getIntervalTickFromDate(interval, year, month, day) {
@@ -128,18 +139,27 @@ function getEntriesByCategory(categoryName) {
     return entries;
 }
 
-$(document).on('click', '#go_button', function () {
-    let selectedCategories = $('#category').val();
-    let interval = $('#interval').val();
-
-    if(selectedCategories.length === 0) {
-        alert("Kies een categorie, anders doet 'ie het nie!");
-        return;
-    }
-    prepareData(selectedCategories, interval);
-    draw();
-});
-
 $(document).ready(function() {
+    $("#start_date").val(data.startDate);
+    $("#end_date").val(data.endDate);
 
+    $(document).on('click', '#go_button', function () {
+        let selectedCategories = $('#category').val();
+        let interval = $('#interval').val();
+
+        if(selectedCategories.length === 0) {
+            alert("Kies een categorie, anders doet 'ie het nie!");
+            return;
+        }
+        prepareData(selectedCategories, interval);
+        draw();
+    });
+
+    $(document).on('change', '#start_date', (element) => {
+        data.startDate = element.currentTarget.value;
+    });
+
+    $(document).on('change', '#end_date', (element) => {
+        data.endDate = element.currentTarget.value;
+    });
 });
