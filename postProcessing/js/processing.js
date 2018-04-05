@@ -56,16 +56,15 @@ function prepareData(categories, interval) {
     console.log("Data: ", categories, interval);
 
     let dataPerCategory = {};
+    intervals = [];
     categories.forEach(categoryName => {
         entries = getEntriesByCategory(categoryName);
 
-        intervals = [];
         // for each Entry in categoryName, add data
         entryDataPerInterval = {};
         entries.forEach(entry => {
             let dataEntry = data.entries
             let intervalTick = getIntervalTickFromDate(interval, entry.year, entry.month, entry.day);
-
             if(!entryDataPerInterval.hasOwnProperty(intervalTick)) {
                 entryDataPerInterval[intervalTick] = 0;
                 if(!intervals.includes(intervalTick)) {
@@ -127,11 +126,9 @@ function getEntriesByCategory(categoryName) {
     return entries;
 }
 
-$('#go_button').on('click', function () {
+$(document).on('click', '#go_button', function () {
     let selectedCategories = $('#category').val();
     let interval = $('#interval').val();
-    let mijnDing = '<div style="padding:5px; background-color:magenta"> koekje</div>';
-    document.body.innerHTML += mijnDing;
 
     if(selectedCategories.length === 0) {
         alert("Kies een categorie, anders doet 'ie het nie!");
