@@ -664,7 +664,7 @@
 			<rules>
 				<rule>
 					<function>MutationEqualTo</function>
-					<description>In name</description>
+					<description>Mutation</description>
 					<values>
                         <value>Geldautomaat</value>
 						<value>Opname kantoor</value>

@@ -9,6 +9,7 @@
 struct StructCategorizeBankAccountEntriesDefault
 {
 	std::map<int,std::vector<int>> additionOrSubtractionToBankAccountEntryIndicesTemp;
+	std::map<std::string,std::vector<int>> codeToBankAccountEntryIndicesTemp;
 	std::map<int,std::vector<int>> dayToBankAccountEntryIndicesTemp;
 	std::map<std::string,std::vector<int>> dayOfTheWeekToBankAccountEntryIndicesTemp;
 	std::map<int,std::vector<int>> monthToBankAccountEntryIndicesTemp;

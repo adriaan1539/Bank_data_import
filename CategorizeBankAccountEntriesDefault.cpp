@@ -6,6 +6,7 @@ StructCategorizeBankAccountEntriesDefault CategorizeBankAccountEntriesDefault(st
 {
 	// Declaration of maps corresponding to default properties which we will use for categorization.
 	std::map<int,std::vector<int>> additionOrSubtractionToBankAccountEntryIndices;
+	std::map<std::string,std::vector<int>> codeToBankAccountEntryIndices;
 	std::map<int,std::vector<int>> dayToBankAccountEntryIndices;
 	std::map<std::string,std::vector<int>> dayOfTheWeekToBankAccountEntryIndices;
 	std::map<int,std::vector<int>> monthToBankAccountEntryIndices;
@@ -28,6 +29,18 @@ StructCategorizeBankAccountEntriesDefault CategorizeBankAccountEntriesDefault(st
 		else
 		{
 			additionOrSubtractionToBankAccountEntryIndices[int(add)].push_back(iBankAccountEntry);
+		}
+
+		// Define codeToBankAccountEntryIndices.
+		std::string code = bankAccountEntry.GetCode();
+		if ( codeToBankAccountEntryIndices.find(code) == codeToBankAccountEntryIndices.end() )
+		{
+			bankAccountEntryIndices = {iBankAccountEntry};
+			codeToBankAccountEntryIndices.insert(std::pair<std::string, std::vector<int>>(code, bankAccountEntryIndices));
+		}
+		else
+		{
+			codeToBankAccountEntryIndices[code].push_back(iBankAccountEntry);
 		}
 
 		// Define dayToBankAccountEntryIndices.
@@ -94,6 +107,7 @@ StructCategorizeBankAccountEntriesDefault CategorizeBankAccountEntriesDefault(st
 	return StructCategorizeBankAccountEntriesDefault
 	{
 		additionOrSubtractionToBankAccountEntryIndices,
+		codeToBankAccountEntryIndices,
 		dayToBankAccountEntryIndices,
 		dayOfTheWeekToBankAccountEntryIndices,
 		monthToBankAccountEntryIndices,

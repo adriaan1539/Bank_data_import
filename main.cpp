@@ -23,6 +23,7 @@ const std::string CONFIGURATION_FILE = "config.xml";
 const std::string OUTPUT_DIR="postProcessing/output";
 const std::string OUTPUT_FILE = OUTPUT_DIR + "/bankAccountEntries.csv";
 const std::string CATEGORY_ADDITIONORSUBTRACTION_OUTPUT_FILE = OUTPUT_DIR + "/additionOrSubtraction.csv";
+const std::string CATEGORY_CODE_OUTPUT_FILE = OUTPUT_DIR + "/code.csv";
 const std::string CATEGORY_DAY_OUTPUT_FILE = OUTPUT_DIR + "/day.csv";
 const std::string CATEGORY_DAYOFTHEWEEK_OUTPUT_FILE = OUTPUT_DIR + "/dayOfTheWeek.csv";
 const std::string CATEGORY_MONTH_OUTPUT_FILE = OUTPUT_DIR + "/month.csv";
@@ -55,6 +56,7 @@ int main (void)
 	// Export default category data to CSV.
 	std::cout<<"\nExporting default categories.\n\n";
 	ExportCategories(categoriesDefault.additionOrSubtractionToBankAccountEntryIndicesTemp, CATEGORY_ADDITIONORSUBTRACTION_OUTPUT_FILE);
+	ExportCategories(categoriesDefault.codeToBankAccountEntryIndicesTemp, CATEGORY_CODE_OUTPUT_FILE);
 	ExportCategories(categoriesDefault.dayToBankAccountEntryIndicesTemp, CATEGORY_DAY_OUTPUT_FILE);
 	ExportCategories(categoriesDefault.dayOfTheWeekToBankAccountEntryIndicesTemp, CATEGORY_DAYOFTHEWEEK_OUTPUT_FILE);
 	ExportCategories(categoriesDefault.monthToBankAccountEntryIndicesTemp, CATEGORY_MONTH_OUTPUT_FILE);
