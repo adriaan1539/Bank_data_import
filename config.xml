@@ -94,7 +94,7 @@
 				</rule>
 				<rule>
 					<function>StringInNote</function>
-					<description>In name</description>
+					<description>In note</description>
 					<values>
 						<value>ALTERNATE</value>
 						<value>COOLBLUE</value>
@@ -119,7 +119,7 @@
 				</rule>
 				<rule>
 					<function>StringInNote</function>
-					<description>In name</description>
+					<description>In note</description>
 					<values>
 						<value>DELTA</value>
 						<value>ENECO</value>
@@ -167,7 +167,8 @@
 						<value>DAMEN</value>
 						<value>ESRAIL</value>
 						<value>FRISHERT</value>
-						<value>IEMANE</value>
+						<value>HORSTMAN</value>
+                        <value>IEMANE</value>
 						<value>KREUGER</value>
 						<value>SEIDLER</value>
 						<value>THOMASSEN</value>
@@ -375,7 +376,7 @@
 				</rule>
 				<rule>
 					<function>StringInNote</function>
-					<description>In name</description>
+					<description>In note</description>
 					<values>
 						<value>Drijfhoutstraat 21</value>
 					</values>
@@ -397,7 +398,7 @@
 				</rule>
 				<rule>
 					<function>StringInNote</function>
-					<description>In name</description>
+					<description>In note</description>
 					<values>
 						<value>DSM LIMBURG</value>
 					</values>
@@ -490,7 +491,7 @@
 			<rules>
 				<rule>
 					<function>StringInNote</function>
-					<description>In name</description>
+					<description>In note</description>
 					<values>
 						<value>STUDIEFINANCIERING</value>
 					</values>
@@ -502,6 +503,21 @@
 				<rule>
 					<function>StringInName</function>
 					<description>In name</description>
+					<values>
+						<value>ALBERT HEIJN</value>
+						<value>C1000</value>
+						<value>CASTELEIJN BROOD</value>
+						<value>COOP</value>
+						<value>DEN TOOM</value>
+						<value>EXTRAMARKT</value>
+						<value>HEIJDEN</value>
+						<value>JUMBO</value>
+						<value>LIDL</value>
+					</values>
+				</rule>
+				<rule>
+					<function>StringInNote</function>
+					<description>In note</description>
 					<values>
 						<value>ALBERT HEIJN</value>
 						<value>C1000</value>
@@ -598,7 +614,7 @@
 				</rule>
 				<rule>
 					<function>StringInNote</function>
-					<description>In name</description>
+					<description>In note</description>
 					<values>
 						<value>ALBAND</value>
 						<value>AUTODEMONTAGE</value>

@@ -1,3 +1,3 @@
 To do.
 
-2018-01-26, 20:29. Construct data to, given an property of a bank account entry, return the corresponding bank account entries. For example, given the year 2018, return all bank account entries from 2018.
+2018-03-14, 21:55. Construct post processing program to interpret data.

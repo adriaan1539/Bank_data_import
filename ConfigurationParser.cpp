@@ -61,6 +61,10 @@ void ConfigurationParser::AddRuleToCategory(pugi::xml_node &ruleNode, Category &
 	{
 		ruleFunction = [](BankAccountEntry bankAccountEntry, std::string searchTerm) -> bool {	return AccountNumberContraEqualTo(bankAccountEntry, searchTerm);};
 	}
+	else if (functionName == "MutationEqualTo")
+	{
+		ruleFunction = [](BankAccountEntry bankAccountEntry, std::string searchTerm) -> bool {	return MutationEqualTo(bankAccountEntry, searchTerm);};
+	}
 	else
 	{
 		std::cout << "!!!! ERROR: function does not exist: " << functionName << std::endl;

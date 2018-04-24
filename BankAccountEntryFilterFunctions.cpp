@@ -6,6 +6,8 @@ bool AccountNumberConsideredEqualTo(BankAccountEntry bankAccountEntry,
 {
 	bool compliantWithRule=false;
 	std::string accountNumberConsidered=bankAccountEntry.GetAccountNumberConsidered();
+    std::transform(accountNumberConsidered.begin(), accountNumberConsidered.end(), accountNumberConsidered.begin(), ::tolower);
+    std::transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
 	std::size_t found=accountNumberConsidered.find(searchTerm);
 
 	if (found!=std::string::npos)
@@ -21,8 +23,9 @@ bool AccountNumberContraEqualTo(BankAccountEntry bankAccountEntry,
 {
 	bool compliantWithRule=false;
 	std::string accountNumberContra=bankAccountEntry.GetAccountNumberContra();
+    std::transform(accountNumberContra.begin(), accountNumberContra.end(), accountNumberContra.begin(), ::tolower);
+    std::transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
 	std::size_t found=accountNumberContra.find(searchTerm);
-
 	if (found!=std::string::npos)
 	{
 		compliantWithRule=true;
@@ -48,6 +51,8 @@ bool CodeEqualTo(BankAccountEntry bankAccountEntry,std::string searchTerm)
 {
 	bool compliantWithRule=false;
 	std::string code=bankAccountEntry.GetCode();
+    std::transform(code.begin(), code.end(), code.begin(), ::tolower);
+    std::transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
 	std::size_t found=code.find(searchTerm);
 
 	if (found!=std::string::npos)
@@ -85,6 +90,8 @@ bool MutationEqualTo(	BankAccountEntry bankAccountEntry,
 {
 	bool compliantWithRule=false;
 	std::string sortOfMutation=bankAccountEntry.GetSortOfMutation();
+    std::transform(sortOfMutation.begin(), sortOfMutation.end(), sortOfMutation.begin(), ::tolower);
+    std::transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
 	std::size_t found=sortOfMutation.find(searchTerm);
 
 	if (found!=std::string::npos)
@@ -117,6 +124,8 @@ bool StringInNote(	BankAccountEntry bankAccountEntry,
 {
 	bool compliantWithRule=false;
 	std::string note=bankAccountEntry.GetNote();
+    std::transform(note.begin(), note.end(), note.begin(), ::tolower);
+    std::transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
 	std::size_t found=note.find(searchTerm);
 
 	if (found!=std::string::npos)
