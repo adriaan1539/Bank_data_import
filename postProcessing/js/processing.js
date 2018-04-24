@@ -48,12 +48,35 @@ function draw() {
         data: {
             type: "bar",
             x: "dates",
-            columns: data.display.columns
+            columns: data.display.columns,
+            onclick: clickedBar,
         },
         zoom: {
             enabled: true
         }
     });
+}
+
+function clickedBar(data_clicked, element_clicked) {
+    let category = data_clicked.name;
+    let selected_interval = $('#interval').val();
+    let start_date = new Date(data_clicked.x);
+    let end_date = selected_interval === "year"
+        ? new Date(start_date.getFullYear() + 1, start_date.getMonth(), start_date.getDate())
+        : new Date(start_date.getFullYear(), start_date.getMonth() + 1, start_date.getDate());
+
+    let category_data = getEntriesByCategory(category)
+        .filter((entry) => {
+            let entry_date = new Date(entry.year, entry.month, entry.day);
+            return entry_date >= start_date && entry_date <= end_date;
+        })
+        .map((entry) => {
+            return "<li>#" + entry.id + " <b>From:</b> " + entry.account_from + ", <b>to:</b> " + entry.account_to + ", <b>description:</b> " + entry.description + ", <b>name:</b> " + entry.name + ", <b>amount:</b> &euro;" + entry.amount + ", <b>category:</b> " + entry.category + "; " + entry.category2 + "</li>";
+        });
+
+    let modal = $('#detailsModal');
+    modal.find('.modal-body').html("<ul>" + category_data.join('') + "</ul>");
+    modal.modal('show');
 }
 
 function prepareData(categories, interval) {
