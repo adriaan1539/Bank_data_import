@@ -71,11 +71,29 @@ function clickedBar(data_clicked, element_clicked) {
             return entry_date >= start_date && entry_date <= end_date;
         })
         .map((entry) => {
-            return "<li>#" + entry.id + " <b>From:</b> " + entry.account_from + ", <b>to:</b> " + entry.account_to + ", <b>description:</b> " + entry.description + ", <b>name:</b> " + entry.name + ", <b>amount:</b> &euro;" + entry.amount + ", <b>category:</b> " + entry.category + "; " + entry.category2 + "</li>";
+            return "<tr><th scope='row'>" + entry.id + "</th>" +
+                    "<td>" + entry.account_from + "</td>" +
+                    "<td>" + entry.account_to + "</td>" +
+                    "<td>" + entry.description + "</td>" +
+                    `<td>${entry.day}-${entry.month}-${entry.year}</td>` +
+                    "<td>" + entry.name + "</td>" +
+                    "<td>&euro;" + entry.amount + "</td>" +
+                    "<td>" + entry.category + "</td>" +
+                    "<td>" + entry.category2 + "</td><tr>";
         });
 
+    let table_header = "<tr><th scope='col'>#</th>" +
+        "<th scope='col'>Van account</th>" +
+        "<th scope='col'>Naar account</th>" +
+        "<th scope='col'>Omschrijving</th>" +
+        "<th scope='col'>Datum</th>" +
+        "<th scope='col'>Naam</th>" +
+        "<th scope='col'>Bedrag</th>" +
+        "<th scope='col'>Categorie</th>" +
+        "<th scope='col'>Categorie 2</th>";
+
     let modal = $('#detailsModal');
-    modal.find('.modal-body').html("<ul>" + category_data.join('') + "</ul>");
+    modal.find('.modal-body').html("<table class='table'><thead>" + table_header + "</thead><tbody>" + category_data.join('') + "</tbody></table>");
     modal.modal('show');
 }
 
