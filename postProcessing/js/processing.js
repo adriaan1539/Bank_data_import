@@ -156,6 +156,7 @@ function getEntriesByCategory(categoryName) {
         }
     });
 
+    // deduplicate entries
     entries = data.entries.filter(entry => {
         return entryIDs.includes(entry.id);
     });
