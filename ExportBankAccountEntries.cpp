@@ -9,6 +9,7 @@ std::map<std::string, std::vector<int>> ExportBankAccountEntries(std::vector<Ban
 
 	std::ofstream output;
 	output.open(fileName, std::ofstream::out | std::ofstream::trunc);
+	output << "id,year,month,day,name,account_from,account_to,operation,amount,category,description,category2,function,total\n";
 
 	for (unsigned int i=0; i < setOfBankAccountEntries.size(); i++)
 	{

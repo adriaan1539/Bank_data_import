@@ -37,9 +37,13 @@
 					<values>
 						<value>H&M</value>
 						<value>HANS TEXTIEL</value>
+                        <value>JACK & JONES</value>
+                        <value>LEFT</value>
+                        <value>LEVI S</value>
 						<value>OPEN32</value>
 						<value>SKATESTORE</value>
                         <value>SOCIETY SHOP</value>
+                        <value>STING </value>
 						<value>THE STING</value>
 						<value>VAN LIER</value>
 						<value>ZARA</value>
@@ -59,6 +63,17 @@
                         <value>LOODS 5</value>
 						<value>PLAXIS</value>
 						<value>WARMTESERVICE</value>
+					</values>
+				</rule>
+			</rules>
+		</category>
+		<category name="Deposit">
+			<rules>
+				<rule>
+					<function>MutationEqualTo</function>
+					<description>MutationEqualTo</description>
+					<values>
+						<value>Storting</value>
 					</values>
 				</rule>
 			</rules>
@@ -265,11 +280,28 @@
 						<value>ROMBOUT KAPPERS</value>
 						<value>TANDARTS</value>
 						<value>ZORGTOESLAG</value>
+                        <value>ZORGVERZEKERING</value>
+					</values>
+				</rule>
+				<rule>
+					<function>StringInNote</function>
+					<description>In note</description>
+					<values>
+                        <value>DITZO</value>
+						<value>FA-MED</value>
+                        <value>G C VAN BEEK</value>
+						<value>KRALINGSE APOTHEEK</value>
+						<value>PODOTHERAPIE</value>
+						<value>PUGLIESE</value>
+						<value>ROMBOUT KAPPERS</value>
+						<value>TANDARTS</value>
+						<value>ZORGTOESLAG</value>
+                        <value>ZORGVERZEKERING</value>
 					</values>
 				</rule>
 				<rule>
 					<function>AccountNumberContraEqualTo</function>
-					<description>In name</description>
+					<description>AccountNumberContraEqualTo</description>
 					<values>
 						<value>686129</value>
 					</values>
@@ -283,6 +315,15 @@
 					<description>In name</description>
 					<values>
 						<value>CENTRAAL BEHEER ACHMEA</value>
+                        <value>POSTBANK</value>
+					</values>
+				</rule>
+				<rule>
+					<function>StringInNote</function>
+					<description>In note</description>
+					<values>
+						<value>CENTRAAL BEHEER ACHMEA</value>
+                        <value>POSTBANK</value>
 					</values>
 				</rule>
 			</rules>
@@ -292,6 +333,14 @@
 				<rule>
 					<function>StringInName</function>
 					<description>In name</description>
+					<values>
+						<value>TISCALI</value>
+						<value>XS4ALL</value>
+					</values>
+				</rule>
+				<rule>
+					<function>StringInNote</function>
+					<description>In note</description>
 					<values>
 						<value>TISCALI</value>
 						<value>XS4ALL</value>
@@ -390,6 +439,7 @@
 					<description>In name</description>
 					<values>
 						<value>AIRBORNE DEVELOPMENT B.V</value>
+						<value>DSM LIMBURG</value>                        
 						<value>INFRAFLEX</value>
 						<value>OPERATOR GROEP DELFT</value>
 						<value>TASS INT</value>
@@ -400,7 +450,12 @@
 					<function>StringInNote</function>
 					<description>In note</description>
 					<values>
+						<value>AIRBORNE DEVELOPMENT B.V</value>
 						<value>DSM LIMBURG</value>
+						<value>INFRAFLEX</value>
+						<value>OPERATOR GROEP DELFT</value>
+						<value>TASS INT</value>
+						<value>UWV</value>
 					</values>
 				</rule>
 				<rule>
@@ -551,7 +606,17 @@
 					<values>
 						<value>KPN</value>
 						<value>SIMYO</value>
-						<value>T-MOBILE NETHERLANDS</value>
+						<value>T-MOBILE</value>
+						<value>TELFORT</value>
+					</values>
+				</rule>
+				<rule>
+					<function>StringInNote</function>
+					<description>In note</description>
+					<values>
+						<value>KPN</value>
+						<value>SIMYO</value>
+						<value>T-MOBILE</value>
 						<value>TELFORT</value>
 					</values>
 				</rule>
@@ -664,7 +729,7 @@
 			<rules>
 				<rule>
 					<function>MutationEqualTo</function>
-					<description>In name</description>
+					<description>Mutation</description>
 					<values>
                         <value>Geldautomaat</value>
 						<value>Opname kantoor</value>

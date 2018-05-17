@@ -78,7 +78,7 @@ std::string BankAccountEntry::GetRuleNames(void)
 
 std::string	BankAccountEntry::GetSortOfMutation(void)
 {
-	return code;
+	return sortOfMutation;
 }
 
 std::string BankAccountEntry::ToCSV(int index)
