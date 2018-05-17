@@ -67,7 +67,7 @@ function clickedBar(data_clicked, element_clicked) {
 
     let category_data = getEntriesByCategory(category)
         .filter((entry) => {
-            let entry_date = new Date(entry.year, entry.month, entry.day);
+            let entry_date = new Date(entry.year, entry.month-1, entry.day);
             return entry_date >= start_date && entry_date <= end_date;
         })
         .map((entry) => {
